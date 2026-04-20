@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoR 歌曲教材 - 基礎版排版預覽 V4</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap');
+@page { size: A4 portrait; margin: 1.5cm 1.8cm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif; 
+    background: #e9ecef; 
+    color: #1a1a1a; 
+    padding: 30px; 
+    font-size: 14px; 
+    line-height: 1.5; 
+}
+
+/* 模擬 A4 紙張 (網頁預覽用) */
+.page { 
+    background: #fff; 
+    max-width: 800px; 
+    margin: 0 auto 30px; 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1); 
+    padding: 24px;
+    border-radius: 4px;
+}
+
+@media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; max-width: none; margin: 0; padding: 0; page-break-after: always; }
+}
+
+/* 標題與段落區塊 */
+.header { border-bottom: 3px solid #1a1a1a; padding-bottom: 10px; margin-bottom: 20px; }
+.header h1 { font-size: 1.6em; font-weight: 900; }
+.header .artist { font-size: 1em; color: #555; margin-bottom: 15px;}
+.section-title { font-weight: 900; font-size: 1.1em; background: #1a1a1a; color: white; display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 15px; }
+
+/* 深層學習區塊 (每行一區塊) */
+.deep-block { 
+    border: 2px solid #1a1a1a; 
+    border-radius: 12px; 
+    margin-bottom: 28px; 
+    padding: 0;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+/* 1. 歌詞與翻譯 */
+.lyric-area { background: #f8f8f8; padding: 14px 18px; border-bottom: 1px solid #ddd; }
+.lyric { font-size: 1.5em; font-weight: 900; color: #c0392b; letter-spacing: 0.5px; }
+.translation { display: flex; align-items: flex-end; margin-top: 8px; }
+.t-lbl { font-weight: 700; font-size: 0.85em; color: #555; white-space: nowrap; }
+.t-line { flex: 1; border-bottom: 1.5px dashed #777; height: 18px; margin-left: 8px; }
+
+/* 2. SoR 音標練習區 (學生手寫區) */
+.phonics-area { padding: 14px 18px; border-bottom: 1px solid #ddd; }
+.area-title { font-size: 0.82em; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;}
+.empty-boxes-wrap { display: flex; flex-wrap: wrap; gap: 24px; }
+.empty-box-group { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 60px; }
+.kw-text { font-size: 1.5em; font-weight: 800; border-bottom: 2px solid #1a1a1a; padding-bottom: 2px;}
+.kw-trans { font-size: 0.65em; font-family: 'Noto Sans TC', sans-serif; color: #555; font-weight: 700; margin-left: 6px; } /* 新增生字字義 */
+.phonics-structure { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 4px;}
+.intonation-bar { width: 45px; height: 8px; border: 2px solid #1a1a1a; border-radius: 2px; } /* 語調小長方形放大 */
+.box-row { display: flex; gap: 5px; }
+.empty-box { width: 38px; height: 50px; border: 2px solid #999; border-radius: 4px; background: #fff; }
+
+/* 3. 置換句型 (Pattern) */
+.pattern-area { padding: 16px 18px; border-bottom: 1px solid #ddd; background: #fafafa; }
+.pattern-line { font-size: 1.25em; font-weight: 700; color: #333; margin-top: 4px; font-style: italic;}
+.blank { display: inline-block; min-width: 90px; border-bottom: 2.5px solid #1a1a1a; margin: 0 6px; }
+
+/* 4. Word Bank (帶有奇蹟木音標) */
+.wordbank-area { padding: 14px 18px; }
+.wb-grid { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 5px; margin-bottom: 16px;}
+.wb-item { border: 2.5px dashed #aaa; border-radius: 8px; padding: 10px 14px; display: flex; flex-direction: column; align-items: center; background: white; min-width: 85px; }
+.wb-word { font-weight: 900; font-size: 1.3em; margin-bottom: 2px; letter-spacing: 0.5px;}
+.wb-trans { font-size: 0.9em; font-weight: 700; color: #666; margin-bottom: 6px; font-family: 'Noto Sans TC'; } /* 新增 Wordbank 字義 */
+
+/* 模擬奇蹟木 (Minum) - 尺寸大幅度放大 */
+.miracle-blocks { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.m-intonation { width: 34px; height: 8px; background: #1a1a1a; border-radius: 2px; } /* 語調再次放大 */
+.m-row { display: flex; gap: 4px; }
+.m-block { width: 30px; height: 38px; background: #e8e8e8; border: 2px solid #444; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #111;}
+.m-block.vowel { background: #ffebeb; border-color: #d63031; color: #d63031; }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <h1>🎵 Lemon Tree</h1>
+        <div class="artist">by Fool's Garden</div>
+        <!-- 歌曲背景資料區塊 -->
+        <div class="story" style="background:#fff; border-left:4px solid #1a1a1a; padding:10px 14px; margin-bottom:12px; font-size:0.95em; color:#333; line-height:1.6; border-radius: 0 4px 4px 0;">
+            這首歌發行於1995年，是德國樂團 Fool's Garden 最著名的代表作。歌詞充滿了無聊、等待與些許的孤獨感，這種「悲觀歌詞搭配歡快曲調」的反差，讓這首歌在全球大受歡迎！
+        </div>
+        <p style="font-size: 0.9em; color: #555;">💡 提示：本區挑選的生字皆提供 SoR 音標填空，請試著寫出對應的符號。並利用 Word Bank 練習將不同的字填入句型中。</p>
+    </div>
+
+    <div class="section-title">Verse 1</div>
+
+    <div class="deep-block">
+        <!-- 歌詞與翻譯 -->
+        <div class="lyric-area">
+            <div class="lyric">I'm sitting here in a boring room</div>
+            <div class="translation">
+                <span class="t-lbl">📝 我的翻譯：</span>
+                <div class="t-line"></div>
+            </div>
+        </div>
+
+        <!-- 音標手寫區 (學生填寫) -->
+        <div class="phonics-area">
+            <div class="area-title">✏️ SoR Phonics Practice (聽出幾個音，畫滿音標框！)</div>
+            <div class="empty-boxes-wrap">
+                <div class="empty-box-group">
+                    <div class="kw-text">sitting<span class="kw-trans">坐著</span></div>
+                    <div class="phonics-structure">
+                        <div class="intonation-bar"></div>
+                        <div class="box-row">
+                            <div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="empty-box-group">
+                    <div class="kw-text">boring<span class="kw-trans">無聊的</span></div>
+                     <div class="phonics-structure">
+                        <div class="intonation-bar"></div>
+                        <div class="box-row">
+                            <div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="empty-box-group">
+                    <div class="kw-text">room<span class="kw-trans">房間</span></div>
+                    <div class="phonics-structure">
+                        <div class="intonation-bar" style="width: 20px;"></div>
+                        <div class="box-row">
+                            <div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 置換句型區 -->
+        <div class="pattern-area">
+            <div class="area-title" style="margin-bottom:8px;">🔄 Pattern Substitution (請造出三句不同的變化)</div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+                <div class="pattern-line">
+                    1. I'm <span class="blank"></span> here in a <span class="blank"></span> <span class="blank"></span>.
+                </div>
+                <div class="pattern-line">
+                    2. I'm <span class="blank"></span> here in a <span class="blank"></span> <span class="blank"></span>.
+                </div>
+                <div class="pattern-line">
+                    3. I'm <span class="blank"></span> here in a <span class="blank"></span> <span class="blank"></span>.
+                </div>
+            </div>
+        </div>
+
+        <!-- Word Bank (包含答案與奇蹟木音標) -->
+        <div class="wordbank-area">
+            <div class="area-title" style="margin-bottom:8px;">💡 Word Bank (句型替換選項)</div>
+            
+            <div class="wb-grid">
+                <div class="wb-item">
+                    <div class="wb-word">waiting</div>
+                    <div class="wb-trans">等待</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block">8</div><div class="m-block vowel">12</div><div class="m-block">4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-item">
+                    <div class="wb-word">standing</div>
+                    <div class="wb-trans">站著</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block">5</div><div class="m-block">4</div><div class="m-block vowel">1</div><div class="m-block">3</div><div class="m-block">4</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wb-item">
+                    <div class="wb-word">quiet</div>
+                    <div class="wb-trans">安靜的</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block">8</div><div class="m-block">14</div><div class="m-block vowel">6</div><div class="m-block">4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-item">
+                    <div class="wb-word">busy</div>
+                    <div class="wb-trans">忙碌的</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block">1</div><div class="m-block vowel">2</div><div class="m-block">5</div><div class="m-block vowel">16</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wb-item">
+                    <div class="wb-word">cafe</div>
+                    <div class="wb-trans">咖啡廳</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block">8</div><div class="m-block vowel">1</div><div class="m-block">3</div><div class="m-block vowel">12</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wb-item">
+                    <div class="wb-word">office</div>
+                    <div class="wb-trans">辦公室</div>
+                    <div class="miracle-blocks">
+                        <div class="m-intonation"></div>
+                        <div class="m-row">
+                            <div class="m-block vowel">18</div><div class="m-block">3</div><div class="m-block">2</div><div class="m-block">5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

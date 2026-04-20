@@ -1,0 +1,21 @@
+
+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
+
+
+sudo docker run -it \
+  --name openclaw \
+  --network host \
+  -e ANTHROPIC_API_KEY="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" \
+  ghcr.io/phioranex/openclaw-docker:latest \
+  gateway --port 3000 --bind auto --token "123456"
+# 1. 殺掉舊的
+sudo docker rm -f openclaw
+
+# 2. 啟動 (注意：這是互動模式，跑起來後畫面會停在龍蝦圖案)
+# ⚠️ 請將 "您的金鑰" 換成那串 sk-ant-xxxx
+sudo docker run -it \
+  --rm \
+  -e ANTHROPIC_API_KEY="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" \
+  -p 3000:3000 \
+  ghcr.io/phioranex/openclaw-docker:latest \
+  gateway --port 3000 --bind lan --token "123456" --allow-unconfigured

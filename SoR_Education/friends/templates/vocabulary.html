@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Vocabulary Hub v2.8</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --friends-purple: #6D52A0; 
+            --friends-yellow: #F5C122; 
+            --friends-red: #EB3222;    
+            --friends-blue: #009EED;   
+            --bg-glass: rgba(255, 255, 255, 0.9);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/static/img/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+
+        .overlay {
+            background: rgba(0,0,0,0.4);
+            min-height: 100vh;
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hub-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            flex: 1;
+            padding: 0 40px 40px;
+            gap: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 側邊欄 */
+        .sidebar {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .sidebar h2 { margin-top: 0; font-size: 1.2rem; color: var(--friends-purple); }
+        .theme-list { list-style: none; padding: 0; margin: 20px 0 0; }
+        .theme-item {
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.5);
+        }
+        .theme-item:hover, .theme-item.active {
+            background: var(--friends-purple);
+            color: white;
+            transform: translateX(10px);
+        }
+
+        /* 主區域 */
+        .main-content {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .word-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+        .word-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            border-color: var(--friends-purple);
+        }
+        .word-card h3 { margin: 0; font-size: 1.4rem; letter-spacing: -0.5px; }
+        .word-card p { margin: 5px 0 0; color: #888; font-size: 0.85rem; font-weight: 600; }
+
+        /* 例句展示區 */
+        .word-viewer {
+            display: none;
+            grid-column: 1 / -1;
+            background: #f9f9f9;
+            border-radius: 25px;
+            padding: 30px;
+            margin-top: 20px;
+            animation: fadeIn 0.4s;
+            border: 2px dashed var(--friends-purple);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .example-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--friends-blue);
+        }
+        .example-text { font-size: 1.1rem; font-weight: 700; color: #222; margin-bottom: 8px; }
+        .example-meta { font-size: 0.8rem; color: #999; display: flex; gap: 10px; }
+        .example-meta span { color: var(--friends-purple); font-weight: bold; }
+
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+    <header>
+        <h1>718 Vocabulary <span>Hub</span></h1>
+        <p>全集精華對標教學大廳 | v2.8 Fleet Edition</p>
+        <div style="margin-top: 20px;"><a href="/" style="color: white; text-decoration: none; font-weight: bold; background: rgba(0,0,0,0.3); padding: 8px 15px; border-radius: 10px;">⬅ 回到搜尋引擎</a></div>
+    </header>
+
+    <div class="hub-container">
+        <aside class="sidebar">
+            <h2>教學分集 / 主題</h2>
+            <ul class="theme-list">
+                <li class="theme-item active" onclick="loadWords('')">🏢 所有單字</li>
+                {% for theme in themes %}
+                <li class="theme-item" onclick="loadWords('{{ theme }}')">📂 {{ theme }}</li>
+                {% endfor %}
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div id="wordGrid" class="word-grid">
+                <!-- 動態注入單字卡 -->
+            </div>
+            
+            <div id="wordViewer" class="word-viewer">
+                <h2 id="viewTitle" style="color:var(--friends-purple); margin-top:0;">Word Details</h2>
+                <div id="exampleList"></div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    async function loadWords(theme) {
+        // 更新側邊欄狀態
+        document.querySelectorAll('.theme-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.innerText.includes(theme || '所有單字')) item.classList.add('active');
+        });
+
+        const grid = document.getElementById('wordGrid');
+        const viewer = document.getElementById('wordViewer');
+        viewer.style.display = 'none';
+        grid.innerHTML = '<p style="grid-column:1/-1; text-align:center;">載入清單中...</p>';
+
+        const response = await fetch(`/api/vocabulary/words?theme=${encodeURIComponent(theme)}`);
+        const data = await response.json();
+
+        grid.innerHTML = data.map(item => `
+            <div class="word-card" onclick="showDetails('${item.word}')">
+                <h3>${item.word}</h3>
+                <p># ${item.theme}</p>
+            </div>
+        `).join('');
+    }
+
+    async function showDetails(word) {
+        const viewer = document.getElementById('wordViewer');
+        const title = document.getElementById('viewTitle');
+        const list = document.getElementById('exampleList');
+        
+        title.innerText = `Examples for "${word}"`;
+        list.innerHTML = '正在選取金句...';
+        viewer.style.display = 'block';
+        viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        const response = await fetch(`/api/vocabulary/examples?word=${encodeURIComponent(word)}`);
+        const examples = await response.json();
+
+        list.innerHTML = examples.map(ex => `
+            <div class="example-box">
+                <div class="example-text">"${ex.line}"</div>
+                <div style="color:var(--friends-purple); font-weight:600; margin-bottom:10px;">${ex.chinese_line || '（官方翻譯載入中）'}</div>
+                <div class="example-meta">
+                    <span>${ex.speaker}</span> | S${String(ex.season).padStart(2,'0')} E${String(ex.episode).padStart(2,'0')} 
+                    ${ex.start_time ? `| ⌚️ ${ex.start_time}` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    window.onload = () => loadWords('');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 4d7408bed53c2ea0fab5dec49b85c21d216e9e6e gray <gray@graydeMacBook-Air.local> 1775989932 +0800	commit (initial): Initial commit: Securing SoR Studio (700單) codebase转换
+4d7408bed53c2ea0fab5dec49b85c21d216e9e6e 0000000000000000000000000000000000000000 gray <gray@graydeMacBook-Air.local> 1776003168 +0800	Branch: renamed refs/heads/main to refs/heads/main
+4d7408bed53c2ea0fab5dec49b85c21d216e9e6e 4d7408bed53c2ea0fab5dec49b85c21d216e9e6e gray <gray@graydeMacBook-Air.local> 1776003168 +0800	Branch: renamed refs/heads/main to refs/heads/main
+4d7408bed53c2ea0fab5dec49b85c21d216e9e6e 68be2b18c2d7a7ca61d20932f3c374ababc35777 gray <gray@graydeMacBook-Air.local> 1776013606 +0800	commit: Add requirements.txt for easy migration

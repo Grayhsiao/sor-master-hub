@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ed Sheeran - Perfect (English Teaching Worksheet)</title>
+    <style>
+        /* --- Print Styles (A4 Landscape) --- */
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+
+        /* --- General Body Styles --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 20px;
+            background-color: #fcfcfc;
+        }
+
+        /* --- Headings --- */
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: #34495e;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* --- Print Button --- */
+        .print-button {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        .print-button:hover {
+            background-color: #0056b3;
+        }
+        @media print {
+            .print-button {
+                display: none; /* Hide print button when printing */
+            }
+        }
+
+        /* --- Main Teaching Table Layout --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: #fff;
+        }
+
+        th, td {
+            padding: 15px;
+            vertical-align: top;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Left Column: English Lyrics */
+        td.lyrics {
+            width: 48%; /* Slightly less than 50% to give more space to teaching */
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            white-space: pre-wrap; /* Preserves line breaks and spaces */
+            background-color: #f8f8f8;
+            border-right: 2px solid #dcdcdc;
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #222;
+        }
+
+        /* Right Column: Teaching Content */
+        td.teaching {
+            width: 52%;
+            font-family: 'BiauKai', 'KaiTi', 'DFKai-SB', serif; /* Traditional Chinese style fonts */
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #36454F; /* Darker grey for readability */
+        }
+
+        /* --- Instruction Segments Styling --- */
+        .instruction-box {
+            border: 1px solid #a7d9f7; /* Light blue border */
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            background-color: #eaf7ff; /* Very light blue background */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .instruction-box h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #0056b3; /* Darker blue for headings */
+            font-size: 1.1em;
+        }
+
+        .translation-practice p, .vocabulary ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .vocabulary ul {
+            list-style: none;
+        }
+
+        .vocabulary li {
+            margin-bottom: 8px;
+        }
+
+        .vocabulary strong {
+            color: #007bff; /* Blue for English words */
+            font-weight: bold;
+        }
+
+        /* --- Full Lyrics Section --- */
+        .full-lyrics-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed #e0e0e0;
+        }
+
+        .full-lyrics {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            white-space: pre-wrap;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #222;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-button" onclick="window.print()">Print This Worksheet</button>
+
+    <h1>Ed Sheeran - Perfect: English Teaching Worksheet</h1>
+
+    <h2>Instructions:</h2>
+    <p>Read each segment of the lyrics, then study the Chinese translation, practice the sentence pattern, and learn new vocabulary. Finally, review the full lyrics at the bottom.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 48%; background-color: #e9f5ff; color: #2c3e50;">English Lyrics</th>
+                <th style="width: 52%; background-color: #e9f5ff; color: #2c3e50;">Teaching Content</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Segment 1 -->
+            <tr>
+                <td class="lyrics">
+I found a love for me
+Darling, just dive right in and follow my lead
+Well, I found a girl, beautiful and sweet
+I never knew you were the someone waiting for me
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>我 找到 了一份 愛 為我<br>
+                        親愛的，就 直接 投入 進來 並且 跟隨 我的 引導<br>
+                        嗯，我 找到 了一個 女孩，美麗 又 甜美<br>
+                        我 從未 知道 你 是 那個 等待 我 的人</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>I found a [noun] for [pronoun].<br>
+                        我 找到 了一個 [名詞] 給 [代詞]。</p>
+                        <p>Example: I found a book for him. (我找到了一本書給他。)</p>
+                        <p>Practice: I found a ______ for ______. (e.g., solution, us)</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>💖 <strong>Dive right in</strong>: 直接投入，立刻開始 (to start doing something enthusiastically)</li>
+                            <li>🗺️ <strong>Follow my lead</strong>: 跟隨我的引導 (to do what someone else is doing or suggesting)</li>
+                            <li>🍬 <strong>Sweet</strong>: 甜美的，可愛的 (pleasant and kind)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 2 -->
+            <tr>
+                <td class="lyrics">
+'Cause we were just kids when we fell in love
+Not knowing what it was
+I will not give you up this time
+But darling, just kiss me slow, your heart is all I own
+And in your eyes, you're holding mine
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>因為 我們 只是 孩子 當 我們 墜入 愛河<br>
+                        不 知道 那是 什麼<br>
+                        我 這次 不會 放棄 你<br>
+                        但是 親愛的，就 慢慢地 親吻 我，你的 心 是 我 擁有 的 一切<br>
+                        而且 在 你 眼中，你 擁有 我的</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>We were just [noun] when we fell in love.<br>
+                        我們 只是 [名詞] 當 我們 墜入 愛河。</p>
+                        <p>Example: We were just friends when we fell in love. (我們只是朋友當我們墜入愛河。)</p>
+                        <p>Practice: We were just ______ when we fell in love. (e.g., teenagers, strangers)</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>💘 <strong>Fall in love</strong>: 墜入愛河 (to begin to feel love for someone)</li>
+                            <li>🤝 <strong>Give up</strong>: 放棄 (to stop trying to do something)</li>
+                            <li>❤️ <strong>All I own</strong>: 我擁有的一切 (everything that belongs to me)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 3 (Chorus) -->
+            <tr>
+                <td class="lyrics">
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+Listening to our favorite song
+When you said you looked a mess
+I whispered underneath my breath
+But you heard it, darling, you look perfect tonight
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>寶貝，我 在 黑暗中 跳舞<br>
+                        你 在 我 懷裡<br>
+                        赤腳 在 草地上<br>
+                        聽著 我們 最喜歡的 歌<br>
+                        當 你 說 你 看起來 一團糟<br>
+                        我 低聲 細語<br>
+                        但 你 聽到了，親愛的，你 今晚 看起來 完美無瑕</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>I'm [verb-ing] in the [place] with you [prepositional phrase].<br>
+                        我 在 [地點] [動詞-ing] 你 [介詞片語]。</p>
+                        <p>Example: I'm walking in the park with you by my side. (我在公園裡散步你在我身邊。)</p>
+                        <p>Practice: I'm ______ in the ______ with you ______.</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>💃 <strong>Dancing in the dark</strong>: 在黑暗中跳舞 (metaphor for intimacy and comfort)</li>
+                            <li>🌱 <strong>Barefoot</strong>: 赤腳的 (without shoes or socks)</li>
+                            <li>🤷‍♀️ <strong>Look a mess</strong>: 看起來一團糟 (to look untidy or disheveled)</li>
+                            <li>🤫 <strong>Whispered underneath my breath</strong>: 低聲細語 (to speak very quietly)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 4 -->
+            <tr>
+                <td class="lyrics">
+Well, I found a woman, stronger than anyone I know
+She shares my dreams, I hope that someday I'll share her home
+I found a love, to carry more than just my secrets
+To carry love, to carry children of our own
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>嗯，我 找到 了一個 女人，比 我 認識的 任何人都 強大<br>
+                        她 分享 我的 夢想，我 希望 有一天 我會 分享 她的 家<br>
+                        我 找到 了一份 愛，來 承載 不僅僅是 我的 秘密<br>
+                        來 承載 愛，來 承載 我們 自己的 孩子</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>She shares my [noun], I hope that someday I'll share her [noun].<br>
+                        她 分享 我的 [名詞]，我 希望 有一天 我會 分享 她的 [名詞]。</p>
+                        <p>Example: She shares my joy, I hope that someday I'll share her sorrow. (她分享我的喜悅，我希望有一天我會分享她的悲傷。)</p>
+                        <p>Practice: She shares my ______, I hope that someday I'll share her ______.</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>💪 <strong>Stronger than anyone I know</strong>: 比我認識的任何人都強大 (very resilient and capable)</li>
+                            <li>🤝 <strong>Share dreams/home</strong>: 分享夢想/家 (to have common aspirations or live together)</li>
+                            <li>🤫 <strong>Secrets</strong>: 秘密 (things kept hidden from others)</li>
+                            <li>👨‍👩‍👧‍👦 <strong>Children of our own</strong>: 我們自己的孩子 (biological children of a couple)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 5 -->
+            <tr>
+                <td class="lyrics">
+We are still kids, but we're so in love
+Fighting against all odds
+I know we'll be alright this time
+Darling, just hold my hand
+Be my girl, I'll be your man
+I see my future in your eyes
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>我們 仍然是 孩子，但 我們 深愛著<br>
+                        對抗 所有 困難<br>
+                        我 知道 我們 這次 會 沒事<br>
+                        親愛的，就 牽著 我的 手<br>
+                        做 我的 女孩，我會 做 你的 男人<br>
+                        我 在 你 眼中 看到了 我的 未來</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>We are still [noun], but we're so in love.<br>
+                        我們 仍然是 [名詞]，但 我們 深愛著。</p>
+                        <p>Example: We are still young, but we're so in love. (我們仍然年輕，但我們深愛著。)</p>
+                        <p>Practice: We are still ______, but we're so in love. (e.g., learning, growing)</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>💖 <strong>So in love</strong>: 深愛著 (deeply in love)</li>
+                            <li>⚔️ <strong>Fighting against all odds</strong>: 對抗所有困難 (to try to succeed despite great difficulty)</li>
+                            <li>👍 <strong>Be alright</strong>: 會沒事 (to be fine, to be okay)</li>
+                            <li>🔮 <strong>See my future</strong>: 看到我的未來 (to envision one's future)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 6 -->
+            <tr>
+                <td class="lyrics">
+When I saw you in that dress
+Looking so beautiful
+I don't deserve this, darling, you look perfect tonight
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>當 我 看見 你 穿著 那件 禮服<br>
+                        看起來 如此 美麗<br>
+                        我 不配 擁有 這個，親愛的，你 今晚 看起來 完美無瑕</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>When I saw you [prepositional phrase], looking so [adjective].<br>
+                        當 我 看見 你 [介詞片語]，看起來 如此 [形容詞]。</p>
+                        <p>Example: When I saw you on the stage, looking so confident. (當我看見你在舞台上，看起來如此自信。)</p>
+                        <p>Practice: When I saw you ______, looking so ______.</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>👗 <strong>In that dress</strong>: 穿著那件禮服 (wearing a specific garment)</li>
+                            <li>✨ <strong>Beautiful</strong>: 美麗的 (very attractive)</li>
+                            <li>😔 <strong>Don't deserve this</strong>: 不配擁有這個 (to feel unworthy of something good)</li>
+                            <li>🌟 <strong>Perfect tonight</strong>: 今晚完美無瑕 (looking absolutely flawless on a particular evening)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Segment 7 -->
+            <tr>
+                <td class="lyrics">
+I have faith in what I see
+Now I know I have met an angel in person
+And she looks perfect
+No, I don't deserve this
+You look perfect tonight
+                </td>
+                <td class="teaching">
+                    <div class="instruction-box">
+                        <h3>中文翻譯 (Chinese Translation)</h3>
+                        <p>我 對 我 所 見的 抱有 信心<br>
+                        現在 我 知道 我 遇到 了一位 真人 天使<br>
+                        而且 她 看起來 完美無瑕<br>
+                        不，我 不配 擁有 這個<br>
+                        你 今晚 看起來 完美無瑕</p>
+                    </div>
+                    <div class="instruction-box translation-practice">
+                        <h3>翻譯練習 (Translation Practice)</h3>
+                        <p>I have faith in [noun/clause].<br>
+                        我 對 [名詞/子句] 抱有 信心。</p>
+                        <p>Example: I have faith in your ability. (我對你的能力抱有信心。)</p>
+                        <p>Practice: I have faith in ______.</p>
+                    </div>
+                    <div class="instruction-box vocabulary">
+                        <h3>詞彙 (Vocabulary)</h3>
+                        <ul>
+                            <li>🙏 <strong>Have faith in</strong>: 對...抱有信心 (to trust or believe in something or someone)</li>
+                            <li>😇 <strong>Angel in person</strong>: 真人天使 (a person who is exceptionally kind, beautiful, or good)</li>
+                            <li>✨ <strong>Looks perfect</strong>: 看起來完美無瑕 (appears flawless)</li>
+                            <li>💔 <strong>Don't deserve this</strong>: 不配擁有這個 (to feel unworthy of a good fortune or person)</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="full-lyrics-section">
+        <h2>Full Lyrics</h2>
+        <div class="full-lyrics">
+I found a love for me
+Darling, just dive right in and follow my lead
+Well, I found a girl, beautiful and sweet
+I never knew you were the someone waiting for me
+
+'Cause we were just kids when we fell in love
+Not knowing what it was
+I will not give you up this time
+But darling, just kiss me slow, your heart is all I own
+And in your eyes, you're holding mine
+
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+Listening to our favorite song
+When you said you looked a mess
+I whispered underneath my breath
+But you heard it, darling, you look perfect tonight
+
+Well, I found a woman, stronger than anyone I know
+She shares my dreams, I hope that someday I'll share her home
+I found a love, to carry more than just my secrets
+To carry love, to carry children of our own
+
+We are still kids, but we're so in love
+Fighting against all odds
+I know we'll be alright this time
+Darling, just hold my hand
+Be my girl, I'll be your man
+I see my future in your eyes
+
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+Listening to our favorite song
+When I saw you in that dress
+Looking so beautiful
+I don't deserve this, darling, you look perfect tonight
+
+Baby, I'm dancing in the dark
+With you between my arms
+Barefoot on the grass
+Listening to our favorite song
+I have faith in what I see
+Now I know I have met an angel in person
+And she looks perfect
+No, I don't deserve this
+You look perfect tonight
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,5042 @@
+[
+  {
+    "700Id": "700單編號",
+    "word": "單字",
+    "chinese": "中文_出版品",
+    "pos": "詞性數",
+    "orig_chap": "700單章節"
+  },
+  {
+    "700Id": 341,
+    "word": "bed",
+    "chinese": "n.床",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 251,
+    "word": "desk",
+    "chinese": "n.書桌",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 300,
+    "word": "egg",
+    "chinese": "n.蛋; 卵; 卵子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 477,
+    "word": "get",
+    "chinese": "v.得到; 拿到",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 478,
+    "word": "help",
+    "chinese": "v.幫忙; n.幫助; 助手",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 440,
+    "word": "left",
+    "chinese": "p.t. 離開; 丟下（leave過去式）",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 219,
+    "word": "leg",
+    "chinese": "n.腿",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 479,
+    "word": "let's",
+    "chinese": "abbr.= let us",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 42,
+    "word": "men",
+    "chinese": "n.成年男子; 男人（複數）",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 252,
+    "word": "pen",
+    "chinese": "n.原子筆; 墨水筆",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 356,
+    "word": "pet",
+    "chinese": "n.寵物",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 153,
+    "word": "red",
+    "chinese": "adj.紅色的; n.紅色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 480,
+    "word": "tell",
+    "chinese": "v.告訴",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 174,
+    "word": "ten",
+    "chinese": "adj.十的; n.十",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 646,
+    "word": "test",
+    "chinese": "v.試驗; 測驗; n.測驗; 考試",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 94,
+    "word": "well",
+    "chinese": "adj.健康的; adv.很好地; n.水井; 通風井",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 621,
+    "word": "wet",
+    "chinese": "adj.濕的; 下雨的\n  n.雨天\n  v.淋濕; 打濕",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 702,
+    "word": "when",
+    "chinese": "adv.何時\n  conj.當...時\n  pron.那時",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 710,
+    "word": "yes",
+    "chinese": "adv.是",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 253,
+    "word": "shelf",
+    "chinese": "n.架子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 658,
+    "word": "then",
+    "chinese": "adj. 當時的; adv. 當時; 之後; 那麼",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 37,
+    "word": "them",
+    "chinese": "pron.(受格) 他們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 234,
+    "word": "dress",
+    "chinese": "v.穿著; n.洋裝",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 38,
+    "word": "friend",
+    "chinese": "n.朋友",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 176,
+    "word": "twelve",
+    "chinese": "adj.十二的; n.十二",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 476,
+    "word": "bless",
+    "chinese": "v.祝福; 保佑; n.祝福; 保佑",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 481,
+    "word": "smell",
+    "chinese": "v.聞; n.氣味; 香味; 臭味; 嗅覺;",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 482,
+    "word": "spell",
+    "chinese": "v.拼字; n.一段時間; 輪班; 魅力; 咒語; 魔法",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 220,
+    "word": "head",
+    "chinese": "v.率領; 出發,駛往; n.頭; 首長",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 301,
+    "word": "bread",
+    "chinese": "n.麵包",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 95,
+    "word": "rare",
+    "chinese": "adj.罕見的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 483,
+    "word": "share",
+    "chinese": "v.分享; n.股份; 分攤; 市場佔有率",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 221,
+    "word": "hair",
+    "chinese": "n.頭髮; 毛髮; 毛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 387,
+    "word": "pair",
+    "chinese": "n.一副; 一對",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 254,
+    "word": "chair",
+    "chinese": "n.椅子; 主席; \n  系主任",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 357,
+    "word": "bear",
+    "chinese": "v.承受; n.熊",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 484,
+    "word": "wear",
+    "chinese": "v.穿著, 磨損, 使力竭; n.穿; 戴; 磨損",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 218,
+    "word": "their",
+    "chinese": "pron.(所有格) 他們的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 443,
+    "word": "there",
+    "chinese": "adv. 在那裡; n. 那個地方，那裡",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 703,
+    "word": "where",
+    "chinese": "adv.在哪兒; conj.在...處; 到...的地方; ...的地方",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 302,
+    "word": "cake",
+    "chinese": "n.蛋糕",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 554,
+    "word": "game",
+    "chinese": "n.比賽; 遊戲",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 636,
+    "word": "lake",
+    "chinese": "n.湖",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 96,
+    "word": "late",
+    "chinese": "adj.晚的; 遲的; adv.來不及",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 485,
+    "word": "make",
+    "chinese": "v.製造; 使得",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 389,
+    "word": "name",
+    "chinese": "v.給...取名; 列舉; n.名字",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 390,
+    "word": "sale",
+    "chinese": "n.售賣; 打折; 賤賣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 486,
+    "word": "take",
+    "chinese": "v.拿; 帶; 採用",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 487,
+    "word": "taste",
+    "chinese": "v.嘗; n.味道,滋味; 體驗;",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 488,
+    "word": "wake",
+    "chinese": "v.叫醒",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 358,
+    "word": "whale",
+    "chinese": "n.鯨魚",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 303,
+    "word": "grape",
+    "chinese": "n.葡萄",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 420,
+    "word": "plane",
+    "chinese": "n.飛機",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 359,
+    "word": "snake",
+    "chinese": "n.蛇",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 388,
+    "word": "faith",
+    "chinese": "n.信念; 信仰; 信任; 完全信賴",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 255,
+    "word": "mail",
+    "chinese": "v.寄信; n.信件",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 555,
+    "word": "paint",
+    "chinese": "v.畫圖; 油漆; n.油漆,塗料",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 632,
+    "word": "rain",
+    "chinese": "v.下雨; n.雨",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 489,
+    "word": "wait",
+    "chinese": "v.等候",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 421,
+    "word": "train",
+    "chinese": "v.訓練; 鍛鍊; n.火車",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 222,
+    "word": "face",
+    "chinese": "v.面向; 正對; 正視; 朝; 向; n.臉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 580,
+    "word": "day",
+    "chinese": "n.白天; 日",
+    "pos": "0",
+    "orig_chap": null
+  },
+  {
+    "700Id": 597,
+    "word": "May",
+    "chinese": "n. 五月; aux. may 可能",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 490,
+    "word": "say",
+    "chinese": "v.說",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 391,
+    "word": "way",
+    "chinese": "n.方法; 路; \n  adv.很; 太",
+    "pos": "0",
+    "orig_chap": null
+  },
+  {
+    "700Id": 154,
+    "word": "gray",
+    "chinese": "adj.灰色的; n.灰色",
+    "pos": "0",
+    "orig_chap": null
+  },
+  {
+    "700Id": 556,
+    "word": "play",
+    "chinese": "v.玩; 扮演; 彈奏; n.遊戲; 戲劇; 劇本",
+    "pos": "0",
+    "orig_chap": null
+  },
+  {
+    "700Id": 172,
+    "word": "eight",
+    "chinese": "adj.八的; n.八",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 97,
+    "word": "great",
+    "chinese": "adj.很棒; 大的; 偉大的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 33,
+    "word": "they",
+    "chinese": "pron.他們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 444,
+    "word": "bank",
+    "chinese": "n.銀行; 堤; 岸",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 491,
+    "word": "thank",
+    "chinese": "v.感謝; n.感謝; 謝意; 謝辭",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 467,
+    "word": "am",
+    "chinese": "v.是; 在; (be 動詞第一人稱; 單數; 現在式)",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 197,
+    "word": "an",
+    "chinese": "art. 一個; 一種",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 698,
+    "word": "and",
+    "chinese": "conj.和; 及; 而; 就",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 677,
+    "word": "at",
+    "chinese": "prep.在",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 384,
+    "word": "ant",
+    "chinese": "n.螞蟻",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 492,
+    "word": "ask",
+    "chinese": "v.問",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 223,
+    "word": "back",
+    "chinese": "adj.過去的; v.追溯; 回覆; adv.回原處; n.背部; 後面",
+    "pos": "5",
+    "orig_chap": null
+  },
+  {
+    "700Id": 98,
+    "word": "bad",
+    "chinese": "adj.壞的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 235,
+    "word": "bag",
+    "chinese": "n.袋子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 475,
+    "word": "can",
+    "chinese": "aux. 能; 肯",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 236,
+    "word": "cap",
+    "chinese": "n.無邊便帽; 蓋子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 360,
+    "word": "cat",
+    "chinese": "n.貓; 貓科動物",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 57,
+    "word": "Dad",
+    "chinese": "n.父親",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 557,
+    "word": "dance",
+    "chinese": "v.跳舞; n.舞會",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 256,
+    "word": "fan",
+    "chinese": "n.風扇; 扇子; 迷友; 粉絲",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 99,
+    "word": "fast",
+    "chinese": "adj.快的; adv.快,迅速,牢固地",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 472,
+    "word": "has",
+    "chinese": "v.有（have的第三人稱單數現在式）",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 224,
+    "word": "hand",
+    "chinese": "v.面交,給,傳遞; n.手",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 237,
+    "word": "hat",
+    "chinese": "n.帽子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 471,
+    "word": "have",
+    "chinese": "v.有; 擁有 aux. 已經; 吃; 喝",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 257,
+    "word": "lamp",
+    "chinese": "n.燈",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 100,
+    "word": "last",
+    "chinese": "adj.最後的; v.持續; n.最後的; 上回",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 101,
+    "word": "mad",
+    "chinese": "adj.發火; 發瘋; 發狂的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 43,
+    "word": "man",
+    "chinese": "n.男人; 人類",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 392,
+    "word": "mass",
+    "chinese": "adj.大眾的,民眾的; 大量的; n.團; 塊",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 647,
+    "word": "math",
+    "chinese": "n.數學",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 238,
+    "word": "pants",
+    "chinese": "n.褲子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 102,
+    "word": "sad",
+    "chinese": "adj.難過的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 393,
+    "word": "valve",
+    "chinese": "n.活門; 瓣膜; 活栓; 閥門",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 200,
+    "word": "that",
+    "chinese": "adv.那個; conj.以致; pron.那人; 那事",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 696,
+    "word": "than",
+    "chinese": "prep.比; 超過; conj.比較",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 258,
+    "word": "trash",
+    "chinese": "v.修剪; 丟棄; n.垃圾",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 155,
+    "word": "black",
+    "chinese": "adj.黑色的; n.黑色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 644,
+    "word": "class",
+    "chinese": "n.階級; 班級; 上課",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 259,
+    "word": "glass",
+    "chinese": "n.玻璃杯; 玻璃",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 494,
+    "word": "stand",
+    "chinese": "v.站住; 堅持; 承擔...任務; n.攤子; 停止; 立場; 態度",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 68,
+    "word": "aunt",
+    "chinese": "n.姨媽; 姑媽",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 495,
+    "word": "laugh",
+    "chinese": "v.笑; n.笑,笑聲",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 689,
+    "word": "out",
+    "chinese": "adv. 向外; 在外; 出局; prep.通過...而出",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 342,
+    "word": "house",
+    "chinese": "v.給...房子住; n.房子",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 361,
+    "word": "mouse",
+    "chinese": "n.老鼠; 滑鼠",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 225,
+    "word": "mouth",
+    "chinese": "n.嘴巴",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 103,
+    "word": "proud",
+    "chinese": "adj.感光榮的; 驕傲的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 362,
+    "word": "cow",
+    "chinese": "n.母牛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 708,
+    "word": "how",
+    "chinese": "adv.如何; conj.(作用與that相仿)",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 573,
+    "word": "now",
+    "chinese": "adv.現在; n.現在,目前,此刻",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 156,
+    "word": "brown",
+    "chinese": "adj.褐色的; 棕色的; n.棕色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 469,
+    "word": "is",
+    "chinese": "v.是,在; be 動詞第三人稱單數,現在式",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 691,
+    "word": "in",
+    "chinese": "adj.在裡面的; adv.在裡面; prep.在…之內",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 31,
+    "word": "it",
+    "chinese": "pron.它",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 216,
+    "word": "its",
+    "chinese": "pron.(所有格) 它的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 104,
+    "word": "big",
+    "chinese": "adj.大的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 260,
+    "word": "dish",
+    "chinese": "n.盤子; 一道菜",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 363,
+    "word": "fish",
+    "chinese": "v.釣魚; n.魚",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 394,
+    "word": "gift",
+    "chinese": "n.禮物; 天賦",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 496,
+    "word": "give",
+    "chinese": "v.給",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 35,
+    "word": "him",
+    "chinese": "pron.(受格) 他",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 215,
+    "word": "his",
+    "chinese": "pron.(所有格) 他的; 他的(東西)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 497,
+    "word": "hit",
+    "chinese": "v.打; 擊; n.打擊; 風行一時的事物; 安打",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 498,
+    "word": "kick",
+    "chinese": "v.踢; n.踢; 反衝,後座力; 快感",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 39,
+    "word": "kid",
+    "chinese": "n.小孩",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 499,
+    "word": "live",
+    "chinese": "v.居住",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 334,
+    "word": "milk",
+    "chinese": "n.牛奶",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 51,
+    "word": "miss",
+    "chinese": "v.想念; 惦記; 未達到; n.少女",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 364,
+    "word": "pig",
+    "chinese": "n.豬",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 105,
+    "word": "sick",
+    "chinese": "adj.生病的; 噁心想吐的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 501,
+    "word": "sit",
+    "chinese": "v.坐",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 170,
+    "word": "six",
+    "chinese": "adj.六的; n.六",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 473,
+    "word": "will",
+    "chinese": "aux. 將; n.意志; 決心; 遺囑",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 502,
+    "word": "win",
+    "chinese": "v.贏得; n.獲勝,成功,贏; 贏得物",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 630,
+    "word": "wind",
+    "chinese": "n.風",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 395,
+    "word": "wish",
+    "chinese": "v.祝福; n.希望,願望; 祝福,祈頌",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 697,
+    "word": "with",
+    "chinese": "prep.跟...在一起; 有",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 704,
+    "word": "which",
+    "chinese": "adj.哪一個,哪一些; 這個,這些; pron.哪一個",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 422,
+    "word": "ship",
+    "chinese": "v.用船運; 郵寄; 解雇; 上船,乘船; n.船",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 106,
+    "word": "thin",
+    "chinese": "adj.瘦的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 199,
+    "word": "this",
+    "chinese": "adj.這; adv.這樣地; pron.這個",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 558,
+    "word": "trip",
+    "chinese": "n.旅行",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 261,
+    "word": "fridge",
+    "chinese": "n.電冰箱",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 559,
+    "word": "swim",
+    "chinese": "v.游泳",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 659,
+    "word": "still",
+    "chinese": "adj.靜止的; v.使平靜; 止住; adv.仍然; n.寂靜; 蒸餾室",
+    "pos": "5",
+    "orig_chap": null
+  },
+  {
+    "700Id": 560,
+    "word": "sing",
+    "chinese": "v.唱歌",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 396,
+    "word": "wing",
+    "chinese": "v.在......裝翼; 飛行 n.翅膀",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 262,
+    "word": "thing",
+    "chinese": "n.事物; 東西",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 606,
+    "word": "spring",
+    "chinese": "v.彈開; 湧現; 源(於) n.春天; 泉",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 157,
+    "word": "pink",
+    "chinese": "n.粉紅色 adj.粉紅色的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 333,
+    "word": "drink",
+    "chinese": "v.喝; 喝酒 n.飲料",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 263,
+    "word": "book",
+    "chinese": "v.預訂; 預雇; 預約; 登記; n.書本",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 74,
+    "word": "cook",
+    "chinese": "v.煮; n.廚師",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 226,
+    "word": "foot",
+    "chinese": "n.腳; 一尺長",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 107,
+    "word": "good",
+    "chinese": "adj.好的; n.利益; 好處; 優點",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 503,
+    "word": "look",
+    "chinese": "v.看; n.看; 瞥; 臉色; 眼神; 表情",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 108,
+    "word": "full",
+    "chinese": "adj.飽的; 滿的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 504,
+    "word": "put",
+    "chinese": "v.放置",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 204,
+    "word": "both",
+    "chinese": "adj.兩者; adv.並; 兩者皆; pron.兩者(都)",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 505,
+    "word": "go",
+    "chinese": "v.去; 走; n.輪到的機會; 嘗試",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 711,
+    "word": "no",
+    "chinese": "adj.沒有; 不; adv.不; n.不; 沒有; 拒絕; 反對票",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 227,
+    "word": "nose",
+    "chinese": "n.鼻子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 660,
+    "word": "so",
+    "chinese": "adv.這麼; 也如此; conj.因此",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 202,
+    "word": "those",
+    "chinese": "adj.那些的; 那; pron.那些",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 506,
+    "word": "close",
+    "chinese": "v.關上 n.結束",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 239,
+    "word": "clothes",
+    "chinese": "n.衣服",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 335,
+    "word": "coke",
+    "chinese": "n.可口可樂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 343,
+    "word": "home",
+    "chinese": "adj.家庭的; adv.在家; 回家 n.家",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 397,
+    "word": "hope",
+    "chinese": "v.希望; n.希望; 期望",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 75,
+    "word": "Pope",
+    "chinese": "n.(常大寫)(羅馬天主教)教皇",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 423,
+    "word": "boat",
+    "chinese": "n.小船",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 240,
+    "word": "coat",
+    "chinese": "n.外套",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 304,
+    "word": "toast",
+    "chinese": "v.烤; 乾杯; n.吐司",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 507,
+    "word": "know",
+    "chinese": "v.知道",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 508,
+    "word": "show",
+    "chinese": "v.表演; 顯示; n.展覽; 電影",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 509,
+    "word": "grow",
+    "chinese": "v.種植; 成長",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 109,
+    "word": "slow",
+    "chinese": "adj.緩慢的; v.使慢,放慢; adv.慢慢地",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 631,
+    "word": "snow",
+    "chinese": "v.下雪; n.雪",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 687,
+    "word": "off",
+    "chinese": "adj.離去的; 休假的; 關著的; adv.脫下; prep.離去",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 686,
+    "word": "on",
+    "chinese": "adv.繼續; 向前; 開著; prep.在…上面",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 264,
+    "word": "box",
+    "chinese": "n.箱; 盒; 匣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 365,
+    "word": "dog",
+    "chinese": "n.狗",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 265,
+    "word": "doll",
+    "chinese": "n.洋娃娃",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 44,
+    "word": "God",
+    "chinese": "n.上帝",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 619,
+    "word": "hot",
+    "chinese": "adj.熱的; 性感的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 58,
+    "word": "Mom",
+    "chinese": "n.【口】媽媽",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 266,
+    "word": "mop",
+    "chinese": "v.拖洗; 擦去; n.拖把",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 661,
+    "word": "not",
+    "chinese": "adv.不",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 241,
+    "word": "socks",
+    "chinese": "n.一雙襪子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 399,
+    "word": "job",
+    "chinese": "n.職業; 工作",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 445,
+    "word": "shop",
+    "chinese": "v.購物 n.商店",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 366,
+    "word": "frog",
+    "chinese": "n.青蛙",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 267,
+    "word": "clock",
+    "chinese": "n.鐘",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 510,
+    "word": "stop",
+    "chinese": "v.停止 n.車站",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 511,
+    "word": "want",
+    "chinese": "v.想要",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 512,
+    "word": "wash",
+    "chinese": "v.洗",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 513,
+    "word": "watch",
+    "chinese": "v.注意看 n.手錶",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 553,
+    "word": "draw",
+    "chinese": "v.畫; 繪製; 描寫",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 514,
+    "word": "talk",
+    "chinese": "v.講話 n.談話; 交談; 空話; 話題; 談判",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 515,
+    "word": "walk",
+    "chinese": "v.走路 n.散步; 人行道; 四壞球保送上一壘",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 203,
+    "word": "all",
+    "chinese": "adj.所有的; 全部 adv.完全地 pron.一切",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 268,
+    "word": "ball",
+    "chinese": "n.球",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 516,
+    "word": "call",
+    "chinese": "v.; 打電話 n.呼叫; 請求; 通話; 判決; 紙牌叫牌",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 608,
+    "word": "fall",
+    "chinese": "v.掉下 n.秋天",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 110,
+    "word": "tall",
+    "chinese": "adj.高的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 344,
+    "word": "wall",
+    "chinese": "n.牆",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 111,
+    "word": "small",
+    "chinese": "adj.小的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 398,
+    "word": "bulb",
+    "chinese": "n.電燈泡",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 112,
+    "word": "long",
+    "chinese": "adj.長的 ; v. 渴望; adv.長久地",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 400,
+    "word": "song",
+    "chinese": "n.歌曲",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 113,
+    "word": "strong",
+    "chinese": "adj.強壯的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 214,
+    "word": "her",
+    "chinese": "pron.(受格) 她; (所有格) 她的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 517,
+    "word": "hurt",
+    "chinese": "v.傷害; 使疼痛 n.傷害; 壞處",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 76,
+    "word": "nurse",
+    "chinese": "v.看護; 培育; 當奶媽 n.護士",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 518,
+    "word": "turn",
+    "chinese": "v.轉 n.輪到",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 446,
+    "word": "church",
+    "chinese": "n.教堂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 367,
+    "word": "bird",
+    "chinese": "n.鳥",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 193,
+    "word": "first",
+    "chinese": "adj.第一的 adv.首先 n.第一個優等; 開始",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 41,
+    "word": "girl",
+    "chinese": "n.女孩",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 242,
+    "word": "shirt",
+    "chinese": "n.襯衫",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 195,
+    "word": "third",
+    "chinese": "adj.第三 adv.第三名 n.第三; 三分之一",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 243,
+    "word": "skirt",
+    "chinese": "v.繞開; 環繞 n.裙子",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 401,
+    "word": "word",
+    "chinese": "n.字",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 402,
+    "word": "work",
+    "chinese": "v.工作; 運轉 n.工作",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 713,
+    "word": "sure",
+    "chinese": "adj.確定 adv.的確; 一定; 當然",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 468,
+    "word": "are",
+    "chinese": "v.是; 在; ( be 動詞)",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 228,
+    "word": "arm",
+    "chinese": "n.手臂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 648,
+    "word": "art",
+    "chinese": "n.藝術",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 424,
+    "word": "car",
+    "chinese": "n.汽車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 269,
+    "word": "card",
+    "chinese": "n.卡片",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 114,
+    "word": "hard",
+    "chinese": "adj.硬的; 難的 adv.辛苦地; 猛烈地; 牢固地",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 595,
+    "word": "March",
+    "chinese": "n.三月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 447,
+    "word": "park",
+    "chinese": "v.停放車輛; 放置 n.公園",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 115,
+    "word": "smart",
+    "chinese": "adj.聰明的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 629,
+    "word": "star",
+    "chinese": "v.主演; 表現出色 n.星星; 明星",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 519,
+    "word": "start",
+    "chinese": "v.開始 n.出發; 開端; 啟動",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 425,
+    "word": "bike",
+    "chinese": "n.腳踏車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 520,
+    "word": "bite",
+    "chinese": "v.咬 n.咬; 叮",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 116,
+    "word": "fine",
+    "chinese": "adj.好的 v.使純; 澄清; 使精細 n.好天氣;  罰金; 罰款",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 169,
+    "word": "five",
+    "chinese": "adj.五的 n.五",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 561,
+    "word": "hike",
+    "chinese": "v.徒步旅行 n.徒步旅行",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 562,
+    "word": "kite",
+    "chinese": "n.風箏",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 270,
+    "word": "knife",
+    "chinese": "n.刀子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 521,
+    "word": "like",
+    "chinese": "v.喜歡 prep.像; 如",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 173,
+    "word": "nine",
+    "chinese": "adj.九的 n.九",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 522,
+    "word": "ride",
+    "chinese": "v.騎; 乘 n.搭乘; 兜風",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 574,
+    "word": "time",
+    "chinese": "v.記錄......的時間; 使合拍子 n.時間; 次數",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 158,
+    "word": "white",
+    "chinese": "adj.白色的 n.白色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 523,
+    "word": "write",
+    "chinese": "v.寫",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 524,
+    "word": "drive",
+    "chinese": "v.開車 n.兜風; 車程; 幹勁; 比賽",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 27,
+    "word": "I",
+    "chinese": "pron.我",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 709,
+    "word": "hi",
+    "chinese": "int.嗨",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 525,
+    "word": "find",
+    "chinese": "v.找到",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 368,
+    "word": "mice",
+    "chinese": "n.老鼠(mouse的複數)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 526,
+    "word": "climb",
+    "chinese": "v.爬; 攀登",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 117,
+    "word": "nice",
+    "chinese": "adj.好的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 305,
+    "word": "rice",
+    "chinese": "n.稻米; 飯",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 678,
+    "word": "by",
+    "chinese": "adv.經過; 在旁邊 prep.經由",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 714,
+    "word": "bye",
+    "chinese": "int.= good-bye\n  n.次要的東西; 輪空\n  adj.次要的",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 527,
+    "word": "buy",
+    "chinese": "v.買",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 229,
+    "word": "eye",
+    "chinese": "n.眼睛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 212,
+    "word": "my",
+    "chinese": "pron.(所有格) 我的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 707,
+    "word": "why",
+    "chinese": "adv.為什麼 conj.為什麼",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 528,
+    "word": "try",
+    "chinese": "v.試做 n.嘗試; 努力",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 529,
+    "word": "cry",
+    "chinese": "v.哭叫 n.叫喊; 呼叫; (一陣)哭",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 530,
+    "word": "fly",
+    "chinese": "v.飛 n.蒼蠅",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 626,
+    "word": "sky",
+    "chinese": "n.天空",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 118,
+    "word": "high",
+    "chinese": "adj.高的 adv.高; 強烈地; 高聲地",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 403,
+    "word": "light",
+    "chinese": "adj.輕的 v.點燃; 照亮 adv.輕地; 輕裝地 n.光線; 燈",
+    "pos": "5",
+    "orig_chap": null
+  },
+  {
+    "700Id": 579,
+    "word": "night",
+    "chinese": "n.夜晚",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 441,
+    "word": "right",
+    "chinese": "adj.右邊; 對的 adv.向右地; 馬上 n.公理; 權利",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 306,
+    "word": "pie",
+    "chinese": "n.派(食品)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 531,
+    "word": "eat",
+    "chinese": "v.吃",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 637,
+    "word": "beach",
+    "chinese": "n.海灘",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 307,
+    "word": "meal",
+    "chinese": "n.餐",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 308,
+    "word": "peach",
+    "chinese": "n.桃子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 552,
+    "word": "read",
+    "chinese": "v.閱讀",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 638,
+    "word": "sea",
+    "chinese": "n.海",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 336,
+    "word": "tea",
+    "chinese": "n.茶",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 310,
+    "word": "yeast",
+    "chinese": "n.酵母; 酵母片",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 404,
+    "word": "dream",
+    "chinese": "v.做(夢); 想像 n.夢",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 712,
+    "word": "please",
+    "chinese": "v.請; 取悅 adv.(用於請求或命令)請",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 119,
+    "word": "clean",
+    "chinese": "adj.乾淨的 v.打掃",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 532,
+    "word": "speak",
+    "chinese": "v.說; 講",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 385,
+    "word": "bee",
+    "chinese": "n.蜜蜂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 309,
+    "word": "beef",
+    "chinese": "n.牛肉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 533,
+    "word": "feel",
+    "chinese": "v.感覺",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 231,
+    "word": "feet",
+    "chinese": "n. foot的名詞複數",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 534,
+    "word": "meet",
+    "chinese": "v.遇見",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 535,
+    "word": "need",
+    "chinese": "v.需要;  aux. (用於疑問句和否定句)需要; 必須 n.需要; 需求; 貧窮",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 536,
+    "word": "see",
+    "chinese": "v.看見; 了解",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 232,
+    "word": "teeth",
+    "chinese": "n.牙齒(tooth的複數)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 584,
+    "word": "week",
+    "chinese": "n.星期",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 369,
+    "word": "sheep",
+    "chinese": "n.綿羊",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 639,
+    "word": "tree",
+    "chinese": "n.樹木",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 159,
+    "word": "green",
+    "chinese": "adj.綠色的 n.綠色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 120,
+    "word": "free",
+    "chinese": "adj.空閒的; 自由的; 免費的 v.使自由; 解放; 使解脫",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 167,
+    "word": "three",
+    "chinese": "adj.三的 n.三",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 537,
+    "word": "sleep",
+    "chinese": "v.睡覺 n.睡眠; 死亡; 冬眠",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 538,
+    "word": "sweep",
+    "chinese": "v.掃",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 121,
+    "word": "sweet",
+    "chinese": "adj.甜的 n.餐後的甜點; (用作稱呼語)親愛的; 寶貝",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 448,
+    "word": "street",
+    "chinese": "n.街道",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 201,
+    "word": "these",
+    "chinese": "adj.這些 (this 的複數) pron.這些",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 470,
+    "word": "be",
+    "chinese": "v.是; 要; 有; 存在",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 30,
+    "word": "he",
+    "chinese": "pron.他",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 34,
+    "word": "me",
+    "chinese": "pron.我",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 29,
+    "word": "she",
+    "chinese": "pron.她",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 32,
+    "word": "we",
+    "chinese": "pron.我們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 271,
+    "word": "key",
+    "chinese": "n.鑰匙 adj.重要的; 基本的; 關鍵的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 230,
+    "word": "ear",
+    "chinese": "n.耳朵",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 405,
+    "word": "dear",
+    "chinese": "adj.親愛的 adv.疼愛地; 昂貴地 n.親愛的(人)",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 684,
+    "word": "near",
+    "chinese": "adj.近的 v.接近; 幾乎 adv.近地 prep.接近",
+    "pos": "5",
+    "orig_chap": null
+  },
+  {
+    "700Id": 610,
+    "word": "year",
+    "chinese": "n.年",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 442,
+    "word": "here",
+    "chinese": "adv.在這裡 n.這裡; 今世",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 693,
+    "word": "up",
+    "chinese": "adj.向上的 v.增加; 舉起 adv.向上 prep.向......上",
+    "pos": "5",
+    "orig_chap": null
+  },
+  {
+    "700Id": 36,
+    "word": "us",
+    "chinese": "pron.(受格)我們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 426,
+    "word": "bus",
+    "chinese": "n.公車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 699,
+    "word": "but",
+    "chinese": "prep.除......以外 conj.但是",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 272,
+    "word": "cup",
+    "chinese": "n.杯子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 370,
+    "word": "duck",
+    "chinese": "n.鴨",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 122,
+    "word": "fun",
+    "chinese": "adj.有趣的; 愉快的 n.樂趣",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 311,
+    "word": "lunch",
+    "chinese": "n.午餐; v. 吃午飯",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 207,
+    "word": "much",
+    "chinese": "adj.很多的 adv.非常; 差不多; 幾乎 pron.許多; 大量; 重要的事物",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 78,
+    "word": "nun",
+    "chinese": "n.修女; 尼姑",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 563,
+    "word": "run",
+    "chinese": "v. 跑; 逃; 經營\n  n. 跑; ( 棒球) 得分; \n  趨勢",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 627,
+    "word": "sun",
+    "chinese": "n.太陽",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 77,
+    "word": "judge",
+    "chinese": "v.判斷; 審判 n.法官",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 539,
+    "word": "jump",
+    "chinese": "v.跳躍 n.跳躍; 暴漲",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 564,
+    "word": "drum",
+    "chinese": "n.鼓; v.敲打",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 427,
+    "word": "truck",
+    "chinese": "n.卡車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 273,
+    "word": "brush",
+    "chinese": "v.刷 n.刷子",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 540,
+    "word": "come",
+    "chinese": "v.到來",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 407,
+    "word": "love",
+    "chinese": "v.愛好; 喜歡 n.愛",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 205,
+    "word": "some",
+    "chinese": "pron.一些",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 688,
+    "word": "of",
+    "chinese": "prep.屬於; …的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 165,
+    "word": "one",
+    "chinese": "adj.一個的 n.一; 一個人; 一件事物 pron.任何人",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 592,
+    "word": "month",
+    "chinese": "n.月份",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 66,
+    "word": "son",
+    "chinese": "n.兒子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 680,
+    "word": "from",
+    "chinese": "prep.從",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 542,
+    "word": "touch",
+    "chinese": "v. 觸摸; 感動 n. 觸,\n  碰; 接觸; 潤色; \n  特長; 少許",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 196,
+    "word": "a",
+    "chinese": "art. 一個 ; 任一",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 701,
+    "word": "what",
+    "chinese": "adj.什麼; 多麼; 何等 pron.什麼",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 198,
+    "word": "the",
+    "chinese": "art.這",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 123,
+    "word": "young",
+    "chinese": "adj.年輕的 n.青年們; 雛鳥",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 124,
+    "word": "old",
+    "chinese": "adj.年老的; 老舊的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 617,
+    "word": "cold",
+    "chinese": "adj.寒冷的 n.感冒",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 40,
+    "word": "boy",
+    "chinese": "n.男孩",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 274,
+    "word": "toy",
+    "chinese": "n.玩具",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 408,
+    "word": "joy",
+    "chinese": "n.歡喜; 樂趣; 喜樂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 679,
+    "word": "for",
+    "chinese": "prep.為…做的; 給 conj.因為; 由於",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 275,
+    "word": "fork",
+    "chinese": "n.叉子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 371,
+    "word": "horse",
+    "chinese": "n.馬【童】大王的「馬」",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 45,
+    "word": "Lord",
+    "chinese": "n.(Lord) 上帝; 主; \n  耶穌n. 統治者; 領主\n  v. 對人發號司令",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 312,
+    "word": "pork",
+    "chinese": "n.豬肉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 125,
+    "word": "short",
+    "chinese": "adj.矮的; 短的; \n  短暫的; 缺乏的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 244,
+    "word": "shorts",
+    "chinese": "n.短褲",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 565,
+    "word": "sport",
+    "chinese": "n.消遣; 運動; 突變",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 126,
+    "word": "bored",
+    "chinese": "p.t. bore的過去式;p.p. bore的過去分詞",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 208,
+    "word": "more",
+    "chinese": "adj.更多的 adv.更多; 另外 pron.更多的數量",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 449,
+    "word": "store",
+    "chinese": "v.貯存; 收存; 供應; 蓄有 n.商店",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 168,
+    "word": "four",
+    "chinese": "n.四 adj.四的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 620,
+    "word": "warm",
+    "chinese": "adj.溫暖的 v.使暖和 n.暖和的地方; 取暖; 加熱",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 345,
+    "word": "door",
+    "chinese": "n.門",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 346,
+    "word": "floor",
+    "chinese": "v.在......鋪設地板; 使大為震驚 n.地板; 樓; 室內地上",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 618,
+    "word": "cool",
+    "chinese": "adj.涼快的; 很棒的; 酷 v.使涼快; 使冷卻",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 299,
+    "word": "food",
+    "chinese": "n.食物",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 628,
+    "word": "moon",
+    "chinese": "n.月亮",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 662,
+    "word": "too",
+    "chinese": "adv.也是; 過於",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 278,
+    "word": "tool",
+    "chinese": "n.工具",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 233,
+    "word": "tooth",
+    "chinese": "n. 牙齒; ( 工具)\n  齒狀物",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 450,
+    "word": "zoo",
+    "chinese": "n.動物園",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 643,
+    "word": "school",
+    "chinese": "n.學校",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 276,
+    "word": "spoon",
+    "chinese": "n.湯匙",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 337,
+    "word": "soup",
+    "chinese": "n.湯",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 474,
+    "word": "do",
+    "chinese": "v.做 aux. 構成否定句、疑問句或強調句",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 705,
+    "word": "who",
+    "chinese": "pron.誰",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 706,
+    "word": "whose",
+    "chinese": "pron.（所有格）誰的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 681,
+    "word": "to",
+    "chinese": "prep.向; 為了 adv.向前",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 160,
+    "word": "blue",
+    "chinese": "adj. 藍色的; \n  憂鬱的\n  n. 藍色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 277,
+    "word": "glue",
+    "chinese": "v.黏住; 緊附 n.膠; 膠水",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 338,
+    "word": "juice",
+    "chinese": "n.果汁",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 313,
+    "word": "fruit",
+    "chinese": "n.水果(總稱)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 245,
+    "word": "shoes",
+    "chinese": "n. shoe的名詞複數",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 127,
+    "word": "cute",
+    "chinese": "adj.可愛的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 598,
+    "word": "June",
+    "chinese": "n.六月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 128,
+    "word": "new",
+    "chinese": "adj.新的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 28,
+    "word": "you",
+    "chinese": "pron.你; 你們 (主詞、受格)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 213,
+    "word": "your",
+    "chinese": "pron.(所有格) 你的; 你們的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 347,
+    "word": "bedroom",
+    "chinese": "n.臥房",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 314,
+    "word": "breakfast",
+    "chinese": "n.早餐",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 294,
+    "word": "cell phone",
+    "chinese": "n.手機 ; 行動電話",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 210,
+    "word": "every",
+    "chinese": "adj.每一個的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 315,
+    "word": "French fries",
+    "chinese": "n.薯條",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 409,
+    "word": "headache",
+    "chinese": "n.頭痛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 129,
+    "word": "heavy",
+    "chinese": "adj.重的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 316,
+    "word": "lemon",
+    "chinese": "n.檸檬",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 410,
+    "word": "level",
+    "chinese": "n.等級; 水平線; 水準 ; adj.水平的; 筆直的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 206,
+    "word": "many",
+    "chinese": "adj.很多的; pron.許多的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 663,
+    "word": "never",
+    "chinese": "adv.永不",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 56,
+    "word": "parent",
+    "chinese": "n. 雙親之一\n  單指父親或母親",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 279,
+    "word": "pencil",
+    "chinese": "n.鉛筆",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 411,
+    "word": "question",
+    "chinese": "v.詢問; n.問題",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 130,
+    "word": "ready",
+    "chinese": "adj.準備好的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 451,
+    "word": "restroom",
+    "chinese": "n.洗手間",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 194,
+    "word": "second",
+    "chinese": "n.第二; 秒 ; adj.第二的; 副的; adv.第二; 其次",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 171,
+    "word": "seven",
+    "chinese": "n.七 ; 臺灣7-11簡稱 ; adj.七的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 246,
+    "word": "sweater",
+    "chinese": "n.毛衣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 184,
+    "word": "twenty",
+    "chinese": "n.二十; adj.二十的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 664,
+    "word": "very",
+    "chinese": "adj.正是; 恰好是; 僅僅; adv.很; 非常",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 634,
+    "word": "weather",
+    "chinese": "n.天氣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 587,
+    "word": "Wednesday",
+    "chinese": "n.星期三",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 544,
+    "word": "welcome",
+    "chinese": "n.款待; 歡迎辭 ; v.歡迎 ; adj.受歡迎的; 令人愉快的; 被允許的",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 161,
+    "word": "yellow",
+    "chinese": "n.黃色 ; adj.黃色的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 428,
+    "word": "airplane",
+    "chinese": "n.飛機",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 452,
+    "word": "airport",
+    "chinese": "n.機場",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 665,
+    "word": "again",
+    "chinese": "adv.再一次",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 596,
+    "word": "April",
+    "chinese": "n.四月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 46,
+    "word": "baby",
+    "chinese": "n.嬰兒; 寶貝",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 566,
+    "word": "baseball",
+    "chinese": "n.棒球",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 182,
+    "word": "eighteen",
+    "chinese": "n.十八; adj.十八的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 190,
+    "word": "eighty",
+    "chinese": "n.八十; adj.八十的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 131,
+    "word": "favorite",
+    "chinese": "n.特別喜愛的人(或物); adj.最喜愛的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 132,
+    "word": "lazy",
+    "chinese": "adj.懶惰的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 91,
+    "word": "mailman",
+    "chinese": "n.郵差",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 666,
+    "word": "maybe",
+    "chinese": "adv.可能; 也許",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 280,
+    "word": "paper",
+    "chinese": "n.紙張",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 633,
+    "word": "rainbow",
+    "chinese": "n. 彩虹; 瑞播\n  （蕭博士的中譯）",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 623,
+    "word": "rainy",
+    "chinese": "adj.下雨的; 多雨的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 453,
+    "word": "station",
+    "chinese": "n.車站; 場所",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 281,
+    "word": "table",
+    "chinese": "n.桌子; 表; 目錄",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 88,
+    "word": "waiter",
+    "chinese": "n.男服務生",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 89,
+    "word": "waitress",
+    "chinese": "n.女服務生",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 667,
+    "word": "away",
+    "chinese": "adv.離開",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 582,
+    "word": "today",
+    "chinese": "adv.今天; n.今天",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 133,
+    "word": "angry",
+    "chinese": "adj.生氣的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 81,
+    "word": "actor",
+    "chinese": "n.男演員",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 82,
+    "word": "actress",
+    "chinese": "n.女演員",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 676,
+    "word": "after",
+    "chinese": "prep. 在…之後; conj 在...之後",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 545,
+    "word": "answer",
+    "chinese": "v.回答; n.答案",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 317,
+    "word": "apple",
+    "chinese": "n.蘋果",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 348,
+    "word": "bathroom",
+    "chinese": "n.廁所; 浴室",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 655,
+    "word": "blackboard",
+    "chinese": "n.黑板",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 318,
+    "word": "candy",
+    "chinese": "n.糖果",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 654,
+    "word": "classroom",
+    "chinese": "n.教室",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 59,
+    "word": "daddy",
+    "chinese": "n.父親",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 247,
+    "word": "glasses",
+    "chinese": "n.眼鏡",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 70,
+    "word": "grandma",
+    "chinese": "n.祖母; 外祖母",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 71,
+    "word": "grandpa",
+    "chinese": "n.祖父; 外祖父",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 134,
+    "word": "happy",
+    "chinese": "adj.快樂的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 248,
+    "word": "jacket",
+    "chinese": "n.夾克; 外套",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 372,
+    "word": "panda",
+    "chinese": "n.貓熊",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 373,
+    "word": "rabbit",
+    "chinese": "n.兔子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 319,
+    "word": "salad",
+    "chinese": "n.沙拉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 320,
+    "word": "sandwich",
+    "chinese": "n.三明治",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 429,
+    "word": "taxi",
+    "chinese": "n.計程車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 436,
+    "word": "Japan",
+    "chinese": "n.日本",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 622,
+    "word": "cloudy",
+    "chinese": "adj.多雲的; 陰天的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 640,
+    "word": "flower",
+    "chinese": "n.花",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 641,
+    "word": "mountain",
+    "chinese": "n.山; 山脈; adj.山的; 巨大的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 217,
+    "word": "our",
+    "chinese": "pron.我們的(所有格）",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 349,
+    "word": "shower",
+    "chinese": "n.淋浴; 陣雨; v.傾注; 洗淋浴",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 282,
+    "word": "towel",
+    "chinese": "n.毛巾",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 673,
+    "word": "about",
+    "chinese": "adv.在四周; 在附近; 大約; prep.大約; 關於",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 135,
+    "word": "busy",
+    "chinese": "adj.忙碌的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 374,
+    "word": "chicken",
+    "chinese": "n.雞; 雞肉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 616,
+    "word": "Christmas",
+    "chinese": "n.耶誕節",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 321,
+    "word": "dinner",
+    "chinese": "n.晚餐",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 179,
+    "word": "fifteen",
+    "chinese": "n.十五; adj.十五的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 187,
+    "word": "fifty",
+    "chinese": "adj.五十的; n.五十",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 375,
+    "word": "hippo",
+    "chinese": "n.河馬",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 692,
+    "word": "inside",
+    "chinese": "n.內部; 裡面; 內幕; adv.在裡面; 往裡面; prep.在…裡面",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 350,
+    "word": "kitchen",
+    "chinese": "n.廚房",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 546,
+    "word": "listen",
+    "chinese": "v.傾聽",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 53,
+    "word": "Mr.",
+    "chinese": "abbr.先生",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 52,
+    "word": "Mrs.",
+    "chinese": "abbr.女士; 太太(mistress之簡稱)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 551,
+    "word": "pickup",
+    "chinese": "v.拿起; 收拾; 接人",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 283,
+    "word": "picture",
+    "chinese": "n.圖畫; 照片; v.畫; 拍攝; 描述",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 136,
+    "word": "pretty",
+    "chinese": "adj.漂亮的; adv.非常地; 十分地",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 642,
+    "word": "river",
+    "chinese": "n.河流",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 63,
+    "word": "sister",
+    "chinese": "n.姊妹",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 180,
+    "word": "sixteen",
+    "chinese": "adj.十六的; n.十六",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 188,
+    "word": "sixty",
+    "chinese": "adj.六十的; n.六十",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 284,
+    "word": "ticket",
+    "chinese": "n.票; 罰單",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 412,
+    "word": "vision",
+    "chinese": "n.視力; 視覺; 洞察力; 願景",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 351,
+    "word": "window",
+    "chinese": "n.窗戶",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 624,
+    "word": "windy",
+    "chinese": "adj.多風的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 609,
+    "word": "winter",
+    "chinese": "n.冬天",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 50,
+    "word": "women",
+    "chinese": "n. woman女人的名詞複數",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 454,
+    "word": "museum",
+    "chinese": "n.博物館",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 455,
+    "word": "bookstore",
+    "chinese": "n.書店",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 567,
+    "word": "football",
+    "chinese": "n.美式足球",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 656,
+    "word": "homework",
+    "chinese": "n.家庭作業",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 668,
+    "word": "only",
+    "chinese": "adv.只; 僅僅; 才; 不料; 反而; conj. 可是; 不過; 要不是; 若非",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 547,
+    "word": "open",
+    "chinese": "v.打開; adj.打開的; 空曠的; 未定的; 營業的; 公開的",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 694,
+    "word": "over",
+    "chinese": "adj.結束了; adv.在上方; 越過; 過分; 太; 再一次; prep.在…之上",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 285,
+    "word": "photo",
+    "chinese": "n.相片",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 92,
+    "word": "robot",
+    "chinese": "n.機器人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 286,
+    "word": "sofa",
+    "chinese": "n.沙發",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 716,
+    "word": "hello",
+    "chinese": "[感歎詞] 哈囉; n.打招呼用語",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 669,
+    "word": "always",
+    "chinese": "adv.總是",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 600,
+    "word": "August",
+    "chinese": "n.八月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 287,
+    "word": "bottle",
+    "chinese": "n.瓶子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 288,
+    "word": "chopsticks",
+    "chinese": "n.筷子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 339,
+    "word": "coffee",
+    "chinese": "n.咖啡",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 67,
+    "word": "daughter",
+    "chinese": "n.女兒",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 83,
+    "word": "doctor",
+    "chinese": "n.醫生",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 413,
+    "word": "dollar",
+    "chinese": "n.美元",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 61,
+    "word": "father",
+    "chinese": "n.父親",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 60,
+    "word": "mommy",
+    "chinese": "n.母親; 媽咪",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 456,
+    "word": "office",
+    "chinese": "n.辦公室",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 249,
+    "word": "pocket",
+    "chinese": "n.口袋; v.侵吞; adj.袖珍的; 零錢的; 零星花用的",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 568,
+    "word": "soccer",
+    "chinese": "n. 足球",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 718,
+    "word": "sorry",
+    "chinese": "adj. 抱歉; 遺憾的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 340,
+    "word": "water",
+    "chinese": "n. 水; v. 給...澆水; 加水稀釋; 流口水",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 575,
+    "word": "o'clock",
+    "chinese": "adv. ...點鐘",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 414,
+    "word": "birthday",
+    "chinese": "n. 生日",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 137,
+    "word": "dirty",
+    "chinese": "v. 弄髒; 變髒; adj. 骯髒的",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 138,
+    "word": "early",
+    "chinese": "adj.早的; 提早的 ; adv.早; 提早",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 548,
+    "word": "hurry",
+    "chinese": "n. 匆忙; v. 趕快",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 48,
+    "word": "person",
+    "chinese": "n. 人; 人身; 外表; 人稱",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 162,
+    "word": "purple",
+    "chinese": "adj. 紫色的; n. 紫色",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 139,
+    "word": "thirsty",
+    "chinese": "adj. 口渴的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 177,
+    "word": "thirteen",
+    "chinese": "n.十三; adj.十三的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 185,
+    "word": "thirty",
+    "chinese": "n. 三十; adj. 三十的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 588,
+    "word": "Thursday",
+    "chinese": "n. 星期四",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 376,
+    "word": "turtle",
+    "chinese": "n. 烏龜",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 90,
+    "word": "worker",
+    "chinese": "n. 工人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 549,
+    "word": "worry",
+    "chinese": "n.煩惱; 焦慮; 擔心; v.擔心",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 85,
+    "word": "farmer",
+    "chinese": "n.農夫",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 352,
+    "word": "garden",
+    "chinese": "n.花園",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 289,
+    "word": "marker",
+    "chinese": "n.標誌; 白板筆; 馬克筆",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 457,
+    "word": "market",
+    "chinese": "n.市場 ; v.(在市場上)銷售",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 415,
+    "word": "party",
+    "chinese": "n.派對; 聚會; 政黨; 一夥人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 84,
+    "word": "driver",
+    "chinese": "n.司機",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 589,
+    "word": "Friday",
+    "chinese": "n.星期五",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 323,
+    "word": "ice cream",
+    "chinese": "n.冰淇淋",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 377,
+    "word": "lion",
+    "chinese": "n.獅子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 183,
+    "word": "nineteen",
+    "chinese": "adj.十九的; n.十九",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 191,
+    "word": "ninety",
+    "chinese": "adj.九十的; n.九十",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 140,
+    "word": "quiet",
+    "chinese": "adj.安靜的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 649,
+    "word": "science",
+    "chinese": "n.科學",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 378,
+    "word": "spider",
+    "chinese": "n.蜘蛛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 379,
+    "word": "tiger",
+    "chinese": "n.老虎",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 141,
+    "word": "tired",
+    "chinese": "adj.疲倦的; 厭倦的; 厭煩的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 683,
+    "word": "behind",
+    "chinese": "adv.在背後; 向背後; 遲; 落後; prep. 在…後面",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 715,
+    "word": "goodbye",
+    "chinese": "n.告別; int. 再見; 再會",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 599,
+    "word": "July",
+    "chinese": "n.七月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 612,
+    "word": "Easter",
+    "chinese": "n.復活節",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 142,
+    "word": "easy",
+    "chinese": "adj.容易的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 416,
+    "word": "email",
+    "chinese": "n.電子郵件; v.傳送電子郵件",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 578,
+    "word": "evening",
+    "chinese": "n.傍晚",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 47,
+    "word": "people",
+    "chinese": "n.人們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 324,
+    "word": "pizza",
+    "chinese": "n.披薩",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 670,
+    "word": "really",
+    "chinese": "adv.真地; 確實; 很; 十分; 實在; 是嗎",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 605,
+    "word": "season",
+    "chinese": "n.季節 ; v.給...調味; 加味於",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 79,
+    "word": "teacher",
+    "chinese": "n.老師; 教師",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 250,
+    "word": "T-shirt",
+    "chinese": "n.短袖圓領的運動衫",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 380,
+    "word": "zebra",
+    "chinese": "n.斑馬",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 164,
+    "word": "zero",
+    "chinese": "adj.零的; n.零",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 543,
+    "word": "believe",
+    "chinese": "v.相信",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 652,
+    "word": "Chinese",
+    "chinese": "n.中文; 中國人; adj.中國的; 中國人的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 64,
+    "word": "brother",
+    "chinese": "n. 兄; 弟; 兄弟; \n  哥兒們",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 152,
+    "word": "color",
+    "chinese": "n. 顏色\n  v. 著色; 渲染; \n  文飾; 影響",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 65,
+    "word": "cousin",
+    "chinese": "n.表(堂)兄弟姊妹",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 325,
+    "word": "dumpling",
+    "chinese": "n.餃子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 192,
+    "word": "hundred",
+    "chinese": "n.一百",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 143,
+    "word": "hungry",
+    "chinese": "adj.飢餓的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 585,
+    "word": "Monday",
+    "chinese": "n.星期一",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 417,
+    "word": "money",
+    "chinese": "n.錢",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 381,
+    "word": "monkey",
+    "chinese": "n.猴子",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 62,
+    "word": "mother",
+    "chinese": "n.母親; 媽媽; v.生下; 產生出",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 211,
+    "word": "nothing",
+    "chinese": "n.無事; 無物; 沒什麼; pron.無事; 無物",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 209,
+    "word": "other",
+    "chinese": "adj.其他的; pron.其他的人或物",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 326,
+    "word": "pumpkin",
+    "chinese": "n.南瓜",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 671,
+    "word": "sometimes",
+    "chinese": "adv.有時候",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 645,
+    "word": "study",
+    "chinese": "n. 書房\n  v. 學習; 研究; \n  讀書",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 607,
+    "word": "summer",
+    "chinese": "n.夏天",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 591,
+    "word": "Sunday",
+    "chinese": "n.星期日",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 625,
+    "word": "sunny",
+    "chinese": "adj.晴朗的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 69,
+    "word": "uncle",
+    "chinese": "n.叔叔",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 695,
+    "word": "under",
+    "chinese": "adv.在下面; 在下方; 從屬地; prep.在…下面",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 49,
+    "word": "woman",
+    "chinese": "n.女人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 144,
+    "word": "yummy",
+    "chinese": "adj.好吃的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 700,
+    "word": "because",
+    "chinese": "conj. 因為",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 87,
+    "word": "soldier",
+    "chinese": "n.軍人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 418,
+    "word": "story",
+    "chinese": "n.故事; 樓層",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 550,
+    "word": "enjoy",
+    "chinese": "v.喜歡; 享受",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 145,
+    "word": "boring",
+    "chinese": "adj.乏味的 ; 無聊的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 186,
+    "word": "forty",
+    "chinese": "n. 四十\n  adj. 四十的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 178,
+    "word": "fourteen",
+    "chinese": "n. 十四\n  adj. 十四的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 576,
+    "word": "morning",
+    "chinese": "n.早晨; 【口】早安",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 163,
+    "word": "orange",
+    "chinese": "n. 柳橙; 橘色\n  adj. 橙色的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 675,
+    "word": "before",
+    "chinese": "adv. 較早; 以前\n  prep. 在⋯之前\n  conj. 在... 以前;",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 651,
+    "word": "English",
+    "chinese": "adj. 英國的; \n  英國人的; 英語的\n  n. 英語",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 86,
+    "word": "singer",
+    "chinese": "n.歌手",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 650,
+    "word": "music",
+    "chinese": "n.音樂",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 80,
+    "word": "student",
+    "chinese": "n.學生",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 586,
+    "word": "Tuesday",
+    "chinese": "n.星期二",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 290,
+    "word": "ruler",
+    "chinese": "n.尺; 統治者",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 430,
+    "word": "scooter",
+    "chinese": "n.小輪摩托車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 419,
+    "word": "toothache",
+    "chinese": "n.牙痛",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 569,
+    "word": "movie",
+    "chinese": "n.電影",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 635,
+    "word": "typhoon",
+    "chinese": "n.颱風",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 690,
+    "word": "outside",
+    "chinese": "n. 外面; 外部\n  adj. 外邊的; 外部的\n  adv. 外面地\n  prep. 在外",
+    "pos": "4",
+    "orig_chap": null
+  },
+  {
+    "700Id": 291,
+    "word": "TV",
+    "chinese": "abbr. 電視, television",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 653,
+    "word": "P.E.",
+    "chinese": "n.體育課",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 435,
+    "word": "Taiwan",
+    "chinese": "n.臺灣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 382,
+    "word": "elephant",
+    "chinese": "n.大象",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 459,
+    "word": "restaurant",
+    "chinese": "n.餐廳",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 181,
+    "word": "seventeen",
+    "chinese": "n. 十七\n  adj. 十七的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 189,
+    "word": "seventy",
+    "chinese": "n. 七十\n  adj. 七十的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 293,
+    "word": "telephone",
+    "chinese": "v.打電話; 通電話; n.電話; 電話機",
+    "pos": "3",
+    "orig_chap": null
+  },
+  {
+    "700Id": 581,
+    "word": "yesterday",
+    "chinese": "n. 昨天; 往昔\n  adv. 昨天",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 604,
+    "word": "December",
+    "chinese": "n.十二月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 175,
+    "word": "eleven",
+    "chinese": "n. 十一\n  adj. 十一的",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 603,
+    "word": "November",
+    "chinese": "n.十一月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 601,
+    "word": "September",
+    "chinese": "n.九月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 674,
+    "word": "together",
+    "chinese": "adv.一同; 一起",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 296,
+    "word": "umbrella",
+    "chinese": "n.雨傘; 傘",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 295,
+    "word": "eraser",
+    "chinese": "n.橡皮擦",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 611,
+    "word": "vacation",
+    "chinese": "n. 假期; 度假",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 355,
+    "word": "animal",
+    "chinese": "n.動物",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 570,
+    "word": "basketball",
+    "chinese": "n.籃球",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 55,
+    "word": "family",
+    "chinese": "n.家庭",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 73,
+    "word": "Grandfather",
+    "chinese": "n.祖父; 外祖父",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 72,
+    "word": "Grandmother",
+    "chinese": "n.祖母; 外祖母",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 328,
+    "word": "hamburger",
+    "chinese": "n.漢堡",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 590,
+    "word": "Saturday",
+    "chinese": "n.星期六",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 329,
+    "word": "banana",
+    "chinese": "n.香蕉",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 571,
+    "word": "piano",
+    "chinese": "n.鋼琴",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 146,
+    "word": "different",
+    "chinese": "adj.不同的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 147,
+    "word": "interesting",
+    "chinese": "adj.有趣的; \n  引起興趣的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 353,
+    "word": "living room",
+    "chinese": "n.客廳",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 460,
+    "word": "post office",
+    "chinese": "n.郵局",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 434,
+    "word": "Formosa",
+    "chinese": "n.臺灣",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 602,
+    "word": "October",
+    "chinese": "n.十月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 330,
+    "word": "chocolate",
+    "chinese": "n.巧克力",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 461,
+    "word": "hospital",
+    "chinese": "n.醫院",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 331,
+    "word": "strawberry",
+    "chinese": "n.草莓",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 383,
+    "word": "koala",
+    "chinese": "n.無尾熊",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 583,
+    "word": "tomorrow",
+    "chinese": "adv.明天; n.明天",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 431,
+    "word": "bicycle",
+    "chinese": "n.腳踏車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 354,
+    "word": "dining room",
+    "chinese": "n.餐廳",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 657,
+    "word": "library",
+    "chinese": "n.圖書館",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 148,
+    "word": "excited",
+    "chinese": "adj.感到興奮的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 149,
+    "word": "exciting",
+    "chinese": "adj.令人興奮的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 386,
+    "word": "butterfly",
+    "chinese": "n.蝴蝶; \n  衣著豔麗的人",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 150,
+    "word": "wonderful",
+    "chinese": "adj.極好的; 精彩的; 驚人的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 151,
+    "word": "beautiful",
+    "chinese": "adj.美麗的; \n  漂亮的; 出色的; \n  完美的",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 672,
+    "word": "usually",
+    "chinese": "adv.通常地; 慣常地",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 297,
+    "word": "computer",
+    "chinese": "n.電腦",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 577,
+    "word": "afternoon",
+    "chinese": "n.下午:午後",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 54,
+    "word": "Andy Go",
+    "chinese": "n.安迪哥 雙母語學殿吉祥物之一",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 615,
+    "word": "Halloween",
+    "chinese": "n.萬聖節(10月31日)",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 433,
+    "word": "MRT",
+    "chinese": "n. 大眾捷運系統 abbr. Mass Rapid Transit",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 438,
+    "word": "USA",
+    "chinese": "n.美國; \n  美利堅合眾國\n  abbr.United States of\n  America",
+    "pos": "2",
+    "orig_chap": null
+  },
+  {
+    "700Id": 594,
+    "word": "February",
+    "chinese": "n.二月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 292,
+    "word": "television",
+    "chinese": "n.電視",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 593,
+    "word": "January",
+    "chinese": "n.一月",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 298,
+    "word": "refrigerator",
+    "chinese": "n. 電冰箱",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 432,
+    "word": "motorcycle",
+    "chinese": "n.機車",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 332,
+    "word": "watermelon",
+    "chinese": "n. 西瓜",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 463,
+    "word": "department store",
+    "chinese": "n.百貨公司",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 465,
+    "word": "supermarket",
+    "chinese": "n.超級市場",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 1,
+    "word": "A a",
+    "chinese": "n. A 是英語字母中第 1 個字母，小寫為 a",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 2,
+    "word": "B b",
+    "chinese": "n. B 是英語字母中的第 2 個字母，小寫為 b",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 3,
+    "word": "C c",
+    "chinese": "n. C 是英語字母中的第 3 個字母，小寫為 c",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 4,
+    "word": "D d",
+    "chinese": "n. D 是英語字母中的第 4 個字母， 小寫為 d",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 5,
+    "word": "E e",
+    "chinese": "n. E 是英語字母中的第 5 個字母，小寫為 e",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 6,
+    "word": "F f",
+    "chinese": "n. F 是英語字母中的第 6 個字母，小寫為 f",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 7,
+    "word": "G g",
+    "chinese": "n. G 是英語字母中的第 7 個字母，小寫為 g",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 8,
+    "word": "H h",
+    "chinese": "n. H 是英語字母中的第 8 個字母，小寫為 h",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 9,
+    "word": "I i",
+    "chinese": "n. I 是英語字母中的第 9 個字母，小寫為 i",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 10,
+    "word": "J j",
+    "chinese": "n. J 是英語字母中的第 10 個字母，小寫為 j",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 11,
+    "word": "K k",
+    "chinese": "n. K 是英語字母中的第 11 個字母，小寫為 k",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 12,
+    "word": "L l",
+    "chinese": "n. L 是英語字母中的第 12 個字母，小寫為 l",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 13,
+    "word": "M m",
+    "chinese": "n. M 是英語字母中的第 13 個字母，小寫為 m",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 14,
+    "word": "N n",
+    "chinese": "n. N 是英語字母中的第 14 個字母，小寫為 n",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 15,
+    "word": "O o",
+    "chinese": "n. O 是英語字母中的第 15 個字母，小寫為 o",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 16,
+    "word": "P p",
+    "chinese": "n. P 是英語字母中的第 16 個字母，小寫為 p",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 17,
+    "word": "Q q",
+    "chinese": "n. Q 是英語字母中的 第 17 個字母，小寫為 q",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 18,
+    "word": "R r",
+    "chinese": "n. R 是英語字母中的第 18 個字母，小寫為 r",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 19,
+    "word": "S s",
+    "chinese": "n. S 是英語字母中的第 19 個字母，小寫為 s",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 20,
+    "word": "T t",
+    "chinese": "n. T 是英語字母中的第 20 個字母，小寫為 t",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 21,
+    "word": "U u",
+    "chinese": "n. U 是英語字母中的第 21 個字母，小寫為 u",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 22,
+    "word": "V v",
+    "chinese": "n. V 是英語字母中的第 22 個字母，小寫為 v",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 23,
+    "word": "W w",
+    "chinese": "n. W 是英語字母中的 第 23 個字母，小寫為 w",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 24,
+    "word": "X x",
+    "chinese": "n. X 是英語字母中的第 24 個字母，小寫為 x",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 25,
+    "word": "Y y",
+    "chinese": "n. Y 是英語字母中的第 25 個字母，小寫為 y",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 26,
+    "word": "Z z",
+    "chinese": "n. Z 是英語字母中的第 26 個字母，小寫為 z",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 166,
+    "word": "two",
+    "chinese": "num. 2",
+    "pos": "1",
+    "orig_chap": null
+  },
+  {
+    "700Id": 717,
+    "word": "ok",
+    "chinese": "adj .好吧； v.尚可；挺好；批准； adv.尚可；挺好；對吧； n.認；可；批准",
+    "pos": "nan",
+    "orig_chap": 14
+  },
+  {
+    "700Id": 93,
+    "word": "police officer",
+    "chinese": "n. 警察",
+    "pos": "nan",
+    "orig_chap": 2
+  },
+  {
+    "700Id": 322,
+    "word": "cookies",
+    "chinese": "n. 餅乾",
+    "pos": "nan",
+    "orig_chap": 6
+  },
+  {
+    "700Id": 327,
+    "word": "noodles",
+    "chinese": "n. 麵",
+    "pos": "nan",
+    "orig_chap": 6
+  },
+  {
+    "700Id": 406,
+    "word": "fluff",
+    "chinese": "n. 絨毛",
+    "pos": "nan",
+    "orig_chap": 6
+  },
+  {
+    "700Id": 437,
+    "word": "UK",
+    "chinese": "n. 英國",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 439,
+    "word": "Oz",
+    "chinese": "n. 綠野仙蹤的奧茲國",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 458,
+    "word": "bus stop",
+    "chinese": "n. 公車站",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 462,
+    "word": "fire station",
+    "chinese": "n. 消防局",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 464,
+    "word": "police station",
+    "chinese": "n. 警察局",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 466,
+    "word": "movie theater",
+    "chinese": "n. 電影院",
+    "pos": "nan",
+    "orig_chap": 7
+  },
+  {
+    "700Id": 493,
+    "word": "gag",
+    "chinese": "v. 噎到",
+    "pos": "nan",
+    "orig_chap": 8
+  },
+  {
+    "700Id": 500,
+    "word": "miss",
+    "chinese": "v. 想念",
+    "pos": "nan",
+    "orig_chap": 8
+  },
+  {
+    "700Id": 541,
+    "word": "shush",
+    "chinese": "v. 噓",
+    "pos": "nan",
+    "orig_chap": 8
+  },
+  {
+    "700Id": 572,
+    "word": "yo-yo",
+    "chinese": "n. 溜溜球",
+    "pos": "nan",
+    "orig_chap": 9
+  },
+  {
+    "700Id": 613,
+    "word": "Dragon Boat Festival",
+    "chinese": "n. 端午節",
+    "pos": "nan",
+    "orig_chap": 10
+  },
+  {
+    "700Id": 614,
+    "word": "Moon Festival",
+    "chinese": "n. 中秋節",
+    "pos": "nan",
+    "orig_chap": 10
+  },
+  {
+    "700Id": 682,
+    "word": "in front of",
+    "chinese": "prep. 在…前面",
+    "pos": "nan",
+    "orig_chap": 13
+  },
+  {
+    "700Id": 685,
+    "word": "next to",
+    "chinese": "prep. 在…旁邊",
+    "pos": "nan",
+    "orig_chap": 13
+  },
+  {
+    "700Id": 719,
+    "word": "excuse me",
+    "chinese": "ph. 不好意思",
+    "pos": "nan",
+    "orig_chap": 14
+  }
+]

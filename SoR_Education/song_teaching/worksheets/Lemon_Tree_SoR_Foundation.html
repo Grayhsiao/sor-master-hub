@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>🎵 Lemon Tree — SoR Foundation Worksheet</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Outfit:wght@400;700;900&display=swap');
+@page { size: A4 portrait; margin: 1.5cm 1.8cm; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Outfit', 'Noto Sans TC', sans-serif; background: #e9ecef; color: #1a1a1a; padding: 30px; font-size: 14px; line-height: 1.5; }
+
+/* 模擬 A4 紙張 */
+.page { background: #fff; max-width: 800px; margin: 0 auto 30px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); padding: 24px; border-radius: 4px; }
+@media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; max-width: none; margin: 0; padding: 0; page-break-after: always; }
+}
+
+/* 標題與段落 */
+.header { border-bottom: 3px solid #1a1a1a; padding-bottom: 10px; margin-bottom: 20px; }
+.header h1 { font-size: 1.6em; font-weight: 900; }
+.header .artist { font-size: 1em; color: #555; margin-bottom: 15px;}
+.header .story { background:#fff; border-left:4px solid #1a1a1a; padding:10px 14px; margin-bottom:12px; font-size:0.95em; color:#333; line-height:1.6; border-radius: 0 4px 4px 0;}
+.section-title { font-weight: 900; font-size: 1.1em; background: #1a1a1a; color: white; display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 15px; }
+
+/* 深層學習區塊 */
+.deep-block { border: 2px solid #1a1a1a; border-radius: 12px; margin-bottom: 28px; padding: 0; overflow: hidden; page-break-inside: avoid; }
+.lyric-area { background: #f8f8f8; padding: 14px 18px; border-bottom: 1px solid #ddd; }
+.lyric { font-size: 1.5em; font-weight: 900; color: #c0392b; letter-spacing: 0.5px; }
+.translation { display: flex; align-items: flex-end; margin-top: 8px; }
+.t-lbl { font-weight: 700; font-size: 0.85em; color: #555; white-space: nowrap; }
+.t-line { flex: 1; border-bottom: 1.5px dashed #777; height: 18px; margin-left: 8px; }
+
+/* SoR 音標練習區 */
+.phonics-area { padding: 14px 18px; border-bottom: 1px solid #ddd; }
+.area-title { font-size: 0.82em; font-weight: 700; color: #888; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;}
+.empty-boxes-wrap { display: flex; flex-wrap: wrap; gap: 24px; }
+.empty-box-group { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 60px; }
+.kw-text { font-size: 1.5em; font-weight: 800; border-bottom: 2px solid #1a1a1a; padding-bottom: 2px;}
+.kw-trans { font-size: 0.65em; font-family: 'Noto Sans TC', sans-serif; color: #555; font-weight: 700; margin-left: 6px; } 
+.phonics-structure { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 4px;}
+.intonation-bar { height: 8px; border: 2px solid #1a1a1a; border-radius: 2px; } 
+.box-row { display: flex; gap: 5px; }
+.empty-box { width: 38px; height: 50px; border: 2px solid #999; border-radius: 4px; background: #fff; }
+
+/* 置換句型 */
+.pattern-area { padding: 16px 18px; border-bottom: 1px solid #ddd; background: #fafafa; }
+.pattern-line { font-size: 1.25em; font-weight: 700; color: #333; margin-top: 4px; font-style: italic;}
+.blank { display: inline-block; min-width: 90px; border-bottom: 2.5px solid #1a1a1a; margin: 0 6px; }
+
+/* Word Bank */
+.wordbank-area { padding: 14px 18px; }
+.wb-grid { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 5px; margin-bottom: 16px;}
+.wb-item { border: 2.5px dashed #aaa; border-radius: 8px; padding: 10px 14px; display: flex; flex-direction: column; align-items: center; background: white; min-width: 85px; }
+.wb-word { font-weight: 900; font-size: 1.3em; margin-bottom: 2px; letter-spacing: 0.5px;}
+.wb-trans { font-size: 0.9em; font-weight: 700; color: #666; margin-bottom: 6px; font-family: 'Noto Sans TC'; } 
+
+/* 模擬奇蹟木 (放大版) */
+.miracle-blocks { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.m-intonation { width: 34px; height: 8px; background: #1a1a1a; border-radius: 2px; } 
+.m-row { display: flex; gap: 4px; }
+.m-block { width: 30px; height: 38px; background: #e8e8e8; border: 2px solid #444; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 900; color: #111;}
+.m-block.vowel { background: #ffebeb; border-color: #d63031; color: #d63031; }
+
+.repeat-card { border:2px dashed #bbb; border-radius:10px; padding:14px 18px; text-align:center; color:#777; margin-bottom:22px; page-break-inside:avoid; }
+.repeat-card .ri { font-size:1.8em; }
+</style>
+
+</head>
+<body>
+<div class="page">
+
+    <div class="header">
+        <h1>🎵 Lemon Tree</h1>
+        <div class="artist">by Fools Garden</div>
+        <div class="story">《Lemon Tree》是德國樂團Fools Garden於1995年發行的熱門歌曲。這首歌以其輕快的旋律和簡單易懂的歌詞，迅速在全球流行起來。歌曲的靈感來自於主唱Peter Freudenthaler的一次無聊的周日下午，他坐在家中，望著窗外的檸檬樹，思考著生活的單調與無趣。這首歌在台灣也廣受歡迎，常被用於學習英語的教材中，因為其歌詞簡單且富有情感。歌曲傳達了一種對生活中平凡時刻的反思，讓人們在輕鬆的旋律中感受到生活的哲理。</div>
+        <p style="font-size: 0.9em; color: #555;">💡 提示：本區挑選的生字皆提供 SoR 音標填空，請試著填寫專利音標。並利用 Word Bank 練習將不同的單字填入句型中。</p>
+    </div>
+<div class="section-title">[Verse 1] — Verse</div>
+
+<div class="deep-block">
+    <div class="lyric-area">
+        <div class="lyric">Sorry, I can't provide the full lyrics to "Lemon Tree" by Fool's Garden.</div>
+        <div class="translation">
+            <span class="t-lbl">📝 我的翻譯：</span>
+            <div class="t-line"></div>
+        </div>
+    </div>
+    
+    <div class="phonics-area">
+        <div class="area-title">✏️ SoR Phonics Practice (聽出幾個音，畫滿音標框！)</div>
+        <div class="empty-boxes-wrap">
+            
+        <div class="empty-box-group">
+            <div class="kw-text">provide<span class="kw-trans">供應</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 84px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        <div class="empty-box-group">
+            <div class="kw-text">full<span class="kw-trans">飽的, 滿的</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 36px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        <div class="empty-box-group">
+            <div class="kw-text">lyrics<span class="kw-trans">歌詞, 歌詞文字, 抒情詩</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 36px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="pattern-area">
+        <div class="area-title" style="margin-bottom:8px;">🔄 Pattern Substitution (請造出三句不同的變化)</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="pattern-line">1. Sorry, I can't <span class="blank"></span> the <span class="blank"></span> <span class="blank"></span> to "Lemon Tree" by Fool's Garden.</div><div class="pattern-line">2. Sorry, I can't <span class="blank"></span> the <span class="blank"></span> <span class="blank"></span> to "Lemon Tree" by Fool's Garden.</div><div class="pattern-line">3. Sorry, I can't <span class="blank"></span> the <span class="blank"></span> <span class="blank"></span> to "Lemon Tree" by Fool's Garden.</div>
+        </div>
+    </div>
+
+    <div class="wordbank-area">
+        <div class="area-title" style="margin-bottom:8px;">💡 Word Bank (句型替換選項)</div>
+        <div class="wb-grid">
+            
+        <div class="wb-item">
+            <div class="wb-word">offer</div>
+            <div class="wb-trans">提供, 提議, 出價, 報價; 提供</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">46</div><div class="m-block">4</div><div class="m-block">47</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">supply</div>
+            <div class="wb-trans">供給, 供應</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">38</div><div class="m-block">44</div><div class="m-block vowel">2</div><div class="m-block">19</div><div class="m-block">51</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">deliver</div>
+            <div class="wb-trans">遞送, 發表, 講, 給……接生</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block vowel">14</div><div class="m-block">59</div><div class="m-block">19</div><div class="m-block">62</div><div class="m-block">9</div><div class="m-block">47</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">complete</div>
+            <div class="wb-trans">完成, 使完整; 完整的, 徹底的</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">22</div><div class="m-block">44</div><div class="m-block">7</div><div class="m-block vowel">2</div><div class="m-block">19</div><div class="m-block">66</div><div class="m-block">17</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">entire</div>
+            <div class="wb-trans">全部的, 整個的</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">62</div><div class="m-block">18</div><div class="m-block vowel">15</div><div class="m-block">51</div><div class="m-block">47</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">whole</div>
+            <div class="wb-trans">完整的; 全部, 全體, 整體</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block vowel">23</div><div class="m-block">43</div><div class="m-block">43</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">verses</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">lines</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">text</div>
+            <div class="wb-trans">正文,文本, 純文字; 傳簡訊</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block vowel">15</div><div class="m-block">45</div><div class="m-block">25</div><div class="m-block">38</div><div class="m-block">17</div></div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+<div class="deep-block">
+    <div class="lyric-area">
+        <div class="lyric">However, I can summarize the song or discuss its themes if you'd like.</div>
+        <div class="translation">
+            <span class="t-lbl">📝 我的翻譯：</span>
+            <div class="t-line"></div>
+        </div>
+    </div>
+    
+    <div class="phonics-area">
+        <div class="area-title">✏️ SoR Phonics Practice (聽出幾個音，畫滿音標框！)</div>
+        <div class="empty-boxes-wrap">
+            
+        <div class="empty-box-group">
+            <div class="kw-text">summarize<span class="kw-trans">總結, 概述, 概括</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 96px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        <div class="empty-box-group">
+            <div class="kw-text">discuss<span class="kw-trans">討論</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 72px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        <div class="empty-box-group">
+            <div class="kw-text">themes<span class="kw-trans">主題, 題材, 樂曲主題</span></div>
+            <div class="phonics-structure">
+                <div class="intonation-bar" style="width: 36px;"></div>
+                <div class="box-row"><div class="empty-box"></div><div class="empty-box"></div><div class="empty-box"></div></div>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="pattern-area">
+        <div class="area-title" style="margin-bottom:8px;">🔄 Pattern Substitution (請造出三句不同的變化)</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+            <div class="pattern-line">1. However, I can <span class="blank"></span> the song or <span class="blank"></span> its <span class="blank"></span> if you'd like.</div><div class="pattern-line">2. However, I can <span class="blank"></span> the song or <span class="blank"></span> its <span class="blank"></span> if you'd like.</div><div class="pattern-line">3. However, I can <span class="blank"></span> the song or <span class="blank"></span> its <span class="blank"></span> if you'd like.</div>
+        </div>
+    </div>
+
+    <div class="wordbank-area">
+        <div class="area-title" style="margin-bottom:8px;">💡 Word Bank (句型替換選項)</div>
+        <div class="wb-grid">
+            
+        <div class="wb-item">
+            <div class="wb-word">outline</div>
+            <div class="wb-trans">外形, 輪廓; 概述, 略述</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">50</div><div class="m-block">17</div><div class="m-block">19</div><div class="m-block">51</div><div class="m-block">18</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">recap</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">review</div>
+            <div class="wb-trans">復習; 溫習, 回顧</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">35</div><div class="m-block">60</div><div class="m-block">59</div><div class="m-block">9</div><div class="m-block">59</div><div class="m-block">60</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">talk about</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">debate</div>
+            <div class="wb-trans">辯論; 辯論</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block vowel">14</div><div class="m-block">59</div><div class="m-block">1</div><div class="m-block">48</div><div class="m-block">17</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">examine</div>
+            <div class="wb-trans">檢查, 測驗, （仔細地）檢查, 審查, 調查</div>
+            
+            <div class="miracle-blocks">
+                <div class="m-intonation"></div>
+                <div class="m-row"><div class="m-block">59</div><div class="m-block">24</div><div class="m-block">39</div><div class="m-block">49</div><div class="m-block">3</div><div class="m-block">44</div><div class="m-block">18</div></div>
+            </div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">ideas</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">topics</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        <div class="wb-item">
+            <div class="wb-word">subjects</div>
+            
+            <div class="miracle-blocks"><div class="m-intonation"></div><div class="m-row"><div class="m-block">?</div></div></div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

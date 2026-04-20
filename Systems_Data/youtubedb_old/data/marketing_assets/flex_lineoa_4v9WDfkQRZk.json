@@ -1,0 +1,84 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://img.youtube.com/vi/4v9WDfkQRZk/maxresdefault.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://youtu.be/4v9WDfkQRZk"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "蕭博士 SoR 每日心法",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "02 補足臺灣孩子的天缺——小達人1~3 冊｜《SoR 拼讀小達人》完全剖析｜P",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "💡",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "學習語言就像在建造一座橋樑。母音是這座橋的基石，如果基石不穩固，整座橋都無法承載重量。當孩子掌握了這些基石（母音），他們才能在橋上（語言學習之路）自如行走。這就像是給孩子的語言學習鋪設了一條穩固的道路...",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "color": "#1DB446",
+        "action": {
+          "type": "uri",
+          "label": "📺 立即觀看教學",
+          "uri": "https://youtu.be/4v9WDfkQRZk"
+        }
+      }
+    ],
+    "flex": 0
+  }
+}

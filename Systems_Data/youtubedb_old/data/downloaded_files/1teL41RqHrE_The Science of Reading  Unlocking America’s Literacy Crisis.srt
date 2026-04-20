@@ -1,0 +1,597 @@
+1
+00:00:00,000 --> 00:00:11,640
+The U.S. is in the midst of a reading crisis, and our nation can't afford to sugarcoat it.
+
+2
+00:00:11,640 --> 00:00:15,120
+Things are bad, really bad.
+
+3
+00:00:15,120 --> 00:00:22,400
+But a vast body of research called the Science of Reading can tell us how to fix it.
+
+4
+00:00:22,400 --> 00:00:28,760
+According to the NAEP, the nation's report card, 66% of American fourth graders are failing
+
+5
+00:00:28,760 --> 00:00:33,799
+to meet the proficiency level on the National Reading Assessment.
+
+6
+00:00:33,799 --> 00:00:40,119
+That means that if the U.S. were an average-sized classroom of 25 students, about 17 children
+
+7
+00:00:40,119 --> 00:00:42,400
+are below proficient.
+
+8
+00:00:42,400 --> 00:00:48,200
+And these shockingly low early childhood literacy rates are not equally dispersed.
+
+9
+00:00:48,200 --> 00:00:53,320
+About 82% of black fourth graders fall below proficiency.
+
+10
+00:00:53,880 --> 00:01:00,680
+Meanwhile, childhood literacy is one of the most important predictors of future life outcomes.
+
+11
+00:01:00,680 --> 00:01:05,000
+Children with below-basic reading skills in third grade are six times as likely to fail
+
+12
+00:01:05,000 --> 00:01:07,440
+finishing high school in time.
+
+13
+00:01:07,440 --> 00:01:14,599
+And 70% of incarcerated adults are unable to read above a fourth grade level.
+
+14
+00:01:14,599 --> 00:01:16,680
+But there's a silver lining.
+
+15
+00:01:16,680 --> 00:01:19,360
+We know how to fix this one.
+
+16
+00:01:19,360 --> 00:01:24,839
+In this video, we'll tell you what steps America must take as soon as possible to ensure
+
+17
+00:01:24,839 --> 00:01:31,959
+that every child in every zip code has equitable access to the world through literacy.
+
+18
+00:01:31,959 --> 00:01:38,400
+In 2013, the state of Mississippi ranked 49th out of 50 states in childhood literacy rates.
+
+19
+00:01:38,400 --> 00:01:42,879
+But over the next decade, something astonishing happened.
+
+20
+00:01:42,879 --> 00:01:49,279
+Mississippi's literacy rates skyrocketed from second worst all the way to 21st out of 50 states.
+
+21
+00:01:49,360 --> 00:01:53,440
+The press labeled this event the Mississippi Miracle.
+
+22
+00:01:53,440 --> 00:01:57,040
+That's what people are calling the dramatic shift in reading scores accomplished by the
+
+23
+00:01:57,040 --> 00:01:58,839
+state of Mississippi.
+
+24
+00:01:58,839 --> 00:02:00,440
+But this was no miracle.
+
+25
+00:02:00,440 --> 00:02:04,360
+This was good policy and good reading science.
+
+26
+00:02:04,360 --> 00:02:09,360
+Mississippi decided to let go of a very popular, well-marketed, but largely ineffective way
+
+27
+00:02:09,360 --> 00:02:14,559
+to teach reading, replacing it with an approach that science of reading researchers have advocated
+
+28
+00:02:14,559 --> 00:02:17,000
+for for decades.
+
+29
+00:02:17,000 --> 00:02:19,479
+Let's talk about those two approaches.
+
+30
+00:02:19,479 --> 00:02:26,160
+Chapter one, conflicting ideas about reading, meaning-based versus code-based.
+
+31
+00:02:26,160 --> 00:02:30,000
+For many years, there have been two conflicting ideas about how children should be taught
+
+32
+00:02:30,000 --> 00:02:31,000
+to read.
+
+33
+00:02:31,000 --> 00:02:36,360
+The first, meaning-based approaches, are the methods Mississippi largely used up until
+
+34
+00:02:36,360 --> 00:02:38,759
+2013.
+
+35
+00:02:38,759 --> 00:02:43,000
+Meaning-based approaches assume that reading skills are best acquired naturally through
+
+36
+00:02:43,000 --> 00:02:48,600
+context and immersion, much like when children begin to speak their native language.
+
+37
+00:02:48,600 --> 00:02:52,759
+Meaning-based perspectives are sometimes called top-down because they encourage students to
+
+38
+00:02:52,759 --> 00:02:59,720
+guess or predict the meaning of words based on context, pictures, and existing knowledge.
+
+39
+00:02:59,720 --> 00:03:04,039
+Consider this example from the popular three-queuing approach to reading.
+
+40
+00:03:04,039 --> 00:03:08,320
+Students are told to ask themselves three questions, or cues, before taking a guess
+
+41
+00:03:08,320 --> 00:03:10,160
+at the correct word.
+
+42
+00:03:10,160 --> 00:03:11,679
+Does it make sense?
+
+43
+00:03:11,679 --> 00:03:13,360
+Does it sound right?
+
+44
+00:03:13,360 --> 00:03:15,160
+Does it look right?
+
+45
+00:03:15,160 --> 00:03:20,080
+And the children must then predict what the appropriate word might be.
+
+46
+00:03:20,080 --> 00:03:25,720
+Widespread meaning-based approaches like three-queuing, Marie Clay's balanced literacy, and whole
+
+47
+00:03:25,720 --> 00:03:30,080
+language learning all operate on the same fundamental premise, that students should
+
+48
+00:03:30,080 --> 00:03:35,119
+learn reading naturally, just like how they learned spoken language for the first time.
+
+49
+00:03:35,119 --> 00:03:39,679
+Over the decades, meaning-based approaches spread across the country like wildfire, thanks
+
+50
+00:03:39,720 --> 00:03:44,479
+largely to impressive marketing campaigns emphasizing their ability to kindle a child's
+
+51
+00:03:44,479 --> 00:03:46,880
+natural love of reading.
+
+52
+00:03:46,880 --> 00:03:50,559
+But there is a major problem with meaning-based approaches.
+
+53
+00:03:50,559 --> 00:03:55,479
+Children cannot learn to love reading if they are never properly taught how to read in the
+
+54
+00:03:55,479 --> 00:03:56,919
+first place.
+
+55
+00:03:56,919 --> 00:04:02,080
+Which brings us to the second idea about reading, the one Mississippi systematically adopted
+
+56
+00:04:02,080 --> 00:04:04,320
+in 2013.
+
+57
+00:04:04,320 --> 00:04:09,160
+Proponents of code-based approaches have long maintained that learning how to read is not
+
+58
+00:04:09,160 --> 00:04:11,520
+at all like learning to speak.
+
+59
+00:04:11,520 --> 00:04:15,440
+In the code-based view, the proper analogy for learning to read is more like learning
+
+60
+00:04:15,440 --> 00:04:17,679
+how to play a new instrument.
+
+61
+00:04:17,679 --> 00:04:22,320
+You've got to start with the basics, get the fundamentals down, and with time and practice,
+
+62
+00:04:22,320 --> 00:04:24,320
+you'll play beautifully.
+
+63
+00:04:24,320 --> 00:04:29,320
+Through code-based instruction, letter-sound relationships are taught explicitly.
+
+64
+00:04:29,320 --> 00:04:35,279
+Structured literacy emphasizes the structure of language through phonology, sound-symbol
+
+65
+00:04:35,279 --> 00:04:43,440
+association, syllables, morphology, syntax, and semantics.
+
+66
+00:04:43,440 --> 00:04:48,519
+Rather than a top-down game of prediction based on what a learner already knows, code-based
+
+67
+00:04:48,519 --> 00:04:51,239
+methods are bottom-up.
+
+68
+00:04:51,239 --> 00:04:53,640
+Start at the beginning and build up.
+
+69
+00:04:53,640 --> 00:04:58,640
+Disagreements around these entrenched ideas about reading intensified over the decades,
+
+70
+00:04:58,640 --> 00:05:03,920
+reaching a boiling point in the 80s and 90s when the dispute was finally given a name,
+
+71
+00:05:03,920 --> 00:05:05,880
+the Reading Wars.
+
+72
+00:05:05,880 --> 00:05:11,040
+The Reading Wars raged for decades, but it was only ever an ideological debate.
+
+73
+00:05:11,040 --> 00:05:14,200
+The science was always clear.
+
+74
+00:05:14,200 --> 00:05:15,640
+Chapter 2.
+
+75
+00:05:15,640 --> 00:05:16,640
+What the Research Says
+
+76
+00:05:16,640 --> 00:05:21,760
+Today, that science is clearer than ever.
+
+77
+00:05:21,760 --> 00:05:26,200
+Human brains are not wired to read and write, and meaning-based approaches do not work well
+
+78
+00:05:26,200 --> 00:05:28,279
+for most students.
+
+79
+00:05:28,279 --> 00:05:33,480
+Cognitive scientists agree that human brains process written language letter by letter,
+
+80
+00:05:33,480 --> 00:05:37,480
+word by sound, and the research shows that students perform much better when they are
+
+81
+00:05:37,480 --> 00:05:39,799
+taught code-based approaches.
+
+82
+00:05:39,799 --> 00:05:44,720
+Without code-based instruction, many students will continue to struggle, lost in a wilderness
+
+83
+00:05:44,720 --> 00:05:47,200
+of letters and words.
+
+84
+00:05:47,200 --> 00:05:51,839
+The science of reading has demonstrated that 95% of children have the ability to learn
+
+85
+00:05:51,839 --> 00:05:53,000
+to read.
+
+86
+00:05:53,000 --> 00:06:00,079
+But to do it effectively, up to 50% of those children require careful, systematic instruction.
+
+87
+00:06:00,079 --> 00:06:05,200
+A structured literacy approach is a necessary foundation for reading success, consistent
+
+88
+00:06:05,200 --> 00:06:07,839
+with code-based approaches.
+
+89
+00:06:07,839 --> 00:06:12,480
+Structured literacy begins by helping children understand the building blocks of language,
+
+90
+00:06:12,480 --> 00:06:16,359
+allowing the readers to master the structure of sentences.
+
+91
+00:06:16,359 --> 00:06:23,279
+Structured literacy is systematic, it's cumulative, it's explicit, and it's diagnostic.
+
+92
+00:06:23,279 --> 00:06:28,399
+Understanding how sounds come together to form words is the key to unlocking reading.
+
+93
+00:06:28,399 --> 00:06:34,640
+When students have the key, they can explore a vast wilderness of words, books, and ideas.
+
+94
+00:06:34,640 --> 00:06:39,239
+A whole new world of possibilities and opportunities.
+
+95
+00:06:39,239 --> 00:06:40,679
+Chapter 3.
+
+96
+00:06:40,679 --> 00:06:43,440
+How in the world did we get here?
+
+97
+00:06:43,440 --> 00:06:48,119
+How did meaning-based approaches like whole language, balanced literacy, and 3Qing come
+
+98
+00:06:48,119 --> 00:06:50,799
+to dominate the American educational system?
+
+99
+00:06:50,799 --> 00:06:55,279
+And how could we have gotten this so wrong for so long?
+
+100
+00:06:55,279 --> 00:06:57,399
+There are four major reasons.
+
+101
+00:06:57,399 --> 00:07:00,799
+First, powerful business incentives.
+
+102
+00:07:00,799 --> 00:07:05,000
+Well-resourced publishing companies with strong marketing departments offered schools engaging
+
+103
+00:07:05,000 --> 00:07:09,959
+books and resources, and developed highly attractive sales strategies.
+
+104
+00:07:09,959 --> 00:07:13,720
+While it isn't possible to know whether the authors and publishers of meaning-based methods
+
+105
+00:07:13,720 --> 00:07:19,359
+knowingly promoted inaccurate reading methods, at best, they knew the scientific evidence
+
+106
+00:07:19,359 --> 00:07:22,959
+was out there, and they avoided investigating it.
+
+107
+00:07:22,959 --> 00:07:27,079
+Sadly, their negligence caused significant harm.
+
+108
+00:07:27,079 --> 00:07:31,679
+Second, the science public disconnect.
+
+109
+00:07:31,679 --> 00:07:36,480
+Scientists have long understood the pedagogical superiority of code-based instruction, but
+
+110
+00:07:36,480 --> 00:07:38,920
+they struggled to reach decision makers.
+
+111
+00:07:38,920 --> 00:07:43,279
+Meanwhile, the public was made to believe that the reading wars were a conflict between
+
+112
+00:07:43,279 --> 00:07:49,079
+two legitimate sides, because they didn't see or know about the science.
+
+113
+00:07:50,000 --> 00:07:53,000
+Third, institutional barriers.
+
+114
+00:07:53,000 --> 00:07:58,640
+Thanks to a range of institutional barriers, even today, only 25% of teacher education
+
+115
+00:07:58,640 --> 00:08:03,320
+programs include findings from the science of reading research and structured literacy
+
+116
+00:08:03,320 --> 00:08:06,720
+instructional approaches.
+
+117
+00:08:06,720 --> 00:08:09,079
+And fourth, the tree of trust.
+
+118
+00:08:09,079 --> 00:08:14,679
+Parents, teachers, and even most administrators aren't to blame in this story.
+
+119
+00:08:14,679 --> 00:08:19,040
+Because teachers relied on teacher expertise, teachers understandably trusted their school
+
+120
+00:08:19,040 --> 00:08:26,760
+districts, and districts deferred to extremely convincing publishers and authors.
+
+121
+00:08:26,760 --> 00:08:28,000
+Chapter 4.
+
+122
+00:08:28,000 --> 00:08:30,519
+The Science of Reading Revolution.
+
+123
+00:08:30,519 --> 00:08:36,320
+Thankfully, in recent years, a wave of change has swept across the nation.
+
+124
+00:08:36,320 --> 00:08:41,320
+Thirty states have made key legal changes, aiming to bridge the gap between the science
+
+125
+00:08:41,320 --> 00:08:43,080
+and the classroom.
+
+126
+00:08:43,080 --> 00:08:48,000
+Many have also begun banning meaning-based approaches like 3-Q-ing, but this is just
+
+127
+00:08:48,000 --> 00:08:49,359
+the beginning.
+
+128
+00:08:49,359 --> 00:08:54,000
+In order to provide access to the code for all children, districts must follow the example
+
+129
+00:08:54,000 --> 00:08:55,919
+set by Mississippi.
+
+130
+00:08:55,919 --> 00:09:00,359
+Specifically, districts must develop a multi-year literacy plan.
+
+131
+00:09:00,359 --> 00:09:06,799
+This plan must adopt proven structured literacy programming, prioritize teacher training,
+
+132
+00:09:06,799 --> 00:09:12,359
+empowering and arming teachers with knowledge and tools, implement universal screening to
+
+133
+00:09:12,359 --> 00:09:18,119
+identify reading challenges early, create a tiered system of student support so that
+
+134
+00:09:18,119 --> 00:09:21,840
+all children receive the resources they need.
+
+135
+00:09:21,840 --> 00:09:23,320
+That is the answer.
+
+136
+00:09:23,320 --> 00:09:25,719
+Play it back if you need to.
+
+137
+00:09:25,719 --> 00:09:30,760
+It's simple to say in a video, but in the real world, it requires lots of advocacy,
+
+138
+00:09:30,760 --> 00:09:33,400
+communication, and work.
+
+139
+00:09:33,400 --> 00:09:35,200
+And that's where you come in.
+
+140
+00:09:35,200 --> 00:09:39,640
+To learn more about bringing transformational literacy practices based on the science of
+
+141
+00:09:39,640 --> 00:09:44,760
+reading to your state or district, visit mz.com linked in the description below and
+
+142
+00:09:44,760 --> 00:09:46,760
+sign up for our mailing list.
+
+143
+00:09:46,760 --> 00:09:49,599
+That's I-M-S-E dot com.
+
+144
+00:09:49,599 --> 00:09:54,000
+Additionally, check out Emily Hanford's groundbreaking podcast about what happened
+
+145
+00:09:54,000 --> 00:10:00,479
+to literacy in the U.S. or click on one of the New York Times articles, all linked below.
+
+146
+00:10:00,479 --> 00:10:06,719
+At MZ, we believe all students can learn, and all teachers can learn to teach them.
+
+147
+00:10:07,119 --> 00:10:13,400
+Together, we can solve the U.S. literacy crisis, ensuring that all children everywhere are
+
+148
+00:10:13,400 --> 00:10:20,039
+given equitable access to the code to unlock literacy, opening doors to opportunities for
+
+149
+00:10:20,039 --> 00:10:21,599
+the rest of their lives.
+
+

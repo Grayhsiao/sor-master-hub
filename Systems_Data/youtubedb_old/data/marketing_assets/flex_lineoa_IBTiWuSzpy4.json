@@ -1,0 +1,84 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://img.youtube.com/vi/IBTiWuSzpy4/maxresdefault.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://youtu.be/IBTiWuSzpy4"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "蕭博士 SoR 每日心法",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "11 QA時間：國三棄英能救嗎？搭上小達人專屬特快車，三個月速成法｜《SoR 拼",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "💡",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "學習語言就像搭乘一趟特快車。國小生或許需要在每一站停靠，慢慢欣賞沿途的風景（逐步學習每個音素），但國三生的大腦就像高速列車，只需在關鍵站點停留，便能快速抵達目的地（掌握核心音素）。這趟特快車不是盲目地...",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "color": "#1DB446",
+        "action": {
+          "type": "uri",
+          "label": "📺 立即觀看教學",
+          "uri": "https://youtu.be/IBTiWuSzpy4"
+        }
+      }
+    ],
+    "flex": 0
+  }
+}

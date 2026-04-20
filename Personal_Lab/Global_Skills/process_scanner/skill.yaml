@@ -1,0 +1,9 @@
+name: process_scanner
+description: "A tool to scan and list all running processes on the system, outputting them to a specified text file."
+inputs:
+  output_filename:
+    type: string
+    description: "The path to the text file where the output should be saved. If not provided, it defaults to 'running_processes.txt'."
+    required: false
+outputs:
+  - Text file with the list of processes including PID, name, and executable path.

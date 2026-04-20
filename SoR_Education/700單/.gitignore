@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# Assets & Output
+output_videos/
+temp_assets/
+*.mp4
+*.wav
+*.mp3
+
+# Log & OS
+*.log
+.DS_Store

@@ -1,0 +1,13 @@
+name: icon_generator
+description: "A tool to generate macOS .icns icons from a source PNG image by automatically generating various required resolutions."
+inputs:
+  source_png:
+    type: string
+    description: "The path to the source PNG image file."
+    required: true
+  icon_name:
+    type: string
+    description: "The base name for the generated iconset and final .icns file."
+    required: true
+outputs:
+  - Generates an .iconset directory and a final compiled .icns file.

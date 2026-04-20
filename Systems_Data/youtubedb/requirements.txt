@@ -1,0 +1,10 @@
+streamlit
+chromadb>=0.4.0
+sentence-transformers
+langchain-text-splitters
+yt-dlp
+openai
+google-genai
+selenium
+webdriver-manager
+python-dotenv

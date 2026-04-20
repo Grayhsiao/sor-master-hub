@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國中智慧王</title>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { max-width: 500px; margin: 0 auto; }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            color: #fff;
+        }
+
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { font-size: 14px; opacity: 0.9; }
+
+        .menu-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title .step-num {
+            background: #667eea;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .btn-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+
+        .menu-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            padding: 15px 10px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .menu-btn.selected {
+            background: #28a745;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .menu-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .menu-section { display: none; }
+        .menu-section.active { display: block; }
+
+        .selected-display {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .selected-display span {
+            display: inline-block;
+            background: #667eea;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 15px;
+            margin: 2px;
+            font-size: 13px;
+        }
+
+        /* LINE 遮罩 */
+        .line-browser-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .overlay-icon { font-size: 60px; margin-bottom: 20px; }
+        .overlay-title { color: #fff; font-size: 22px; margin-bottom: 15px; }
+        .overlay-text { color: #a8d8ff; font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
+
+        .overlay-steps {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 20px;
+            max-width: 300px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            margin: 12px 0;
+            font-size: 14px;
+        }
+
+        .step-number {
+            background: #00B900;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LINE 遮罩 -->
+    <div id="lineOverlay" class="line-browser-overlay">
+        <div class="overlay-icon">📱</div>
+        <div class="overlay-title">🎮 國中智慧王</div>
+        <div class="overlay-text">為了使用完整的語音答題功能，請使用外部瀏覽器開啟</div>
+        <div class="overlay-steps">
+            <div class="step-item"><span class="step-number">1</span>點擊右上角 ⋮ 選單</div>
+            <div class="step-item"><span class="step-number">2</span>選擇「在瀏覽器中開啟」</div>
+            <div class="step-item"><span class="step-number">3</span>即可開始挑戰！</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🎯 國中智慧王</h1>
+            <p>選擇你的設定，開始挑戰！</p>
+        </div>
+
+        <!-- 已選項目顯示 -->
+        <div class="selected-display" id="selectedDisplay" style="display:none;">
+            已選擇：<span id="displayGrade">-</span>
+            <span id="displaySubject">-</span>
+            <span id="displaySemester">-</span>
+            <span id="displayDifficulty">-</span>
+        </div>
+
+        <!-- 第一步：年級 -->
+        <div class="menu-card menu-section active" id="sectionGrade">
+            <div class="section-title"><span class="step-num">1</span>選擇年級</div>
+            <div class="btn-grid">
+                <button class="menu-btn" onclick="selectGrade(7)">七年級</button>
+                <button class="menu-btn" onclick="selectGrade(8)">八年級</button>
+                <button class="menu-btn" onclick="selectGrade(9)">九年級</button>
+            </div>
+        </div>
+
+        <!-- 第二步：科目 -->
+        <div class="menu-card menu-section" id="sectionSubject">
+            <div class="section-title"><span class="step-num">2</span>選擇科目</div>
+            <div class="btn-grid two-col">
+                <button class="menu-btn" onclick="selectSubject('math')">🔢 數學</button>
+                <button class="menu-btn" onclick="selectSubject('english')">📝 英文</button>
+                <button class="menu-btn" onclick="selectSubject('science')">🔬 自然</button>
+                <button class="menu-btn" onclick="selectSubject('social')">🌍 社會</button>
+                <button class="menu-btn" onclick="selectSubject('chinese')">📖 國文</button>
+            </div>
+        </div>
+
+        <!-- 第三步：學期 -->
+        <div class="menu-card menu-section" id="sectionSemester">
+            <div class="section-title"><span class="step-num">3</span>選擇學期</div>
+            <div class="btn-grid">
+                <button class="menu-btn" onclick="selectSemester(1)">上學期</button>
+                <button class="menu-btn" onclick="selectSemester(2)">下學期</button>
+            </div>
+        </div>
+
+        <!-- 第四步：難易度 -->
+        <div class="menu-card menu-section" id="sectionDifficulty">
+            <div class="section-title"><span class="step-num">4</span>選擇難易度</div>
+            <div class="btn-grid">
+                <button class="menu-btn" onclick="selectDifficulty('easy')">⭐ 基礎</button>
+                <button class="menu-btn" onclick="selectDifficulty('medium')">⭐⭐ 進階</button>
+                <button class="menu-btn" onclick="selectDifficulty('hard')">⭐⭐⭐ 挑戰</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 選項狀態
+        let selectedGrade = null;
+        let selectedSubject = null;
+        let selectedSemester = null;
+        let selectedDifficulty = null;
+
+        // 初始化 LINE
+        async function initializeLiff() {
+            try {
+                await liff.init({ liffId: "2009384989-h3HcVw1Q" });
+                if (liff.isInClient()) {
+                    document.getElementById('lineOverlay').style.display = 'flex';
+                }
+            } catch (error) {
+                console.log('LIFF 初始化失敗');
+            }
+        }
+
+        // 更新顯示
+        function updateDisplay() {
+            const display = document.getElementById('selectedDisplay');
+            const gradeNames = {7: '七年級', 8: '八年級', 9: '九年級'};
+            const subjectNames = {math: '數學', english: '英文', science: '自然', social: '社會', chinese: '國文'};
+            const semesterNames = {1: '上學期', 2: '下學期'};
+            const difficultyNames = {easy: '基礎', medium: '進階', hard: '挑戰'};
+
+            if (selectedGrade) document.getElementById('displayGrade').textContent = gradeNames[selectedGrade];
+            if (selectedSubject) document.getElementById('displaySubject').textContent = subjectNames[selectedSubject];
+            if (selectedSemester) document.getElementById('displaySemester').textContent = semesterNames[selectedSemester];
+            if (selectedDifficulty) document.getElementById('displayDifficulty').textContent = difficultyNames[selectedDifficulty];
+
+            if (selectedGrade || selectedSubject || selectedSemester || selectedDifficulty) {
+                display.style.display = 'block';
+            }
+        }
+
+        // 選擇年級
+        function selectGrade(grade) {
+            selectedGrade = grade;
+            updateDisplay();
+            showSection('sectionSubject');
+        }
+
+        // 選擇科目
+        function selectSubject(subject) {
+            selectedSubject = subject;
+            updateDisplay();
+            showSection('sectionSemester');
+        }
+
+        // 選擇學期
+        function selectSemester(semester) {
+            selectedSemester = semester;
+            updateDisplay();
+            showSection('sectionDifficulty');
+        }
+
+        // 選擇難易度並跳轉
+        function selectDifficulty(difficulty) {
+            selectedDifficulty = difficulty;
+            updateDisplay();
+            
+            // 跳轉到遊戲頁面
+            const params = new URLSearchParams({
+                grade: selectedGrade,
+                subject: selectedSubject,
+                semester: selectedSemester,
+                difficulty: selectedDifficulty
+            });
+            window.location.href = 'game.php?' + params.toString();
+        }
+
+        // 顯示區塊
+        function showSection(sectionId) {
+            document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeLiff);
+    </script>
+</body>
+</html>

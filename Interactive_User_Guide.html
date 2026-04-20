@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoR 語音互動說明書 | User Manual</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.8);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0; padding: 0;
+            display: flex; min-height: 100vh;
+        }
+        /* 側邊導覽列 */
+        .sidebar {
+            width: 280px; background: rgba(15, 23, 42, 0.95);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding: 30px 20px; box-sizing: border-box;
+            display: flex; flex-direction: column; gap: 15px;
+        }
+        .sidebar h2 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); }
+        .nav-btn {
+            background: transparent; border: none; color: var(--text-muted);
+            text-align: left; padding: 12px 15px; border-radius: 10px;
+            font-size: 1rem; font-weight: 600; cursor: pointer;
+            transition: 0.3s;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+        .nav-btn.active { background: var(--primary); color: white; }
+
+        /* 主內容區 */
+        .content {
+            flex: 1; padding: 50px; overflow-y: auto;
+            background-image: radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.1) 0, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0, transparent 50%);
+        }
+        .card {
+            background: var(--card); backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 24px;
+            padding: 40px; max-width: 800px; margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            animation: fadeIn 0.5s ease-out;
+            display: none;
+        }
+        .card.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 { font-size: 2.2rem; margin-bottom: 10px; font-weight: 800; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; }
+        
+        .step {
+            background: rgba(0,0,0,0.2); padding: 25px; border-radius: 16px;
+            margin-bottom: 20px; border-left: 4px solid var(--primary);
+        }
+        .step h3 { margin-bottom: 15px; color: #a5b4fc; font-size: 1.3rem; }
+        .step p { line-height: 1.6; color: #cbd5e1; font-size: 1.05rem; margin-bottom: 15px; }
+        
+        /* 語音按鈕 */
+        .tts-btn {
+            background: rgba(16, 185, 129, 0.2); border: 1px solid var(--accent);
+            color: var(--accent); padding: 10px 20px; border-radius: 30px;
+            font-size: 0.95rem; font-weight: bold; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+        }
+        .tts-btn:hover { background: var(--accent); color: white; }
+        .tts-btn.playing { background: #eab308; border-color: #eab308; color: #451a03; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(234, 179, 8, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(234, 179, 8, 0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>📚 智慧使用手冊</h2>
+        <button class="nav-btn active" onclick="switchTab('tab-intro')">🌟 系統簡介</button>
+        <button class="nav-btn" onclick="switchTab('tab-hub')">🚀 系統中樞導覽</button>
+        <button class="nav-btn" onclick="switchTab('tab-phonics')">🔤 音典 APP 教學</button>
+        <button class="nav-btn" onclick="switchTab('tab-song')">🎵 歌曲教材產出</button>
+        <button class="nav-btn" onclick="switchTab('tab-focus')">🛡️ Focus Guard 防護</button>
+    </div>
+
+    <div class="content">
+        <!-- 介紹頁 -->
+        <div id="tab-intro" class="card active">
+            <h1>蕭博士 SoR 智慧教育系統</h1>
+            <p class="subtitle">歡迎使用全方位英語教學輔助平台</p>
+            <div class="step" id="text-intro">
+                <h3>📖 關於本系統</h3>
+                <p>這套系統專門為美語老師、家長與行政人員打造。我們用最先進的 AI 人工智慧，結合「蕭博士專利發音法 (SoR)」，自動化了許多繁瑣的備課與教學步驟。</p>
+                <p>在本手冊中，你可以隨時點擊下方的「聽語音導覽」，讓 AI 助理為你朗讀每個工具的使用方式，不用再看密密麻麻的文字了！</p>
+                <button class="tts-btn" onclick="speakText('text-intro', this)">🔊 聽語音導覽</button>
+            </div>
+        </div>
+
+        <!-- 系統中樞 -->
+        <div id="tab-hub" class="card">
+            <h1>🚀 系統中樞導覽 (SoR Hub)</h1>
+            <p class="subtitle">所有工具的統一入口，從這裡出發</p>
+            <div class="step" id="text-hub">
+                <h3>一站式啟動平台</h3>
+                <p>系統中樞是整個生態系的「大腦」。當你從瀏覽器打開 <strong>http://localhost:8600</strong>（或未來雲端的網址），你會看到一個黑色的版面。</p>
+                <p>畫面上分為「核心工具」與「AI 服務」。每個彩色的方塊點進去，就能直接跳轉到對應的系統！例如綠色的「影片知識庫」可以搜尋影片，粉紅色的可以「產生歌曲教材」。</p>
+                <button class="tts-btn" onclick="speakText('text-hub', this)">🔊 聽語音導覽</button>
+            </div>
+        </div>
+
+        <!-- 音典 -->
+        <div id="tab-phonics" class="card">
+            <h1>🔤 SoR 腦科學拼讀音典</h1>
+            <p class="subtitle">帶領學生從聽音到拼字的 7 步驟</p>
+            <div class="step" id="text-phonics">
+                <h3>七步驟標準教學法</h3>
+                <p>這是我們最核心的教學介面。當你點擊一個單字時（例如 apple），畫面會出現一塊一塊的積木。</p>
+                <p><strong>操作口訣：</strong></p>
+                <p>1. 在 Step 1 到 4 時，請學生先認真「聽」母音和子音，注意不要急著讓他們背字母！<br>
+                   2. 滑鼠移到上方，會有速度條可以調整語音播放快慢。<br>
+                   3. 到了 Step 5 之後，字母才會跑出來補上，這時候才是做「形音連結」的最佳時機。</p>
+                <button class="tts-btn" onclick="speakText('text-phonics', this)">🔊 聽語音導覽</button>
+            </div>
+        </div>
+
+        <!-- 歌曲 -->
+        <div id="tab-song" class="card">
+            <h1>🎵 歌曲教材自動產出系統</h1>
+            <p class="subtitle">一鍵生出符合 SoR 專利的英文填空卷</p>
+            <div class="step" id="text-song">
+                <h3>如何產生講義？</h3>
+                <p>我們知道備課很辛苦！現在你只要進到歌曲教材系統，輸入你想教的「英文歌名」跟「歌手名字」，接著按下火箭按鈕。</p>
+                <p>AI 會在 3 到 5 分鐘內，自動去網路上爬取歌詞，篩選掉重複的副歌！並自動畫好「專利音標的空格」跟「替換字庫 (Word Bank)」。</p>
+                <p><strong>注意：</strong>生成完的教材會出現在下方的圖庫中，點進去就可以直接連接印表機，完美地印在 A4 紙上給學生寫囉！</p>
+                <button class="tts-btn" onclick="speakText('text-song', this)">🔊 聽語音導覽</button>
+            </div>
+        </div>
+
+        <!-- Focus Guard -->
+        <div id="tab-focus" class="card">
+            <h1>🛡️ Focus Guard 防護系統</h1>
+            <p class="subtitle">管好學生的線上學習狀態</p>
+            <div class="step" id="text-focus-1">
+                <h3>家長端（安裝防護）</h3>
+                <p>上線上課時，小孩總是在玩 Minecraft 或看 YouTube 嗎？請家長到下載專區下載「Focus Guard」軟體。</p>
+                <p>開啟軟體後，輸入老師發配的「教室代碼（例如 ENG101）」。它會化身為守護大使安迪娃娃，全程背景阻擋跟學習無關的視窗。</p>
+                <button class="tts-btn" onclick="speakText('text-focus-1', this)">🔊 聽語音導覽</button>
+            </div>
+            
+            <div class="step" id="text-focus-2">
+                <h3>老師端（遠端遙控面板）</h3>
+                <p>老師不用安裝任何東西！進入「老師控制台」輸入教室代碼後，就可以看到有誰在線上。你可以一鍵鎖定全班的程式，或是在學生表現優良時，一鍵發送「安迪幣」獎賞到他們的螢幕上！</p>
+                <button class="tts-btn" onclick="speakText('text-focus-2', this)">🔊 聽語音導覽</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 切換頁籤
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+            window.speechSynthesis.cancel(); // 換頁時停止語音
+            resetAllBtns();
+        }
+
+        // Web Speech API (TTS) 語音合成
+        let currentUtterance = null;
+        function speakText(containerId, btn) {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                resetAllBtns();
+                if (btn.classList.contains('playing')) return;
+            }
+
+            resetAllBtns();
+            btn.classList.add('playing');
+            btn.innerHTML = '⏸️ 停止導覽';
+
+            // 抓取文字內容 (扣除掉本身 button 的字)
+            const container = document.getElementById(containerId);
+            const clone = container.cloneNode(true);
+            const btns = clone.querySelectorAll('button');
+            btns.forEach(b => b.remove());
+            const textToSpeak = clone.innerText;
+
+            currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+            currentUtterance.lang = 'zh-TW';
+            currentUtterance.rate = 1.0;
+            currentUtterance.pitch = 1.0;
+
+            // 尋找親切的中文語音
+            const voices = window.speechSynthesis.getVoices();
+            const twVoice = voices.find(v => v.lang.includes('TW') || v.lang.includes('zh-HK'));
+            if(twVoice) currentUtterance.voice = twVoice;
+
+            currentUtterance.onend = function() {
+                resetAllBtns();
+            };
+
+            window.speechSynthesis.speak(currentUtterance);
+        }
+
+        function resetAllBtns() {
+            document.querySelectorAll('.tts-btn').forEach(b => {
+                b.classList.remove('playing');
+                b.innerHTML = '🔊 聽語音導覽';
+            });
+        }
+
+        // 確保載入聲音包
+        window.speechSynthesis.onvoiceschanged = function() {
+            window.speechSynthesis.getVoices();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+name: audio_transcriber
+description: 音訊檔轉文字（Whisper），自動處理超過 24MB 的大音訊（切割後逐段轉錄）
+version: "1.0"
+author: extracted from sorlinebot0121/multi_maker_long.py
+
+functions:
+  - name: transcribe_audio
+    description: 轉錄音訊為文字，大檔自動切割
+    params:
+      - file_path: 音訊檔路徑
+      - language: 語言代碼（預設 zh）
+    returns: 逐字稿字串 or None
+
+  - name: save_transcript
+    description: 將逐字稿存成同名 .txt 檔
+    params:
+      - audio_path: 音訊檔路徑
+      - transcript: 逐字稿文字
+
+  - name: get_or_transcribe
+    description: 優先讀取已存在的 .txt；不存在才呼叫 Whisper（省錢模式）
+    params:
+      - audio_path: 音訊檔路徑
+      - language: 語言代碼（預設 zh）
+
+dependencies:
+  - openai
+  - pydub
+  - ffmpeg（系統層級，brew install ffmpeg）
+
+env:
+  - OPENAI_API_KEY

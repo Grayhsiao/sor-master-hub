@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>國中智慧王 - 答題挑戰</title>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+    window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .game-container { max-width: 600px; margin: 0 auto; }
+
+        /* 總分顯示 */
+        .score-display-top {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 16px;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* 題目卡片 */
+        .question-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .question-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .question-topic {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .question-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .image-description {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #555;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* SoR 語音區塊 */
+        .sor-audio-block {
+            display: none; /* 預設隱藏 */
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sor-audio-block.active { display: block; }
+
+        .audio-player { width: 100%; border-radius: 10px; outline: none; }
+
+        .phonetic-block {
+            display: none; /* 預設隱藏 */
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .phonetic-block.active { display: block; }
+
+        /* 倒數計時器 */
+        .timer-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .timer-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .timer-circle::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .timer-text {
+            position: relative;
+            z-index: 1;
+            font-size: 40px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .timer-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* 語音辨識區 */
+        .voice-recognition-block {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+            text-align: center;
+        }
+
+        .voice-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .voice-icon { font-size: 24px; }
+        .voice-icon.listening { animation: pulse 1s infinite; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        .voice-text {
+            font-size: 18px;
+            color: #333;
+            min-height: 50px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .voice-text.recognized { border-color: #667eea; background: #f0f4ff; }
+
+        /* 選項 */
+        .options-grid {
+            display: grid;
+            gap: 12px;
+            visibility: hidden; /* 初始隱藏 */
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s linear;
+        }
+
+        .options-grid.visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .option-btn {
+            background: #fff;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px 20px;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-btn:hover { border-color: #667eea; background: #f8f9ff; transform: translateX(5px); }
+
+        .option-btn.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option-btn.wrong {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .option-btn.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* 下一題按鈕 (已移除，改為自動跳轉) */
+
+        /* 進度條 */
+        .progress-bar {
+            background: rgba(255,255,255,0.3);
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill { height: 100%; background: #fff; border-radius: 4px; transition: width 0.3s ease; }
+
+        /* 開始區 */
+        .start-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .start-btn {
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .start-btn:hover { transform: scale(1.05); }
+
+        /* 結果區 */
+        .result-section {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+        }
+
+        .result-section.active { display: block; }
+
+        .score-display-final {
+            font-size: 60px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .result-message {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* 提示框 */
+        .hint-toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #333;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 9999;
+            transition: transform 0.3s ease;
+        }
+
+        .hint-toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* 參數顯示區 */
+        .param-display {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* 初始隱藏遊戲區 */
+        #gameArea { display: none; }
+
+        /* 狀態標籤 */
+        .answer-feedback {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            vertical-align: middle;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+        .answer-feedback.show { opacity: 1; }
+        .answer-feedback.correct { color: #28a745; }
+        .answer-feedback.wrong { color: #dc3545; }
+
+        /* 解說區塊 - iPad 優化 */
+        .explanation-block {
+            display: none;
+            background: #e3f2fd;
+            border: 3px solid #2196f3;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .explanation-block.active { display: block; animation: fadeIn 0.3s ease; }
+        .explanation-block.show-correct { background: #e8f5e9; border-color: #4caf50; }
+        .explanation-block.show-wrong { background: #ffebee; border-color: #f44336; }
+        .explanation-title { font-weight: bold; font-size: 20px; margin-bottom: 12px; }
+        .explanation-title.correct { color: #2e7d32; }
+        .explanation-title.wrong { color: #c62828; }
+        .explanation-content { font-size: 18px; line-height: 1.8; color: #333; }
+
+        /* 下一題按鈕 */
+        .next-question-btn {
+            display: none;
+            width: 100%;
+            padding: 18px 30px;
+            margin-top: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            transition: transform 0.2s;
+        }
+        .next-question-btn.active { display: block; animation: fadeIn 0.3s ease; }
+        .next-question-btn:hover { transform: scale(1.02); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hint-toast" id="hintToast"></div>
+
+    <div class="game-container">
+        <!-- 參數顯示 -->
+        <div class="param-display" id="paramDisplay">
+            載入參數中...
+        </div>
+
+        <!-- 總分顯示 -->
+        <div class="score-display-top" id="currentScoreDisplay">
+            總分：0 分
+        </div>
+
+        <!-- 進度條 -->
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <!-- 遊戲區 -->
+        <div id="gameArea">
+            <!-- 題目卡片 -->
+            <div class="question-card" id="questionCard">
+                <div class="question-header">
+                    <span class="question-number" id="questionNum">第 1 題</span>
+                    <span class="question-topic" id="questionTopic">載入中...</span>
+                </div>
+                
+                <div class="question-content" id="questionContent">題目載入中...</div>
+                
+                <div class="image-description" id="imageDesc"></div>
+                
+                <!-- SoR 語音區塊 -->
+                <div class="sor-audio-block" id="sorAudioBlock">
+                    <audio id="audioPlayer" class="audio-player" controls>
+                        您的瀏覽器不支援音訊播放
+                    </audio>
+                    <div class="phonetic-block" id="phoneticBlock">
+                        <span id="phoneticText"></span>
+                    </div>
+                </div>
+
+                <!-- 語音辨識區 -->
+                <div class="voice-recognition-block" id="voiceBlock">
+                    <div class="voice-status">
+                        <span class="voice-icon" id="voiceIcon">🎤</span>
+                        <span id="voiceStatus">請說出答案...</span>
+                    </div>
+                    <div class="voice-text" id="voiceText"></div>
+                </div>
+            </div>
+
+            <!-- 倒數計時器 -->
+            <div class="timer-section" id="timerSection">
+                <div class="timer-circle">
+                    <span class="timer-text" id="timerText">5</span>
+                </div>
+                <div class="timer-label">秒後切換手動模式</div>
+            </div>
+
+            <!-- 選項區 -->
+            <div class="options-grid" id="optionsGrid"></div>
+
+            <!-- 解說區塊 -->
+            <div class="explanation-block" id="explanationBlock">
+                <div class="explanation-title" id="explanationTitle"></div>
+                <div class="explanation-content" id="explanationContent"></div>
+            </div>
+
+            <!-- 下一題按鈕 -->
+            <button class="next-question-btn" id="nextQuestionBtn" onclick="goToNextQuestion()">
+                下一題 ➔
+            </button>
+        </div>
+
+        <!-- 開始區 -->
+        <div class="start-section" id="startSection">
+            <h1 style="color:#fff;margin-bottom:20px;">🎯 國中智慧王</h1>
+            <p style="color:#fff;margin-bottom:30px;font-size:18px;">準備好接受挑戰了嗎？</p>
+            <button class="start-btn" id="startBtn">開始挑戰</button>
+        </div>
+
+        <!-- 結果區 -->
+        <div class="result-section" id="resultSection">
+            <div class="result-message" id="finalResultMessage">恭喜完成挑戰！</div>
+            <div class="score-display-final" id="finalScoreDisplay">您的總分為：0 分</div>
+            <button class="start-btn" onclick="window.location.href = 'index.php'">再玩一次</button>
+        </div>
+    </div>
+
+    <script>
+        // ============ 全域變數 ============
+        let questions = [];
+        let currentIndex = 0;
+        let currentScore = 0; // 新增得分變數
+        let timerInterval = null;
+        let timeLeft = 5;
+        let isAnswered = false;
+        let recognition = null;
+        let currentAnswerFeedbackTimeout = null;
+        let answeredByVoice = false; // 追蹤是否由語音答題
+
+        // ============ URL 參數 ============
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedGrade = urlParams.get('grade');
+        const selectedSubject = urlParams.get('subject');
+        const selectedSemester = urlParams.get('semester');
+        const selectedDifficulty = urlParams.get('difficulty');
+
+        function displayParams() {
+            const subjectNames = {math: '數學', english: '英文', science: '自然', social: '社會', chinese: '國文'};
+            const semesterNames = {1: '上學期', 2: '下學期'};
+            const difficultyNames = {easy: '基礎', medium: '進階', hard: '挑戰'};
+            
+            document.getElementById('paramDisplay').innerHTML = 
+                `📚 ${selectedGrade || '-'} 年級 | ${subjectNames[selectedSubject] || '-'} | ${semesterNames[selectedSemester] || '-'} | ${difficultyNames[selectedDifficulty] || '-'}`;
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('currentScoreDisplay').textContent = `總分：${currentScore} 分`;
+        }
+
+        // ============ 初始化語音辨識 ============
+        function initSpeechRecognition() {
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                recognition = new SpeechRecognition();
+                recognition.lang = 'zh-TW';
+                recognition.continuous = false; 
+                recognition.interimResults = true;
+                recognition.maxAlternatives = 1;
+
+                recognition.onstart = () => {
+                    document.getElementById('voiceIcon').classList.add('listening');
+                    document.getElementById('voiceStatus').textContent = '正在聆聽...';
+                    document.getElementById('voiceText').textContent = '';
+                };
+
+                recognition.onresult = (event) => {
+                    let transcript = event.results[0][0].transcript;
+                    document.getElementById('voiceText').textContent = transcript;
+                    document.getElementById('voiceText').classList.add('recognized');
+                    checkVoiceAnswer(transcript);
+                };
+
+                recognition.onerror = (event) => {
+                    console.log('語音辨識錯誤:', event.error);
+                    document.getElementById('voiceStatus').textContent = '語音辨識失敗';
+                    // 若語音失敗，5秒後切換手動模式的邏輯會處理
+                };
+
+                recognition.onend = () => {
+                    document.getElementById('voiceIcon').classList.remove('listening');
+                    // 如果還沒答題且計時器還在跑，重新啟動語音辨識 (容錯) - 暫時關閉此邏輯，避免無限重啟
+                    // if (!isAnswered && timeLeft > 0) {
+                    //     setTimeout(() => {
+                    //         if (!isAnswered && recognition) {
+                    //             try { recognition.start(); } catch(e) {}
+                    //         }
+                    //     }, 1000);
+                    // }
+                };
+            } else {
+                document.getElementById('voiceBlock').style.display = 'none';
+                document.getElementById('timerSection').style.display = 'none';
+                showToast('您的瀏覽器不支援語音輸入，將直接進入手動選擇模式。');
+                
+                // 如果沒有語音辨識，直接顯示按鈕
+                setTimeout(() => {
+                    document.getElementById('voiceStatus').textContent = '您的瀏覽器不支援語音輸入，請手動選擇。';
+                    document.getElementById('optionsGrid').classList.add('visible');
+                    document.querySelectorAll('.option-btn').forEach(btn => {
+                        btn.classList.remove('disabled');
+                    });
+                }, 500);
+            }
+        }
+
+        // ============ 載入題庫 ============
+        async function loadQuestions() {
+            try {
+                // TODO: 根據 selectedGrade, selectedSubject, selectedSemester, selectedDifficulty 載入不同題庫
+                const response = await fetch('questions.json');
+                if (!response.ok) throw new Error('無法載入題庫');
+                const data = await response.json();
+                questions = data.questions;
+                return true;
+            } catch (error) {
+                console.error('載入失敗:', error);
+                showToast('題庫載入失敗，請確認 questions.json 存在');
+                return false;
+            }
+        }
+
+        // ============ 顯示題目 ============
+        function displayQuestion() {
+            if (currentAnswerFeedbackTimeout) clearTimeout(currentAnswerFeedbackTimeout);
+
+            if (currentIndex >= questions.length) {
+                showResult();
+                return;
+            }
+
+            isAnswered = false;
+            answeredByVoice = false;
+            const q = questions[currentIndex];
+            
+            // ============ 重置 UI 狀態 ============
+            document.getElementById('explanationBlock').style.display = 'none';
+            document.getElementById('explanationBlock').classList.remove('active');
+            document.getElementById('nextQuestionBtn').classList.remove('active');
+            
+            // 更新進度
+            document.getElementById('progressFill').style.width = 
+                ((currentIndex) / questions.length * 100) + '%';
+            
+            // 更新題目資訊
+            document.getElementById('questionNum').textContent = `第 ${currentIndex + 1} 題`;
+            document.getElementById('questionTopic').textContent = q.topic;
+            document.getElementById('questionContent').innerHTML = q.content;
+
+            // 圖片描述
+            const imageDescEl = document.getElementById('imageDesc');
+            if (q.image_desc) {
+                imageDescEl.textContent = q.image_desc;
+                imageDescEl.style.display = 'block';
+            } else {
+                imageDescEl.style.display = 'none';
+            }
+
+            // SoR 語音區塊
+            const sorBlock = document.getElementById('sorAudioBlock');
+            const phoneticBlock = document.getElementById('phoneticBlock');
+            const audioPlayer = document.getElementById('audioPlayer');
+            
+            if (q.SoR && q.SoR.audio_url) {
+                audioPlayer.src = q.SoR.audio_url;
+                sorBlock.classList.add('active');
+                
+                if (q.SoR.phonetic_symbol) {
+                    document.getElementById('phoneticText').textContent = q.SoR.phonetic_symbol;
+                    phoneticBlock.classList.add('active');
+                } else {
+                    phoneticBlock.classList.remove('active');
+                }
+            } else {
+                sorBlock.classList.remove('active');
+                phoneticBlock.classList.remove('active');
+                audioPlayer.src = '';
+            }
+
+            // ============ 互動模式分流 (Step 2) ============
+            const interactionMode = q.interaction || 'click'; // 預設為 click
+            
+            // 隱藏所有區塊
+            document.getElementById('optionsGrid').classList.remove('visible');
+            document.getElementById('voiceBlock').style.display = 'none';
+            document.getElementById('timerSection').style.display = 'none';
+
+            if (interactionMode === 'speech') {
+                // 語音模式 (SoR 專利音標練習)
+                document.getElementById('voiceBlock').style.display = 'block';
+                document.getElementById('timerSection').style.display = 'block';
+                document.getElementById('voiceStatus').textContent = '請說出答案 (A/B/C/D)...';
+                document.getElementById('voiceText').textContent = '';
+                document.getElementById('voiceText').classList.remove('recognized');
+                
+                // 渲染選項 (disabled)
+                renderOptions(q, true);
+                
+                // 啟動計時器 + 語音
+                resetTimer();
+                startTimer();
+                if (recognition) {
+                    try { recognition.start(); } catch(e) { console.warn("語音辨識啟動失敗"); }
+                }
+            } else {
+                // 點擊模式 (Gray 首選)
+                renderOptions(q, false); // 直接啟用按鈕
+                document.getElementById('optionsGrid').classList.add('visible');
+            }
+
+            // ============ 渲染 LaTeX 數學公式 ============
+            setTimeout(() => {
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise().catch((err) => console.log('MathJax error:', err));
+                }
+            }, 100);
+        }
+
+        // ============ 渲染選項 ============
+        function renderOptions(question, disabled = false) {
+            const grid = document.getElementById('optionsGrid');
+            grid.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D'];
+            const optionKeys = ['A', 'B', 'C', 'D'];
+            
+            optionLabels.forEach((label, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<strong>${label}.</strong> ${question.options[optionKeys[index]] || ''}`;
+                btn.dataset.option = label;
+                btn.onclick = () => selectAnswer(label, false);
+                if (disabled) btn.classList.add('disabled');
+                grid.appendChild(btn);
+            });
+        }
+
+        // ============ 選擇答案 ============
+        function selectAnswer(option, isVoice = true) {
+            if (isAnswered) return;
+            isAnswered = true;
+            answeredByVoice = isVoice;
+
+            clearInterval(timerInterval);
+            if (recognition) {
+                try { recognition.stop(); } catch(e) {}
+            }
+
+            const q = questions[currentIndex];
+            const isCorrect = option === q.answer;
+            
+            if (isCorrect) {
+                if (answeredByVoice) {
+                    currentScore += 100;
+                } else {
+                    currentScore += 50;
+                }
+                updateScoreDisplay();
+            }
+
+            // 顯示正確/錯誤
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                btn.classList.add('disabled');
+                if (btn.dataset.option === q.answer) {
+                    btn.classList.add('correct');
+                } else if (btn.dataset.option === option && !isCorrect) {
+                    btn.classList.add('wrong');
+                }
+            });
+
+            // 顯示對錯標籤
+            const feedbackEl = document.createElement('span');
+            feedbackEl.className = 'answer-feedback';
+            feedbackEl.textContent = isCorrect ? '✅' : '❌';
+            feedbackEl.classList.add(isCorrect ? 'correct' : 'wrong');
+            const targetButton = document.querySelector(`.option-btn[data-option="${option}"]`);
+            if (targetButton) {
+                targetButton.appendChild(feedbackEl);
+                setTimeout(() => feedbackEl.classList.add('show'), 50);
+            }
+
+            // ============ 學習停頓：顯示解析區 (Step 3) ============
+            const explanationBlock = document.getElementById('explanationBlock');
+            const explanationTitle = document.getElementById('explanationTitle');
+            const explanationContent = document.getElementById('explanationContent');
+            const nextBtn = document.getElementById('nextQuestionBtn');
+            
+            // 使用 ext 欄位，fallback 到 explanation
+            const explanationText = q.ext || q.explanation || '（本題無解析）';
+            
+            explanationBlock.classList.remove('show-correct', 'show-wrong');
+            explanationBlock.classList.add('active', isCorrect ? 'show-correct' : 'show-wrong');
+            explanationTitle.textContent = isCorrect ? '✅ 答對了！' : '❌ 答錯了！';
+            explanationTitle.className = 'explanation-title ' + (isCorrect ? 'correct' : 'wrong');
+            explanationContent.innerHTML = explanationText.replace(/\n/g, '<br>'); // 支援換行
+            explanationBlock.style.display = 'block';
+            
+            // 自動捲動到解說區
+            setTimeout(() => {
+                explanationBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 150);
+            
+            // 渲染 LaTeX 數學公式 (延遲確保 DOM 更新)
+            setTimeout(() => {
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise().catch((err) => console.log('MathJax error:', err));
+                }
+            }, 100);
+            
+            // 顯示「下一題」按鈕
+            nextBtn.classList.add('active');
+            
+            // 禁止自動跳轉，等待使用者點擊
+        }
+
+        // ============ 下一題按鈕 (手動跳轉) ============
+        function goToNextQuestion() {
+            currentIndex++;
+            displayQuestion();
+        }
+
+        // ============ 語音辨識答案偵測 ============
+        function checkVoiceAnswer(transcript) {
+            if (isAnswered || !transcript) return;
+            
+            const normalized = transcript.toUpperCase().replace(/[^ABCD]/g, '');
+            const validOptions = ['A', 'B', 'C', 'D'];
+            
+            for (const option of validOptions) {
+                if (normalized.includes(option)) {
+                    showToast(`語音偵測到答案：${option}`);
+                    selectAnswer(option, true); // 標記為語音答題
+                    return;
+                }
+            }
+        }
+
+        // ============ 計時器 ============
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 5;
+            document.getElementById('timerText').textContent = timeLeft;
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timerText').textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    if (recognition) {
+                        try { recognition.stop(); } catch(e) {} // 關閉麥克風
+                    }
+                    if (!isAnswered) {
+                        showToast('語音失敗，請手動選擇。');
+                        document.getElementById('voiceStatus').textContent = '語音失敗，請手動選擇';
+                        document.getElementById('voiceBlock').style.display = 'none'; // 隱藏語音區塊
+                        document.getElementById('timerSection').style.display = 'none'; // 隱藏計時器
+                        
+                        // 淡入顯示 A, B, C, D 按鈕，並啟用按鈕
+                        document.getElementById('optionsGrid').classList.add('visible');
+                        document.querySelectorAll('.option-btn').forEach(btn => {
+                            btn.classList.remove('disabled');
+                        });
+                    }
+                }
+            }, 1000);
+        }
+
+        // ============ 顯示結果 ============
+        function showResult() {
+            document.getElementById('gameArea').style.display = 'none';
+            document.getElementById('currentScoreDisplay').style.display = 'none';
+            document.getElementById('resultSection').classList.add('active');
+            document.getElementById('progressFill').style.width = '100%';
+            
+            document.getElementById('finalScoreDisplay').textContent = `您的總分為：${currentScore} 分`;
+            
+            let message = '';
+            const maxPossibleScore = questions.length * 100; // 所有語音答對的最高分
+            const percentage = (currentScore / maxPossibleScore) * 100;
+
+            if (percentage >= 90) message = '🎉 太棒了！滿分高手！';
+            else if (percentage >= 70) message = '👍 做得好！繼續保持！';
+            else if (percentage >= 50) message = '💪 還有進步空間，再試一次！';
+            else message = '📚 多練習，一定可以進步！';
+            
+            document.getElementById('finalResultMessage').textContent = message;
+        }
+
+        // ============ 提示框 ============
+        function showToast(message) {
+            const toast = document.getElementById('hintToast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+
+        // ============ 初始化遊戲 ============
+        document.getElementById('startBtn').onclick = async () => {
+            const loaded = await loadQuestions();
+            if (!loaded) return;
+
+            // 初始化分數顯示
+            currentScore = 0;
+            updateScoreDisplay();
+            document.getElementById('currentScoreDisplay').style.display = 'block';
+
+            // 顯示參數
+            displayParams();
+
+            document.getElementById('startSection').style.display = 'none';
+            document.getElementById('gameArea').style.display = 'block';
+            
+            initSpeechRecognition();
+            displayQuestion();
+        };
+
+        // 頁面載入時初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            displayParams();
+            initSpeechRecognition();
+        });
+    </script>
+</body>
+</html>

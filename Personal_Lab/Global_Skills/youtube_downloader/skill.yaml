@@ -1,0 +1,29 @@
+name: youtube_downloader
+description: 解析 YouTube 播放清單或單支影片，下載為 MP3
+version: "1.0"
+author: consolidated from sorlinebot0121/multi_maker_long.py + sor_line_db_bot/multi_maker.py
+
+functions:
+  - name: get_playlist_info
+    description: 解析 YouTube 網址，回傳影片清單和播放清單標題
+    params:
+      - url: YouTube 網址（playlist 或 watch URL）
+    returns: (video_list, playlist_title)
+
+  - name: download_audio
+    description: 下載指定影片的音訊為 MP3
+    params:
+      - video_info: {"id": str, "title": str}
+      - output_dir: 輸出資料夾（預設 downloaded_files）
+      - concept_number: 觀念序號
+      - series_name: 系列名稱（可選）
+      - skip: 是否跳過此影片
+      - bitrate: MP3 位元率（預設 64k）
+    returns: MP3 路徑, "SKIPPED", or None
+
+  - name: sanitize_filename
+    description: 移除檔名中的非法字元
+
+dependencies:
+  - yt-dlp
+  - ffmpeg（系統層級，brew install ffmpeg）

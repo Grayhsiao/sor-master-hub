@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# Ngrok binary
+ngrok
+
+# Large Data & Vector DB
+chroma_db/
+knowledge_base/
+filtered_posts/
+
+# Logs & OS
+*.log
+.DS_Store
+_archive/

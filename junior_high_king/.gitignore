@@ -1,0 +1,12 @@
+# PHP/Web
+*.log
+.DS_Store
+Thumbs.db
+
+# Database (backup files only, keep main code)
+*.sql
+/db_backups/
+
+# Assets
+*.zip
+*.tar.gz

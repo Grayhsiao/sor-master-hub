@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoR 腦科學拼讀音典</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --v5-salmon:  #ff7f50;
+            --v5-peach:   #fff9f5;
+            --sor-red:    #ff4757;
+            --sor-dark:   #2d3436;
+            --border:     #f1e1d6;
+            --info-col:   160px;
+            --shadow:     0 8px 24px rgba(255, 127, 80, 0.08);
+            --radius:     20px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background: var(--v5-peach);
+            color: var(--sor-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ─── 頂部固定列 ─── */
+        #nav-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid var(--border);
+            padding: 15px 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 900; color: var(--v5-salmon); }
+
+        #step-controller {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--v5-salmon);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 127, 80, 0.3);
+        }
+
+        .step-ctrl-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 800;
+            transition: 0.2s;
+        }
+        .step-ctrl-btn:hover { background: white; color: var(--v5-salmon); }
+
+        .step-display { font-weight: 900; min-width: 160px; text-align: center; font-size: 1rem; }
+
+        .autoplay-btn {
+            background: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .autoplay-btn.playing { background: #ff4757; color: white; }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        #word-search {
+            flex: 1;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 2px solid var(--border);
+            outline: none;
+            font-weight: 600;
+        }
+
+        /* ─── 內容佈局 ─── */
+        #app-container {
+            width: 95%;
+            max-width: 1400px;
+            padding: 20px 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+        @media (max-width: 900px) { #app-container { grid-template-columns: 1fr; } }
+
+        .dictionary-card {
+            display: grid;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            grid-template-columns: var(--info-col) 1fr;
+            height: 140px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            overflow: visible !important;
+            position: relative;
+        }
+
+        .left-info {
+            padding: 12px 18px;
+            border-right: 1px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 恢復居中 */
+            background: #fffcf9;
+            border-radius: 12px 0 0 12px;
+        }
+        .word-title { font-size: 1.5rem; font-weight: 900; color: var(--sor-dark); }
+        .info-kk { font-size: 0.9rem; color: #888; font-family: 'Courier New', monospace; margin: 2px 0; }
+        .info-zh { font-size: 0.85rem; color: #666; font-weight: 600; line-height: 1.3; }
+
+        .card-footer {
+            position: absolute;
+            top: 10px; /* 改為左上角 */
+            left: 15px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+        
+        .action-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .action-btn:hover { background: var(--v5-salmon); color: white; transform: translateY(-2px); }
+
+        /* ─── 穩定佈局修正 ─── */
+        .right-sor {
+            padding: 0;
+            display: flex;
+            align-items: center; /* 讓整體教學塊垂直居中於卡片 */
+            justify-content: center;
+            overflow: visible !important;
+            position: relative;
+        }
+
+        /* 統一的教學內容包裝盒，確保高度固定，不會隨 Step 彈跳 */
+        .edu-content-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* 以底部音標為基準向上堆疊 */
+            height: 100px;
+            width: 100%;
+            gap: 2px; /* 這裡控制字母與音標間隙 */
+        }
+
+
+        /* ─── SoR 9 格渲染系統 (水平放寬) ─── */
+        .sor-row {
+            display: grid;
+            grid-template-columns: repeat(9, 46px); /* 46px 提供舒展空間，不擠壓邊框 */
+            justify-content: center;
+            align-items: flex-end; 
+            height: auto; 
+            position: relative;
+        }
+        .sor-row.letter-row { 
+            height: auto; 
+            margin-bottom: 0; 
+        }
+
+        .letter-text {
+            font-size: 1.95rem; /* 稍微放大 */
+            font-weight: 900;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            line-height: 1.1; 
+            display: block;
+            white-space: nowrap;
+        }
+        /* 短語專用樣式 */
+        .phrase-text {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--sor-dark);
+            text-align: center;
+            width: 100%;
+            padding: 0 10px;
+            word-break: break-word;
+            white-space: normal;
+            line-height: 1.2;
+        }
+        .vowel-red { color: var(--sor-red); }
+        .text-bw   { color: var(--sor-dark); }
+
+        .symbol-img { width: 40px; height: 40px; object-fit: contain; }
+
+        /* 語調位置改為堆疊間距模式 */
+        .intonation-icon {
+            width: 20px; /* 稍微縮小语调，視覺更精緻 */
+            height: 20px;
+            object-fit: contain;
+            margin: 0;
+        }
+
+        .symbol-with-intonation {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+        /* 專利音標 (文字類) 樣式 */
+        .patented-symbol {
+            width: 40px;
+            height: 40px;
+            background: #74b9ff; /* 專利用藍色背景 */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #pagination { padding: 40px; display: flex; gap: 20px; align-items: center; }
+        #pagination button { padding: 10px 25px; border-radius: 30px; border: 1px solid var(--border); background: white; cursor: pointer; font-weight: 700; }
+        
+        .empty-state { text-align: center; padding: 100px; color: #999; }
+    </style>
+</head>
+<body>
+
+<div id="nav-header">
+    <h1>SoR 腦科學拼讀音典</h1>
+    <div id="step-controller">
+        <button class="step-ctrl-btn" onclick="changeStep(-1)">PREV</button>
+        <div class="step-display" id="step-display">Step 1: 母音定錨</div>
+        <button class="step-ctrl-btn" onclick="changeStep(1)">NEXT</button>
+        <button class="autoplay-btn" id="autoplay-btn" onclick="toggleAutoplay()">▶ 循序播放</button>
+    </div>
+    <div class="controls">
+        <input type="text" id="word-search" placeholder="搜尋單字..." oninput="onSearch()">
+        <div class="radio-group">
+            <label><input type="radio" name="sort" value="sor" checked onchange="changeSort('sor')"><span>音典</span></label>
+            <label><input type="radio" name="sort" value="700" onchange="changeSort('700')"><span>700單</span></label>
+        </div>
+        <select id="chapter-select" onchange="changeChapter()"><option value="">所有章節</option></select>
+    </div>
+</div>
+
+<div id="app-container"></div>
+
+<div id="pagination">
+    <button id="prev-page" onclick="changePage(-1)">← 上一頁</button>
+    <div id="page-info">第 1 / 1 頁</div>
+    <button id="next-page" onclick="changePage(1)">下一頁 →</button>
+</div>
+
+<script>
+    const API_BASE = 'http://127.0.0.1:5055';
+    let currentStep = 1, currentSort = 'sor', currentChapter = '', currentPage = 1, pageSize = 16;
+    let filteredWords = [], wordMap = {}, searchTimer = null, autoplayTimer = null, isAutoplaying = false;
+
+    const STEP_NAMES = ['母音定錨', '二拼進場', '聲音完成', '音形連結', '音標退場', '黑白連結', '實戰閱讀'];
+
+    function updateStepDisplay() {
+        document.getElementById('step-display').textContent = `Step ${currentStep}: ${STEP_NAMES[currentStep-1]}`;
+    }
+
+    function changeStep(delta) {
+        currentStep = Math.max(1, Math.min(7, currentStep + delta));
+        updateStepDisplay();
+        render();
+    }
+
+    function toggleAutoplay() {
+        const btn = document.getElementById('autoplay-btn');
+        if (isAutoplaying) {
+            clearInterval(autoplayTimer);
+            isAutoplaying = false;
+            btn.textContent = '▶ 循序播放';
+            btn.classList.remove('playing');
+        } else {
+            isAutoplaying = true;
+            btn.textContent = '⏹ 停止播放';
+            btn.classList.add('playing');
+            currentStep = 1;
+            runAutoplayStep();
+        }
+    }
+
+    function runAutoplayStep() {
+        if (!isAutoplaying) return;
+        updateStepDisplay();
+        render();
+        if (currentStep < 7) {
+            autoplayTimer = setTimeout(() => { currentStep++; runAutoplayStep(); }, 1200);
+        } else {
+            isAutoplaying = false;
+            document.getElementById('autoplay-btn').textContent = '▶ 循序播放';
+            document.getElementById('autoplay-btn').classList.remove('playing');
+        }
+    }
+
+    function onSearch() {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => { currentPage = 1; loadWords(document.getElementById('word-search').value); }, 300);
+    }
+
+    function changeSort(s) { 
+        currentSort = s; 
+        currentPage = 1; 
+        currentChapter = ''; 
+        loadChapters(); // 切換模式時重新載入章節
+        loadWords(); 
+    }
+    function changeChapter() { currentChapter = document.getElementById('chapter-select').value; currentPage = 1; loadWords(); }
+
+    async function loadChapters() {
+        const select = document.getElementById('chapter-select');
+        try {
+            const res = await fetch(`${API_BASE}/api/chapters?sort=${currentSort}`);
+            const data = await res.json();
+            const chapters = data.chapters || [];
+            select.innerHTML = '<option value="">所有章節</option>' + 
+                chapters.map(c => `<option value="${c.chapter_700 || c.chapter}">${c.chapter_name_700 || c.chapter_name} (${c.word_count})</option>`).join('');
+        } catch (e) { console.error("加載章節失敗", e); }
+    }
+    function changePage(delta) { 
+        currentPage += delta; 
+        if (currentPage < 1) currentPage = 1;
+        render(); 
+        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    }
+
+    async function loadWords(q = '') {
+        try {
+            const res = await fetch(`${API_BASE}/api/words?sort=${currentSort}&q=${encodeURIComponent(q)}&chapter=${encodeURIComponent(currentChapter)}&limit=1000`);
+            const data = await res.json();
+            filteredWords = data.words || data; // 修正數據結構提取
+            wordMap = {};
+            filteredWords.forEach(w => wordMap[w.sor_id] = w);
+            render();
+        } catch (e) { document.getElementById('app-container').innerHTML = `<div class="empty-state">❌ API 連線失敗 (請確認 server.py 已啟動)</div>`; }
+    }
+
+    function render() {
+        const container = document.getElementById('app-container');
+        const start = (currentPage - 1) * pageSize;
+        const pageWords = filteredWords.slice(start, start + pageSize);
+        const totalPages = Math.ceil(filteredWords.length / pageSize) || 1;
+        
+        document.getElementById('page-info').textContent = `第 ${currentPage} / ${totalPages} 頁`;
+
+        if (pageWords.length === 0) {
+            container.innerHTML = '<div class="empty-state">😔 找不到單字</div>';
+            return;
+        }
+
+        container.innerHTML = pageWords.map(item => `
+            <div class="dictionary-card" data-step="${currentStep}">
+                <div class="left-info">
+                    <div class="word-title">${item.word}</div>
+                    <div class="info-kk">${item.kk || ''}</div>
+                    <div class="info-zh">${item.trans_zh || item.chinese_pub || ''}</div>
+                </div>
+                <div class="right-sor">
+                    ${renderStep(currentStep, item)}
+                    <div class="card-footer">
+                        <button class="action-btn" onclick="speak(${item.sor_id},0.6)">🚲</button>
+                        <button class="action-btn" onclick="speak(${item.sor_id},1)">🚗</button>
+                    </div>
+                </div>
+            </div>`).join('');
+    }
+
+    function renderStep(step, item) {
+        const word = item.word.trim();
+        const rawSyllables = Array.isArray(item.minum) ? item.minum : [];
+        const rawInton = (item.intonation || '').replace(/\s/g, '');
+        
+        const allCodes = rawSyllables.flat(2).map(c => isNaN(c) ? c : Number(c));
+        const globalVIdx = allCodes.length > 0 ? allCodes.findIndex(c => typeof c === 'number' && c >= 44 && c <= 65) : -1;
+        
+        let letterRow = '';
+        const isBW = step >= 6;
+        const isPhrase = word.includes(' ') || !rawSyllables || rawSyllables.length === 0;
+
+        if (isPhrase) {
+            // 短語模式：大字置中呈現 (根據新邏輯：Step 5 之後才出現全名字母)
+            const showPhraseLetter = (step >= 5);
+            letterRow = `<div class="phrase-text ${isBW ? '' : 'vowel-red'}" style="grid-column:1/span 9; text-align:center; visibility: ${showPhraseLetter ? 'visible' : 'hidden'}">${word}</div>`;
+        } else {
+            // 單字模式
+            // ... (keep current logic)
+            // 改進的切分邏輯：儘量對齊音標分佈
+            let segments = ["", "", ""];
+            const vIdx = globalVIdx >= 0 ? globalVIdx : 0;
+            const phoneCount = allCodes.length;
+            
+            if (phoneCount > 0) {
+                // 音標分佈比例
+                const onCount = vIdx;
+                const coCount = phoneCount - vIdx - 1;
+                
+                // 字母分佈比例 (啟發式)
+                // 優先尋找母音字母 (a,e,i,o,u,y) 在單字中的位置
+                const vowelRegex = /[aeiouy]+/gi;
+                let match;
+                let bestMatch = null;
+                let minDiff = 999;
+                
+                // 尋找與音標定位最接近的母音群 (基於相對比例)
+                const symbolRatio = (vIdx + 0.5) / phoneCount;
+                while ((match = vowelRegex.exec(word)) !== null) {
+                    const letterRatio = (match.index + match[0].length / 2) / word.length;
+                    const diff = Math.abs(letterRatio - symbolRatio);
+                    if (diff < minDiff) { 
+                        minDiff = diff;
+                        bestMatch = { index: match.index, length: match[0].length };
+                    }
+                }
+                
+                if (bestMatch) {
+                    segments = [
+                        word.substring(0, bestMatch.index),
+                        word.substring(bestMatch.index, bestMatch.index + bestMatch.length),
+                        word.substring(bestMatch.index + bestMatch.length)
+                    ];
+                } else {
+                    // 保底邏輯：照比例切
+                    segments = [
+                        word.substring(0, vIdx),
+                        word.substring(vIdx, vIdx + 1),
+                        word.substring(vIdx + 1)
+                    ];
+                }
+            }
+
+            // 決定哪些英文字母可見 (依據 YouTube 教學影片最新邏輯)
+            const showVowelLetter = (step >= 4); // Step 4 優先出現母音 (紅色部首)
+            const showOnsetLetter = (step >= 5); // Step 5 尾音與首音才進場
+            const showCodaLetter  = (step >= 5);
+            const isStep7 = (step === 7);
+
+            if (isStep7) {
+                letterRow = `<span class="letter-text text-bw" style="grid-column:1/span 9">${word}</span>`;
+            } else {
+                const toneImg = (!isBW && rawInton[0]) ? getIntonationImg(rawInton[0]) : null;
+                letterRow = `
+                    <span class="letter-text ${isBW ? 'text-bw' : ''}" style="grid-column:1/span 4; text-align:right; visibility: ${showOnsetLetter ? 'visible' : 'hidden'}">${segments[0]}</span>
+                    <div class="symbol-with-intonation" style="grid-column:5; display:flex; flex-direction:column; align-items:center; gap:2px; visibility: ${showVowelLetter ? 'visible' : 'hidden'}">
+                        ${toneImg ? `<img src="${API_BASE}/assets/images/${toneImg}" class="intonation-icon">` : ''}
+                        <span class="letter-text ${isBW ? 'text-bw' : 'vowel-red'}">${segments[1]}</span>
+                    </div>
+                    <span class="letter-text ${isBW ? 'text-bw' : ''}" style="grid-column:6/span 4; text-align:left; visibility: ${showCodaLetter ? 'visible' : 'hidden'}">${segments[2]}</span>
+                `;
+            }
+        }
+
+        // ── 音標排 ──
+        let globalIdx = 0;
+        let symbolsVisible = (step <= 5);
+        let symbolsHTML = '';
+        
+        rawSyllables.forEach((syl, sIdx) => {
+            syl.flat().forEach(c => {
+                const code = isNaN(c) ? c : Number(c);
+                const isV = (globalIdx === globalVIdx);
+                
+                // 決定可見性
+                let itemVisible;
+                let slot;
+                
+                if (isPhrase) {
+                    itemVisible = (step >= 1); // 短語始終顯示所有音標
+                    slot = 'auto';
+                } else {
+                    itemVisible = (step >= (isV ? 1 : (globalIdx < globalVIdx ? 2 : 3)));
+                    slot = isV ? 5 : (globalIdx < globalVIdx ? 5 - (globalVIdx - globalIdx) : 6 + (globalIdx - globalVIdx - 1));
+                    if (slot > 9) slot = 9;
+                    if (slot < 1) slot = 1;
+                }
+                
+                let mainElem = '';
+                if (typeof code === 'string') {
+                    mainElem = `<div class="patented-symbol">${code}</div>`;
+                } else {
+                    mainElem = `<img src="${API_BASE}/assets/images/${code}.png" class="symbol-img" onclick="triggerSfx(${code})">`;
+                }
+
+                if (!isPhrase && isV && step < 4 && rawInton[sIdx]) {
+                    const toneImg = getIntonationImg(rawInton[sIdx]);
+                    symbolsHTML += `<div class="symbol-with-intonation" style="grid-column:5; display:flex; flex-direction:column; align-items:center; gap:2px; visibility: ${itemVisible ? 'visible' : 'hidden'}">
+                                        <img src="${API_BASE}/assets/images/${toneImg}" class="intonation-icon">
+                                        ${mainElem}
+                                      </div>`;
+                } else {
+                    const gridStyles = isPhrase ? 'display:flex; justify-content:center; padding: 2px;' : `grid-column:${slot}; display:flex; justify-content:center; visibility: ${itemVisible ? 'visible' : 'hidden'}`;
+                    symbolsHTML += `<div style="${gridStyles}">${mainElem}</div>`;
+                }
+                globalIdx++;
+            });
+        });
+
+        const rowStyles = isPhrase 
+            ? `display: flex; flex-wrap: wrap; justify-content: center; width: 100%; height: auto; ${symbolsVisible ? '' : 'visibility: hidden; opacity: 0;'}`
+            : (symbolsVisible ? '' : 'visibility: hidden; pointer-events: none; height: 40px;');
+            
+        const symbolRowHTML = `<div class="${isPhrase ? 'phrase-symbols' : 'sor-row'}" style="${rowStyles}">${symbolsHTML}</div>`;
+
+        return `
+        <div class="edu-content-box" style="min-height: 100px; justify-content: flex-end; gap: 4px;">
+            <div class="sor-row letter-row" style="margin-bottom: 2px;">${letterRow}</div>
+            ${symbolRowHTML}
+        </div>`;
+    }
+
+    function getIntonationImg(char) {
+        if (char === '1') return '語調符號-一聲.png';
+        if (char === '4') return '語調符號-4聲.png';
+        if (char === '.') return '語調符號-輕聲.png';
+        return null;
+    }
+
+    function triggerSfx(code) {
+        if (typeof code === 'string') return;
+        const audio = new Audio(`${API_BASE}/assets/sounds/${code}.mp3`);
+        audio.play().catch(() => {});
+    }
+
+    function speak(sorId, rate = 1) {
+        const item = wordMap[sorId];
+        if (!item) return;
+        if (item.audio_file) {
+            const a = new Audio(`${API_BASE}/api/audio/${encodeURIComponent(item.audio_file)}`);
+            a.playbackRate = rate; a.play().catch(() => synth(item.word, rate));
+        } else { synth(item.word, rate); }
+    }
+
+    function synth(text, rate) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'en-US'; u.rate = rate;
+        window.speechSynthesis.speak(u);
+    }
+
+    loadChapters();
+    loadWords();
+</script>
+</body>
+</html>

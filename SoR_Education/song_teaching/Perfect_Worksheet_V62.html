@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>English Song Worksheet</title>
+<style>
+    @page { size: A4 landscape; margin: 1cm; }
+    body { font-family: "Helvetica Neue", Arial, sans-serif; background: #fff; color: #333; margin: 20px; }
+    h1 { text-align: center; color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+    .story-box { background: #f0f8ff; border: 2px solid #b0c4de; border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+    .story-title { font-size: 1.2em; font-weight: bold; color: #2980b9; margin-bottom: 10px; }
+    .story-content { font-family: "BiauKai", "DFKai-SB", serif; font-size: 1.1em; line-height: 1.6; }
+    .lyrics-box { text-align: center; margin: 20px auto; width: 90%; border: 1px dashed #ccc; padding: 20px; background: #fafafa; }
+    .lyrics-content { font-family: "Menlo", monospace; white-space: pre-wrap; font-size: 1.0em; color: #444; line-height: 1.5; text-align: center; }
+    .teaching-box { page-break-inside: avoid; border: 2px solid #333; margin-bottom: 25px; padding: 15px; border-radius: 8px; background: #fff; box-shadow: 3px 3px 0px rgba(0,0,0,0.1); }
+    .lyric-header { font-family: "Menlo", monospace; font-size: 1.6em; font-weight: bold; color: #d35400; margin-bottom: 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+    .table-container { overflow-x: auto; margin-bottom: 15px; }
+    table.word-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    table.word-table th, table.word-table td { border: 1px solid #666; padding: 8px; text-align: center; vertical-align: middle; }
+    table.word-table th { background: #eee; font-size: 0.9em; width: 80px; text-align: center; font-weight: bold; } 
+    table.word-table td.english { font-family: "Menlo", monospace; font-weight: bold; font-size: 1.4em; background-color: #fdfdfe; }
+    table.word-table td.phonics { height: 40px; background-color: #fff; } 
+    table.word-table td.chinese { font-family: "BiauKai", serif; color: #444; font-size: 1.0em; background-color: #f9f9f9; }
+    .section-label { font-weight: bold; margin-top: 15px; display: inline-block; background: #333; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.9em; }
+    .underline-space { border-bottom: 2px solid #333; display: block; width: 100%; height: 35px; margin-top: 5px; }
+    .sub-practice { margin-left: 0px; font-family: "BiauKai", serif; margin-top: 5px; padding: 15px; background: #f4f4f4; border-radius: 5px; }
+    .practice-line { margin-top: 25px; display: block; } 
+    .sub-line { border-bottom: 1px solid #666; width: 75%; display: inline-block; height: 20px; margin-left: 5px;}
+    .word-bank { margin-top: 15px; border: 1px dashed #aaa; padding: 10px; background: #fff; }
+    @media print { body { margin: 0; background: #fff; } .no-print { display: none; } .teaching-box { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="no-print" style="background:#dff9fb; padding:10px; text-align:center; border:1px solid #c7ecee; margin-bottom:20px;">
+    🚀 <b>V62 Update:</b> Intra-Stanza Dedup + Safe Retention. <br>
+    Global + Local Dedup + No Aggressive Skipping.
+</div>
+```html
+<h1>Perfect by Ed Sheeran</h1>
+
+<div class="story-box">
+    <p>艾德·希蘭（Ed Sheeran）的《Perfect》是一首極其浪漫且深情的歌曲，被廣泛認為是他獻給妻子櫻桃·西伯恩（Cherry Seaborn）的情歌。這首歌描繪了一段從青梅竹馬到共度一生的愛情故事，充滿了溫暖、承諾與對未來的憧憬。</p>
+    <p>歌詞中，希蘭回憶了兩人年少時的愛戀，那時他們只是孩子，懵懂卻深陷其中。隨著時間的推移，這份愛逐漸成熟，他發現了她不僅美麗甜美，更是他生命中等待已久的那個「完美」之人。他讚美她的堅強，分享她的夢想，並渴望與她建立一個充滿愛的家庭。</p>
+    <p>歌曲的高潮部分，他描述了與愛人在黑暗中赤腳跳舞的浪漫場景，耳邊響起他們最喜歡的歌曲。當她覺得自己不夠完美時，他輕聲低語：「親愛的，妳今晚看起來完美無瑕。」這份真摯的告白，觸動了無數人的心弦，使《Perfect》成為許多情侶的定情曲和婚禮上的熱門選擇。它歌頌了愛情中最純粹、最美好的部分，提醒我們珍惜身邊那個獨一無二的「天使」。</p>
+</div>
+
+<div class="lyrics-box">
+    <p><strong>[Verse 1]</strong><br>
+    I found a love for me<br>
+    Oh, darlin', just dive right in and follow my lead<br>
+    Well, I found a girl, beautiful and sweet<br>
+    Oh, I never knew you were the someone waitin' for me</p>
+
+    <p><strong>[Pre-Chorus]</strong><br>
+    'Cause we were just kids when we fell in love<br>
+    Not knowin' what it was<br>
+    I will not give you up this time<br>
+    But, darlin', just kiss me slow<br>
+    Your heart is all I own<br>
+    And in your eyes, you're holdin' mine</p>
+
+    <p><strong>[Chorus]</strong><br>
+    Baby, I'm dancin' in the dark with you between my arms<br>
+    Barefoot on the grass while listenin' to our favourite song<br>
+    When you said you looked a mess, I whispered underneath my breath<br>
+    But you heard it, "Darlin', you look perfect tonight"</p>
+
+    <p><strong>[Verse 2]</strong><br>
+    Well, I found a woman stronger than anyone I know<br>
+    She shares my dreams, I hope that, someday, I'll share her home<br>
+    I found a love to carry more than just my secrets<br>
+    To carry love, to carry children of our own</p>
+
+    <p><strong>[Pre-Chorus]</strong><br>
+    We are still kids, but we're so in love<br>
+    Fightin' against all odds<br>
+    I know we'll be alright this time<br>
+    Darlin', just hold my hand<br>
+    Be my girl, I'll be your man<br>
+    I see my future in your eyes</p>
+
+    <p><strong>[Chorus]</strong><br>
+    Baby, I'm dancin' in the dark with you between my arms<br>
+    Barefoot on the grass while listenin' to our favourite song<br>
+    When I saw you in that dress, lookin' so beautiful<br>
+    I don't deserve this, darlin', you look perfect tonight</p>
+
+    <p><strong>[Bridge]</strong><br>
+    No, no, no<br>
+    Mm, no, no</p>
+
+    <p><strong>[Chorus]</strong><br>
+    Baby, I'm dancin' in the dark with you between my arms<br>
+    We're barefoot on the grass, oh, listenin' to our favourite song<br>
+    I have faith in what I see, now I know I have met<br>
+    An angel in person and she looks perfect<br>
+    I don't deserve this, you look perfect tonight</p>
+</div>
+```
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I found a love for me</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">I</td><td class="english">found</td><td class="english">a</td><td class="english">love</td><td class="english">for</td><td class="english">me</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我</td><td class="chinese">找到; 發現</td><td class="chinese">一個; 任何一個</td><td class="chinese">愛; 熱愛</td><td class="chinese">為了; 對於</td><td class="chinese">我</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I found a ____ for ____ <br><b>Example:</b> I found a book for him. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. friend 2. gift 3. solution 4. you 5. them</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Oh, darlin', just dive right in and follow my lead</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Oh</td><td class="english">darlin'</td><td class="english">just</td><td class="english">dive</td><td class="english">right</td><td class="english">in</td><td class="english">and</td><td class="english">follow</td><td class="english">my</td><td class="english">lead</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">噢; 啊</td><td class="chinese">親愛的; 寶貝</td><td class="chinese">只是; 剛剛</td><td class="chinese">跳水; 潛水</td><td class="chinese">立即; 正確的</td><td class="chinese">在...裡面; 進入</td><td class="chinese">和; 以及</td><td class="chinese">跟隨; 遵循</td><td class="chinese">我的</td><td class="chinese">領導; 引導</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> Just ____ right in and follow my ____ <br><b>Example:</b> Just jump right in and follow my advice. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. step 2. walk 3. jump 4. instructions 5. example</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Well, I found a girl, beautiful and sweet</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Well</td><td class="english">I</td><td class="english">found</td><td class="english">a</td><td class="english">girl</td><td class="english">beautiful</td><td class="english">and</td><td class="english">sweet</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">嗯; 喔</td><td class="chinese">我</td><td class="chinese">找到; 發現</td><td class="chinese">一個; 任何一個</td><td class="chinese">女孩; 姑娘</td><td class="chinese">美麗的; 漂亮的</td><td class="chinese">和; 以及</td><td class="chinese">甜的; 溫柔的</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I found a ____, ____ and ____ <br><b>Example:</b> I found a dog, small and cute. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. boy 2. friend 3. kind 4. smart 5. funny</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Oh, I never knew you were the someone waitin' for me</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Oh</td><td class="english">I</td><td class="english">never</td><td class="english">knew</td><td class="english">you</td><td class="english">were</td><td class="english">the</td><td class="english">someone</td><td class="english">waitin'</td><td class="english">for</td><td class="english">me</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">噢; 啊</td><td class="chinese">我</td><td class="chinese">從不; 絕不</td><td class="chinese">知道; 認識</td><td class="chinese">你; 你們</td><td class="chinese">是</td><td class="chinese">這; 那</td><td class="chinese">某人; 有人</td><td class="chinese">等待</td><td class="chinese">為了; 對於</td><td class="chinese">我</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I never knew you were the ____ ____ for ____ <br><b>Example:</b> I never knew you were the person looking for me. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. one 2. friend 3. searching 4. hoping 5. them</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 'Cause we were just kids when we fell in love</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">'Cause</td><td class="english">we</td><td class="english">were</td><td class="english">just</td><td class="english">kids</td><td class="english">when</td><td class="english">we</td><td class="english">fell</td><td class="english">in</td><td class="english">love</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">因為</td><td class="chinese">我們</td><td class="chinese">是</td><td class="chinese">僅僅; 剛才</td><td class="chinese">孩子; 小孩</td><td class="chinese">當...的時候; 何時</td><td class="chinese">我們</td><td class="chinese">落下; 跌倒</td><td class="chinese">在...裡面; 進入</td><td class="chinese">愛; 熱愛</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> 'Cause we were just [NOUN] when we [VERB]. <br><b>Example:</b> 'Cause we were just *friends* when we *met*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. friends 2. met 3. young 4. started 5. together</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Not knowin' what it was</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Not</td><td class="english">knowin'</td><td class="english">what</td><td class="english">it</td><td class="english">was</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">不; 沒有</td><td class="chinese">知道</td><td class="chinese">什麼; 什麼東西</td><td class="chinese">它</td><td class="chinese">是</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> Not knowin' [WHAT/HOW/WHY] [SUBJECT] [VERB]. <br><b>Example:</b> Not knowin' *how* *it* *happened*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. how 2. happened 3. why 4. felt 5. meant</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I will not give you up this time</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">I</td><td class="english">will</td><td class="english">not</td><td class="english">give</td><td class="english">you</td><td class="english">up</td><td class="english">this</td><td class="english">time</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我</td><td class="chinese">將要; 意願</td><td class="chinese">不; 沒有</td><td class="chinese">給予; 贈送</td><td class="chinese">你; 你們</td><td class="chinese">向上; 起來</td><td class="chinese">這; 這個</td><td class="chinese">時間; 次數</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I will not [VERB PHRASE] [OBJECT] [TIME PHRASE]. <br><b>Example:</b> I will not *let go of* *you* *ever again*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. let go of 2. ever again 3. abandon 4. easily 5. now</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 But, darlin', just kiss me slow</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">But</td><td class="english">darlin'</td><td class="english">just</td><td class="english">kiss</td><td class="english">me</td><td class="english">slow</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">但是; 可是</td><td class="chinese">親愛的</td><td class="chinese">僅僅; 剛才</td><td class="chinese">親吻; 接吻</td><td class="chinese">我 (賓格)</td><td class="chinese">慢的; 緩慢地</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> But, [TERM OF ENDEARMENT], just [VERB] me [ADVERB]. <br><b>Example:</b> But, *honey*, just *hold* me *tight*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. honey 2. hold 3. tight 4. dear 5. hug</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Your heart is all I own</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Your</td><td class="english">heart</td><td class="english">is</td><td class="english">all</td><td class="english">I</td><td class="english">own</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">你的; 你們的</td><td class="chinese">心臟; 心</td><td class="chinese">是</td><td class="chinese">全部; 所有</td><td class="chinese">我</td><td class="chinese">擁有; 承認</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> Your [NOUN] is all I [VERB]. <br><b>Example:</b> Your *love* is all I *need*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. love 2. need 3. trust 4. want 5. desire</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 And in your eyes, you're holdin' mine</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">And</td><td class="english">in</td><td class="english">your</td><td class="english">eyes</td><td class="english">you're</td><td class="english">holdin'</td><td class="english">mine</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">和; 以及</td><td class="chinese">在...裡面; 進入</td><td class="chinese">你的; 你們的</td><td class="chinese">眼睛</td><td class="chinese">你是</td><td class="chinese">握住; 保持</td><td class="chinese">我的 (所有格代名詞)</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> And in your [NOUN], you're [VERB] [POSSESSIVE PRONOUN]. <br><b>Example:</b> And in your *hands*, you're *keeping* *ours*. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. hands 2. keeping 3. ours 4. thoughts 5. seeing</div>
+</div>
+```html
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Baby, I'm dancin' in the dark with you between my arms</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">Baby</td>
+                <td class="english">I'm</td>
+                <td class="english">dancin'</td>
+                <td class="english">in</td>
+                <td class="english">the</td>
+                <td class="english">dark</td>
+                <td class="english">with</td>
+                <td class="english">you</td>
+                <td class="english">between</td>
+                <td class="english">my</td>
+                <td class="english">arms</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">嬰兒; 寶貝</td>
+                <td class="chinese">我是</td>
+                <td class="chinese">跳舞</td>
+                <td class="chinese">在...裡面; 進入</td>
+                <td class="chinese">這; 那</td>
+                <td class="chinese">黑暗; 黑暗的</td>
+                <td class="chinese">和...一起; 用</td>
+                <td class="chinese">你; 你們</td>
+                <td class="chinese">在...之間</td>
+                <td class="chinese">我的</td>
+                <td class="chinese">手臂; 武器</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I'm [verb-ing] [prepositional phrase] with [person/thing]<br><b>Example:</b> I'm singing in the rain with my friends. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. singing 2. running 3. playing 4. rain 5. park</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Barefoot on the grass while listenin' to our favourite song</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">Barefoot</td>
+                <td class="english">on</td>
+                <td class="english">the</td>
+                <td class="english">grass</td>
+                <td class="english">while</td>
+                <td class="english">listenin'</td>
+                <td class="english">to</td>
+                <td class="english">our</td>
+                <td class="english">favourite</td>
+                <td class="english">song</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">赤腳的</td>
+                <td class="chinese">在...上面; 關於</td>
+                <td class="chinese">這; 那</td>
+                <td class="chinese">草; 草地</td>
+                <td class="chinese">當...的時候; 然而</td>
+                <td class="chinese">聽</td>
+                <td class="chinese">到; 向</td>
+                <td class="chinese">我們的</td>
+                <td class="chinese">最喜歡的</td>
+                <td class="chinese">歌曲</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> [Adjective] on the [noun] while [verb-ing] to [possessive] [adjective] [noun]<br><b>Example:</b> Happy on the beach while reading my new book. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. relaxed 2. mountain 3. watching 4. interesting 5. movie</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 When you said you looked a mess, I whispered underneath my breath</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">When</td>
+                <td class="english">you</td>
+                <td class="english">said</td>
+                <td class="english">you</td>
+                <td class="english">looked</td>
+                <td class="english">a</td>
+                <td class="english">mess</td>
+                <td class="english">I</td>
+                <td class="english">whispered</td>
+                <td class="english">underneath</td>
+                <td class="english">my</td>
+                <td class="english">breath</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">當...的時候; 何時</td>
+                <td class="chinese">你; 你們</td>
+                <td class="chinese">說</td>
+                <td class="chinese">你; 你們</td>
+                <td class="chinese">看起來; 看</td>
+                <td class="chinese">一個; 一件</td>
+                <td class="chinese">混亂; 髒亂</td>
+                <td class="chinese">我</td>
+                <td class="chinese">低語; 耳語</td>
+                <td class="chinese">在...下面</td>
+                <td class="chinese">我的</td>
+                <td class="chinese">呼吸; 氣息</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> When [person] said [person] looked [adjective/noun phrase], [person] [verb] [prepositional phrase]<br><b>Example:</b> When she said she felt tired, I offered her a cup of tea. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. he 2. felt 3. angry 4. gave 5. a smile</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 But you heard it, "Darlin', you look perfect tonight"</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">But</td>
+                <td class="english">you</td>
+                <td class="english">heard</td>
+                <td class="english">it</td>
+                <td class="english">Darlin'</td>
+                <td class="english">you</td>
+                <td class="english">look</td>
+                <td class="english">perfect</td>
+                <td class="english">tonight</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">但是; 除了</td>
+                <td class="chinese">你; 你們</td>
+                <td class="chinese">聽到; 聽說</td>
+                <td class="chinese">它</td>
+                <td class="chinese">親愛的</td>
+                <td class="chinese">你; 你們</td>
+                <td class="chinese">看起來; 看</td>
+                <td class="chinese">完美的; 完美地</td>
+                <td class="chinese">今晚</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> [Term of endearment], you look [adjective] [time]<br><b>Example:</b> Honey, you look beautiful today. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. Sweetheart 2. amazing 3. wonderful 4. happy 5. today</div>
+</div>
+```
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Well, I found a woman stronger than anyone I know</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Well</td><td class="english">I</td><td class="english">found</td><td class="english">a</td><td class="english">woman</td><td class="english">stronger</td><td class="english">than</td><td class="english">anyone</td><td class="english">I</td><td class="english">know</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">好的; 井</td><td class="chinese">我</td><td class="chinese">找到; 發現</td><td class="chinese">一個</td><td class="chinese">女人; 女性</td><td class="chinese">更強壯的; 更堅固的</td><td class="chinese">比; 比較</td><td class="chinese">任何人</td><td class="chinese">我</td><td class="chinese">知道; 認識</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I found a [noun] [comparative adjective] than [pronoun/noun phrase] I know. <br><b>Example:</b> I found a friend kinder than anyone I know. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. book 2. interesting 3. movie 4. exciting 5. place</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 She shares my dreams, I hope that, someday, I'll share her home</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">She</td><td class="english">shares</td><td class="english">my</td><td class="english">dreams</td><td class="english">I</td><td class="english">hope</td><td class="english">that</td><td class="english">someday</td><td class="english">I'll</td><td class="english">share</td><td class="english">her</td><td class="english">home</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">她</td><td class="chinese">分享; 分擔</td><td class="chinese">我的</td><td class="chinese">夢想; 夢境</td><td class="chinese">我</td><td class="chinese">希望; 期望</td><td class="chinese">那; 如此</td><td class="chinese">有一天; 將來</td><td class="chinese">我將</td><td class="chinese">分享; 分擔</td><td class="chinese">她的</td><td class="chinese">家; 住所</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> She shares my [noun], I hope that, someday, I'll share her [noun]. <br><b>Example:</b> She shares my thoughts, I hope that, someday, I'll share her life. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. ideas 2. future 3. secrets 4. journey 5. burdens</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I found a love to carry more than just my secrets</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">I</td><td class="english">found</td><td class="english">a</td><td class="english">love</td><td class="english">to</td><td class="english">carry</td><td class="english">more</td><td class="english">than</td><td class="english">just</td><td class="english">my</td><td class="english">secrets</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我</td><td class="chinese">找到; 發現</td><td class="chinese">一個</td><td class="chinese">愛; 熱愛</td><td class="chinese">到; 為了</td><td class="chinese">攜帶; 承載</td><td class="chinese">更多; 此外</td><td class="chinese">比; 比較</td><td class="chinese">僅僅; 公正的</td><td class="chinese">我的</td><td class="chinese">秘密; 機密</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I found a [noun] to carry more than just my [noun]. <br><b>Example:</b> I found a friend to carry more than just my bags. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. solution 2. problems 3. strength 4. burdens 5. memories</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 To carry love, to carry children of our own</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">To</td><td class="english">carry</td><td class="english">love</td><td class="english">to</td><td class="english">carry</td><td class="english">children</td><td class="english">of</td><td class="english">our</td><td class="english">own</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">到; 為了</td><td class="chinese">攜帶; 承載</td><td class="chinese">愛; 熱愛</td><td class="chinese">到; 為了</td><td class="chinese">攜帶; 承載</td><td class="chinese">孩子; 兒童</td><td class="chinese">的; 屬於</td><td class="chinese">我們的</td><td class="chinese">自己的; 擁有</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> To carry [noun], to carry [noun] of our own. <br><b>Example:</b> To carry hope, to carry dreams of our own. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. responsibilities 2. future 3. burdens 4. projects 5. memories</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 We are still kids, but we're so in love</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">We</td><td class="english">are</td><td class="english">still</td><td class="english">kids</td><td class="english">but</td><td class="english">we're</td><td class="english">so</td><td class="english">in</td><td class="english">love</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我們</td><td class="chinese">是</td><td class="chinese">仍然; 靜止的</td><td class="chinese">孩子; 小孩</td><td class="chinese">但是; 除了</td><td class="chinese">我們是</td><td class="chinese">如此; 所以</td><td class="chinese">在...裡面; 進入</td><td class="chinese">愛; 熱愛</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> We are still [noun/adjective], but we're so [adjective/phrase]. <br><b>Example:</b> We are still young, but we're so happy. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. learning 2. busy 3. excited 4. together 5. hopeful</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I know we'll be alright this time</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">I</td><td class="english">know</td><td class="english">we'll</td><td class="english">be</td><td class="english">alright</td><td class="english">this</td><td class="english">time</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我</td><td class="chinese">知道; 認識</td><td class="chinese">我們將; 我們會</td><td class="chinese">是; 存在</td><td class="chinese">好的; 沒問題的</td><td class="chinese">這; 這個</td><td class="chinese">時間; 時刻</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I know we'll be [adjective/phrase] [timeframe] <br><b>Example:</b> I know we'll be happy next year <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. fine 2. ready 3. successful 4. someday 5. together</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Darlin', just hold my hand</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Darlin'</td><td class="english">just</td><td class="english">hold</td><td class="english">my</td><td class="english">hand</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">親愛的; 寶貝</td><td class="chinese">只是; 剛剛</td><td class="chinese">握住; 保持</td><td class="chinese">我的</td><td class="chinese">手</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> [Noun/Vocative], just [verb] [possessive] [noun] <br><b>Example:</b> Sweetheart, just take my arm <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. love 2. friend 3. take 4. touch 5. heart</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 Be my girl, I'll be your man</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">Be</td><td class="english">my</td><td class="english">girl</td><td class="english">I'll</td><td class="english">be</td><td class="english">your</td><td class="english">man</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">是; 成為</td><td class="chinese">我的</td><td class="chinese">女孩; 女友</td><td class="chinese">我將; 我會</td><td class="chinese">是; 成為</td><td class="chinese">你的</td><td class="chinese">男人; 男友</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> Be my [noun], I'll be your [noun] <br><b>Example:</b> Be my partner, I'll be your companion <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. friend 2. hero 3. queen 4. king 5. everything</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I see my future in your eyes</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr><th>English</th><td class="english">I</td><td class="english">see</td><td class="english">my</td><td class="english">future</td><td class="english">in</td><td class="english">your</td><td class="english">eyes</td></tr>
+            <tr><th>Phonics</th><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td><td class="phonics"></td></tr>
+            <tr><th>Chinese</th><td class="chinese">我</td><td class="chinese">看見; 理解</td><td class="chinese">我的</td><td class="chinese">未來</td><td class="chinese">在...裡; 在...中</td><td class="chinese">你的</td><td class="chinese">眼睛</td></tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I see my [noun] in your [noun] <br><b>Example:</b> I see my destiny in your smile <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. hope 2. dreams 3. happiness 4. heart 5. soul</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 When I saw you in that dress, lookin' so beautiful</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">When</td>
+                <td class="english">I</td>
+                <td class="english">saw</td>
+                <td class="english">you</td>
+                <td class="english">in</td>
+                <td class="english">that</td>
+                <td class="english">dress</td>
+                <td class="english">lookin'</td>
+                <td class="english">so</td>
+                <td class="english">beautiful</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">當...的時候; 何時</td>
+                <td class="chinese">我</td>
+                <td class="chinese">看見</td>
+                <td class="chinese">你; 您</td>
+                <td class="chinese">在...裡面; 穿著</td>
+                <td class="chinese">那個; 如此</td>
+                <td class="chinese">洋裝; 穿衣</td>
+                <td class="chinese">看; 顯得</td>
+                <td class="chinese">如此; 所以</td>
+                <td class="chinese">美麗的; 漂亮的</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> When I saw you in that [noun], lookin' so [adjective]. <br><b>Example:</b> When I saw you in that <i>suit</i>, lookin' so <i>smart</i>. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. uniform 2. elegant 3. happy 4. confident 5. jeans</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I don't deserve this, darlin', you look perfect tonight</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">I</td>
+                <td class="english">don't</td>
+                <td class="english">deserve</td>
+                <td class="english">this</td>
+                <td class="english">darlin'</td>
+                <td class="english">you</td>
+                <td class="english">look</td>
+                <td class="english">perfect</td>
+                <td class="english">tonight</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">我</td>
+                <td class="chinese">不; 沒有</td>
+                <td class="chinese">應得; 值得</td>
+                <td class="chinese">這個; 如此</td>
+                <td class="chinese">親愛的; 寶貝</td>
+                <td class="chinese">你; 您</td>
+                <td class="chinese">看起來; 外觀</td>
+                <td class="chinese">完美的; 理想的</td>
+                <td class="chinese">今晚; 今夜</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> You look [adjective] [time]. <br><b>Example:</b> You look <i>stunning</i> <i>today</i>. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. amazing 2. radiant 3. happy 4. this morning 5. right now</div>
+</div>
+<div class="teaching-box">
+    <div class="lyric-header">🎵 I have faith in what I see, now I know I have met</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">I</td>
+                <td class="english">have</td>
+                <td class="english">faith</td>
+                <td class="english">in</td>
+                <td class="english">what</td>
+                <td class="english">I</td>
+                <td class="english">see,</td>
+                <td class="english">now</td>
+                <td class="english">I</td>
+                <td class="english">know</td>
+                <td class="english">I</td>
+                <td class="english">have</td>
+                <td class="english">met</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">我</td>
+                <td class="chinese">有; 擁有</td>
+                <td class="chinese">信心; 信仰</td>
+                <td class="chinese">在...裡; 進入</td>
+                <td class="chinese">什麼; 所...的</td>
+                <td class="chinese">我</td>
+                <td class="chinese">看見; 理解</td>
+                <td class="chinese">現在; 如今</td>
+                <td class="chinese">我</td>
+                <td class="chinese">知道; 認識</td>
+                <td class="chinese">我</td>
+                <td class="chinese">有; 擁有</td>
+                <td class="chinese">遇見; 會面</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> I have [feeling/belief] in what I [perceive], now I know I have [experienced/realized]. <br><b>Example:</b> I have faith in what I see, now I know I have met. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. confidence 2. belief 3. hear 4. feel 5. found</div>
+</div>
+
+<div class="teaching-box">
+    <div class="lyric-header">🎵 An angel in person and she looks perfect</div>
+    <div class="table-container">
+        <table class="word-table">
+            <tr>
+                <th>English</th>
+                <td class="english">An</td>
+                <td class="english">angel</td>
+                <td class="english">in</td>
+                <td class="english">person</td>
+                <td class="english">and</td>
+                <td class="english">she</td>
+                <td class="english">looks</td>
+                <td class="english">perfect</td>
+            </tr>
+            <tr>
+                <th>Phonics</th>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+                <td class="phonics"></td>
+            </tr>
+            <tr>
+                <th>Chinese</th>
+                <td class="chinese">一個</td>
+                <td class="chinese">天使</td>
+                <td class="chinese">在...裡; 進入</td>
+                <td class="chinese">人; 身體</td>
+                <td class="chinese">和; 而且</td>
+                <td class="chinese">她</td>
+                <td class="chinese">看起來; 外貌</td>
+                <td class="chinese">完美的; 完滿的</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section-label">📝 自己翻 (Translate)</div>
+    <div class="underline-space"></div>
+    <div class="section-label">🔄 自己換 (Substitution)</div>
+    <div class="sub-practice">
+        <b>Pattern:</b> An [noun] in person and [pronoun] looks [adjective]. <br><b>Example:</b> An angel in person and she looks perfect. <br>
+        <div class="practice-line">1. <span class="sub-line"></span></div>
+        <div class="practice-line">2. <span class="sub-line"></span></div>
+        <div class="practice-line">3. <span class="sub-line"></span></div>
+    </div>
+    <div class="word-bank"><b>💡 Word Bank:</b> 1. star 2. hero 3. he 4. amazing 5. beautiful</div>
+</div>
+</body></html>

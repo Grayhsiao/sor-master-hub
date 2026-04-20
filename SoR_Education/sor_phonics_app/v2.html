@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoR 腦科學拼讀音典 - V2 運行版</title>
+    <style>
+        :root {
+            --sor-bg: #fdf6f0;
+            --sor-red: #ff1a1a;
+            --sor-black: #1a1a1a;
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--sor-bg);
+            color: var(--sor-black);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-section { text-align: center; margin-bottom: 30px; }
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .tab-btn.active {
+            background: var(--sor-black);
+            color: #fff;
+        }
+
+        .search-container { width: 100%; max-width: 600px; margin-bottom: 20px; text-align: center; }
+        #word-search {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 2px solid #eee;
+            font-size: 1.1rem;
+            outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        #app-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .dictionary-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+        .dictionary-card:hover { transform: translateY(-5px); }
+
+        .sor-content {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            min-height: 180px;
+            justify-content: center;
+        }
+
+        .syllable-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .syllable-symbols { display: flex; gap: 8px; }
+        .symbol-img { width: 50px; height: 50px; }
+
+        .letter-text {
+            font-size: 2.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .vowel-red { color: var(--sor-red); }
+        .divider { height: 1px; background: #eee; width: 80%; opacity: 0; transition: opacity 0.3s; }
+        .divider.show { opacity: 1; }
+
+        .card-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .action-btn:hover { background: #eee; }
+    </style>
+</head>
+<body>
+
+    <div class="header-section">
+        <h1 style="font-size: 2rem;">SoR 腦科學拼讀音典 (V2 運行版)</h1>
+        <div class="tab-container" id="tabs"></div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="word-search" placeholder="🔍 搜尋單字 (例如: bed, cat, help...)" oninput="filterWords()">
+        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 15px;">
+            <label style="cursor:pointer"><input type="radio" name="sort" value="sor" checked onchange="changeSort('sor')"> 音典順序</label>
+            <label style="cursor:pointer"><input type="radio" name="sort" value="700" onchange="changeSort('700')"> 700單順序</label>
+        </div>
+    </div>
+
+    <div id="app-container"></div>
+
+    <script>
+        const API_BASE = window.location.origin;
+        let currentStep = 1;
+        let currentSort = 'sor';
+        let allWords = [];
+
+        // 初始化分段頁籤
+        const steps = ["母音定錨", "二拼進場", "聲音完成", "音形連結", "視覺內化", "黑白對照", "實戰閱讀"];
+        const tabsDiv = document.getElementById('tabs');
+        steps.forEach((name, i) => {
+            const btn = document.createElement('button');
+            btn.className = `tab-btn ${i+1===1?'active':''}`;
+            btn.innerText = `${i+1}. ${name}`;
+            btn.onclick = () => goToStep(i+1);
+            tabsDiv.appendChild(btn);
+        });
+
+        async function loadWords(query = '') {
+            try {
+                let url = `${API_BASE}/api/words?sort=${currentSort}`;
+                if (query) url += `&q=${encodeURIComponent(query)}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                allWords = data.words || [];
+                render();
+            } catch(e) { console.error(e); }
+        }
+
+        function goToStep(step) {
+            currentStep = step;
+            document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i+1===step));
+            render();
+        }
+
+        function filterWords() {
+            const q = document.getElementById('word-search').value;
+            loadWords(q);
+        }
+
+        function changeSort(s) {
+            currentSort = s;
+            loadWords(document.getElementById('word-search').value);
+        }
+
+        function render() {
+            const container = document.getElementById('app-container');
+            if (allWords.length === 0) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:50px; color:#666;">查無資料，請先啟動 server.py</div>';
+                return;
+            }
+            container.innerHTML = allWords.map(item => {
+                const word = item.word || '';
+                const vIdx = word.search(/[aeiou]/i);
+                const onL = vIdx > 0 ? word.substring(0, vIdx) : '';
+                const vL = vIdx >= 0 ? word.substring(vIdx, vIdx+1) : '';
+                const coL = vIdx >= 0 ? word.substring(vIdx+1) : word;
+
+                return `
+                <div class="dictionary-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                        <div style="font-size:1.6rem; font-weight:bold; color:var(--sor-black);">${word}</div>
+                        <div style="font-size:0.8rem; color:#999;">No. ${item.sor_id || ''}</div>
+                    </div>
+                    <div class="sor-content">
+                        ${ step_le3(currentStep, item.minum, item.intonation) }
+                        <div class="divider ${currentStep >= 4 ? 'show' : ''}"></div>
+                        ${ step_ge4(currentStep, word, onL, vL, coL) }
+                    </div>
+                    <div class="card-footer">
+                        <button class="action-btn" onclick="triggerSpeech('${word}', 0.6)">🚲 慢慢聽</button>
+                        <button class="action-btn" onclick="triggerSpeech('${word}', 1.0)">🚗 快快聽</button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function step_le3(step, minum, inton) {
+            if (step > 4 || !minum) return '';
+            const syllables = Array.isArray(minum[0]) ? minum[0] : minum;
+            return `<div class="syllable-row">` + syllables.map(g => {
+                const codes = Array.isArray(g) ? g : [g];
+                return `<div class="syllable-symbols">` + codes.map(c => 
+                    `<img src="${API_BASE}/assets/images/${c}.png" class="symbol-img">`
+                ).join('') + `</div>`;
+            }).join('') + `</div>`;
+        }
+
+        function step_ge4(step, word, onL, vL, coL) {
+            if (step < 4) return '';
+            const isBW = step >= 6;
+            if (step === 7) return `<div class="letter-text" style="font-size:3.5rem;">${word}</div>`;
+            return `<div class="syllable-row">
+                <span class="letter-text">${onL}</span>
+                <span class="letter-text ${isBW?'':'vowel-red'}">${vL}</span>
+                <span class="letter-text">${coL}</span>
+            </div>`;
+        }
+
+        function triggerSpeech(text, rate) {
+            window.speechSynthesis.cancel();
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.rate = rate; msg.lang = 'en-US';
+            window.speechSynthesis.speak(msg);
+        }
+
+        loadWords();
+    </script>
+</body>
+</html>

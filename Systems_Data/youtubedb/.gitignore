@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/config.toml
+.streamlit/static/
+
+# Application Data (Avoid packaging huge dynamic data)
+data/downloaded_files/*
+data/sources/*_strategy*.txt
+!data/sources/.gitkeep
+data/dr_hsiao_db/
+videos.json
+
+# Environment/Secrets
+.env
+.env.backup
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,423 @@
+/Users/gray/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+
+🎵 SoR 英文歌詞教材系統啟動中...
+   開啟瀏覽器：http://localhost:5088
+
+ * Serving Flask app 'song_server'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5088
+[33mPress CTRL+C to quit[0m
+127.0.0.1 - - [19/Apr/2026 10:13:32] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:35] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:37] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:40] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:42] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:45] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:47] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:50] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:52] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:55] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:13:57] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:00] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:02] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:05] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:07] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:10] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:12] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:15] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:17] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:20] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:22] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:25] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:27] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:30] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:32] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:35] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:37] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:40] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:42] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:45] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:47] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:50] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:52] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:55] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:14:57] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:00] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:02] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:05] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:07] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:10] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:12] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:15] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:17] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:20] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:22] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:25] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:27] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:30] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:32] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:35] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:37] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:40] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:42] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:45] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:47] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:50] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:52] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:55] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:15:57] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:00] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:02] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:05] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:07] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:10] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:12] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:15] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:17] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:20] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:22] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:25] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:27] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:30] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:32] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:35] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:37] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:40] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:42] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:45] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:47] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:50] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:52] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:55] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:16:57] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:00] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:02] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:05] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:07] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:10] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:12] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:15] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:17] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:20] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:22] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:25] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:27] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:30] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:28] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:31] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:33] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:36] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:38] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:41] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:43] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:46] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:48] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:51] "GET /progress/a996f7af3e43 HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:17:52] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [19/Apr/2026 10:17:52] "GET /api/worksheets HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:03] "POST /api/generate HTTP/1.1" 200 -
+/Users/gray/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+/Users/gray/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/gray/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/gray/Documents/python_project/SoR_Education/song_teaching/generator.py:7: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+127.0.0.1 - - [19/Apr/2026 10:18:06] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:08] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:11] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:13] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:16] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:18] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:21] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:23] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:26] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:28] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:31] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:33] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:36] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:38] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:41] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:43] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:46] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:48] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:51] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:53] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:56] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:18:58] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:01] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:03] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:06] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:08] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:11] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:13] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:16] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:18] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:21] "GET /progress/6787c1e5fd4d HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:19:21] "GET /api/worksheets HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:23:15] "GET /worksheets/Lemon_Tree_byFoolsGarden_SoR_Worksheet.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 10:23:53] "[36mGET /worksheets/Lemon_Tree_byFoolsGarden_SoR_Worksheet.html HTTP/1.1[0m" 304 -
+127.0.0.1 - - [19/Apr/2026 13:56:10] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:15] "DELETE /api/delete/Lemon_Tree_byFoolsGarden_SoR_Worksheet.html HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:15] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:15] "GET /api/worksheets HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:15] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:18] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:20] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:23] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:25] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:28] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:30] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:33] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:35] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:38] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:40] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:43] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:45] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:48] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:50] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:53] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:56:55] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+[6787c1] 🔍 搜尋歌詞：lemon tree 
+[6787c1] ✅ 歌詞取得：1967 字元
+[6787c1] 📋 解析 9 個段落
+[6787c1] 📖 生成歌曲背景...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [1/9] 生成 [Verse 1] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1]   ⚠ [Verse 1] 生成失敗，跳過
+[6787c1] 🔨 [2/9] 生成 [Verse 1] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [3/9] 生成 [Verse 2] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [4/9] 生成 [Chorus] (Chorus)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [5/9] 生成 [Post-Chorus] (Chorus)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1]   ⚠ [Post-Chorus] 生成失敗，跳過
+[6787c1] 🔨 [6/9] 生成 [Verse 3] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [7/9] 生成 [Bridge] (Bridge)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [8/9] 生成 [Verse 4] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🔨 [9/9] 生成 [Chorus] (Chorus)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[6787c1] 🎉 完成！已存至 worksheets/Lemon_Tree_byFoolsGarden_SoR_Worksheet.html
+[e048df] 🔍 搜尋歌詞：lemon tree 
+[e048df] ✅ 歌詞取得：1967 字元
+[e048df] 📋 解析 9 個段落
+[e048df] 📖 生成歌曲背景...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df] 🔨 [1/9] 生成 [Verse 1] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df]   ⚠ [Verse 1] 生成失敗，跳過
+[e048df] 🔨 [2/9] 生成 [Verse 1] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df] 🔨 [3/9] 生成 [Verse 2] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df] 🔨 [4/9] 生成 [Chorus] (Chorus)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df] 🔨 [5/9] 生成 [Post-Chorus] (Chorus)...
+🚀 [Attempt 1] 呼叫 Gemini...
+❌ LLM 失敗 (Google Gemini): 400 API key expired. Please renew the API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key expired. Please renew the API key."
+]
+🔄 Gemini 失敗，嘗試切換至 OpenAI 備援...
+🚀 [Attempt 2] 呼叫 OpenAI/OpenRouter...
+[e048df]   ⚠ [Post-Chorus] 生成失敗，跳過
+[e048df] 🔨 [6/9] 生成 [Verse 3] (Verse)...
+🚀 [Attempt 1] 呼叫 Gemini...
+127.0.0.1 - - [19/Apr/2026 13:56:58] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:00] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:03] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:05] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:08] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:10] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:13] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:15] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:18] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:20] "GET /progress/e048df3dda9e HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:20] "GET /api/worksheets HTTP/1.1" 200 -
+127.0.0.1 - - [19/Apr/2026 13:57:24] "GET /worksheets/Lemon_Tree_byFoolsGarden_SoR_Worksheet.html HTTP/1.1" 200 -

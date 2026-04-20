@@ -1,0 +1,5 @@
+# 意圖偵測守衛 v2.0 依賴
+# 安裝指令：pip install -r requirements.txt
+
+pygetwindow>=0.0.9   # Windows 視窗操作（macOS 改用 AppleScript，不需此套件）
+pyautogui>=0.9.54    # 備用：截圖/UI 輔助（可選）

@@ -1,0 +1,16 @@
+# 敏感金鑰 (Secret Keys)
+.env
+service_account.json
+
+# Python 快取 (Python Cache)
+__pycache__/
+*.pyc
+
+# 虛擬環境 (Virtual Environments)
+venv/
+env/
+.venv/
+
+# OS 檔案 (OS Files)
+.DS_Store
+Thumbs.db

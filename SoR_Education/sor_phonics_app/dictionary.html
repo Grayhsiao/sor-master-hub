@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoR 腦科學拼讀音典 - 官方對照版</title>
+    <style>
+        :root {
+            --vowel-red: #e63946;
+            --paper-bg: #ffffff;
+            --border: #dcdde1;
+            --text-kk: #2f3640;
+            --text-zh: #636e72;
+            --accent-blue: #0984e3;
+        }
+
+        body {
+            font-family: "PingFang TC", "Arial", sans-serif;
+            background-color: #f1f2f6;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 導覽列 */
+        #nav-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: white;
+            border-bottom: 2px solid var(--border);
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #step-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            padding: 10px 35px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .btn-next {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+        }
+
+        /* 主容器 */
+        #app-container {
+            width: 95%;
+            max-width: 1000px;
+            padding: 20px 0;
+        }
+
+        /* 單字卡片：穩定兩欄佈局 */
+        .dictionary-card {
+            background: var(--paper-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            /* 左側固定，右側變形區 */
+            min-height: 180px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 左側：Word, KK, Meaning */
+        .left-info {
+            padding: 25px;
+            border-right: 1px dashed var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .info-word {
+            font-size: 34px;
+            font-weight: 900;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .info-kk {
+            font-size: 19px;
+            color: var(--text-kk);
+            font-family: serif;
+            margin-bottom: 10px;
+        }
+
+        .info-zh {
+            font-size: 16px;
+            color: var(--text-zh);
+            line-height: 1.5;
+        }
+
+        /* 右側：SoR 核心區 */
+        .right-sor {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fafafa;
+        }
+
+        .sor-row {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+
+        .letter-text {
+            font-size: 60px;
+            font-weight: 800;
+            font-family: 'Courier New', monospace;
+            line-height: 1;
+        }
+
+        .vowel-red {
+            color: var(--vowel-red);
+        }
+
+        .symbol-img {
+            width: 65px;
+            height: 65px;
+            object-fit: contain;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bw-mode {
+            color: #000 !important;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            width: 80%;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="nav-header">
+        <div id="step-title">載入中...</div>
+        <div class="btns">
+            <button onclick="move(-1)" id="prevBtn">上一步</button>
+            <button onclick="move(1)" class="btn-next" id="nextBtn">下一步</button>
+        </div>
+    </div>
+
+    <div id="app-container"></div>
+
+    <script>
+        let currentStep = 1;
+        // 50 筆真實數據全量導入
+        const rawData = [
+            { "word": "bed", "KK": "[bɛd]", "trans_zh": "[nc] 床", "minum": "[[[1],[45],[16]]]" },
+            { "word": "beg", "KK": "[bɛg]", "trans_zh": "[vt] 乞討, 懇求, 請求", "minum": "[[[1],[45],[24]]]" },
+            { "word": "bell", "KK": "[bɛl]", "trans_zh": "[nc] 鈴, 鐘; 鈴聲, 鐘聲", "minum": "[[[1],[45],[43]]]" },
+            { "word": "bells", "KK": "[bɛlz]", "trans_zh": "[nc] 鈴, 鐘; 鈴聲, 鐘聲(複數)", "minum": "[[[1],[45],[43],[39]]]" },
+            { "word": "belt", "KK": "[bɛlt]", "trans_zh": "[nc] 腰帶; 皮帶; 傳送帶", "minum": "[[[1],[45],[43],[17]]]" },
+            { "word": "bench", "KK": "[bɛntʃ]", "trans_zh": "[nc] 長凳; 辦公桌; 議席", "minum": "[[[1],[45],[17],[34]]]" },
+            { "word": "bend", "KK": "[bɛnd]", "trans_zh": "[vt] 使彎曲, 使屈服; [nc] 彎曲", "minum": "[[[1],[45],[14],[19]]]" },
+            { "word": "best", "KK": "[bɛst]", "trans_zh": "[adj] 最好的; [adv] 最好地", "minum": "[[[1],[45],[38],[17]]]" },
+            { "word": "bet", "KK": "[bɛt]", "trans_zh": "[vt] 打賭; [nc] 賭注", "minum": "[[[1],[45],[17]]]" },
+            { "word": "dead", "KK": "[dɛd]", "trans_zh": "[adj] 死的; 無生命的; [nc] 死者", "minum": "[[[19],[45],[19]]]" },
+            { "word": "deaf", "KK": "[dɛf]", "trans_zh": "[adj] 聾的; 不願聽的", "minum": "[[[19],[45],[22]]]" },
+            { "word": "desk", "KK": "[dɛsk]", "trans_zh": "[nc] 書桌; 辦公桌", "minum": "[[[19],[45],[38],[26]]]" },
+            { "word": "dress", "KK": "[drɛs]", "trans_zh": "[nc] 連衣裙; 服裝; [vt] 給...穿衣", "minum": "[[[19],[36],[45],[38]]]" },
+            { "word": "edge", "KK": "[ɛdʒ]", "trans_zh": "[nc] 邊緣; 刀口; 優勢", "minum": "[[[45],[34]]]" },
+            { "word": "egg", "KK": "[ɛg]", "trans_zh": "[nc] 蛋; 卵", "minum": "[[[45],[24]]]" },
+            { "word": "eggs", "KK": "[ɛgz]", "trans_zh": "[nc] 蛋; 卵(複數)", "minum": "[[[45],[24],[39]]]" },
+            { "word": "end", "KK": "[ɛnd]", "trans_zh": "[nc] 結束; 終點; [vt] 結束", "minum": "[[[45],[14],[19]]]" },
+            { "word": "ends", "KK": "[ɛndz]", "trans_zh": "[nc] 結束; 終點(複數)", "minum": "[[[45],[14],[19],[39]]]" },
+            { "word": "fed", "KK": "[fɛd]", "trans_zh": "[v] feed的過去式和過去分詞", "minum": "[[[22],[45],[19]]]" },
+            { "word": "fell", "KK": "[fɛl]", "trans_zh": "[v] fall的過去式", "minum": "[[[22],[45],[43]]]" },
+            { "word": "felt", "KK": "[fɛlt]", "trans_zh": "[v] feel的過去式和過去分詞", "minum": "[[[22],[45],[43],[17]]]" },
+            { "word": "fresh", "KK": "[frɛʃ]", "trans_zh": "[adj] 新鮮的; 清新的", "minum": "[[[22],[36],[45],[35]]]" },
+            { "word": "get", "KK": "[gɛt]", "trans_zh": "[vt] 得到; 獲得; 變得", "minum": "[[[24],[45],[17]]]" },
+            { "word": "gets", "KK": "[gɛts]", "trans_zh": "[v] get的第三人稱單數現在時", "minum": "[[[24],[45],[17],[38]]]" },
+            { "word": "guess", "KK": "[gɛs]", "trans_zh": "[vt] 猜測; [nc] 猜測", "minum": "[[[24],[45],[38]]]" },
+            { "word": "head", "KK": "[hɛd]", "trans_zh": "[nc] 頭; 首領; [vt] 率領", "minum": "[[[28],[45],[19]]]" },
+            { "word": "heads", "KK": "[hɛdz]", "trans_zh": "[nc] 頭; 首領(複數)", "minum": "[[[28],[45],[19],[39]]]" },
+            { "word": "help", "KK": "[hɛlp]", "trans_zh": "[vt] 幫助; [nc] 幫助", "minum": "[[[28],[45],[43],[16]]]" },
+            { "word": "helps", "KK": "[hɛlps]", "trans_zh": "[v] help的第三人稱單數現在時", "minum": "[[[28],[45],[43],[16],[38]]]" },
+            { "word": "hen", "KK": "[hɛn]", "trans_zh": "[nc] 母雞", "minum": "[[[28],[45],[14]]]" },
+            { "word": "kept", "KK": "[kɛpt]", "trans_zh": "[v] keep的過去式和過去分詞", "minum": "[[[26],[45],[16],[17]]]" },
+            { "word": "left", "KK": "[lɛft]", "trans_zh": "[adj] 左邊的; [nc] 左邊; [v] leave的過去式", "minum": "[[[43],[45],[22],[17]]]" },
+            { "word": "leg", "KK": "[lɛg]", "trans_zh": "[nc] 腿; 支柱", "minum": "[[[43],[45],[24]]]" },
+            { "word": "legs", "KK": "[lɛgz]", "trans_zh": "[nc] 腿; 支柱(複數)", "minum": "[[[43],[45],[24],[39]]]" },
+            { "word": "lend", "KK": "[lɛnd]", "trans_zh": "[vt] 借給; 貸(款)", "minum": "[[[43],[45],[14],[19]]]" },
+            { "word": "less", "KK": "[lɛs]", "trans_zh": "[adj] 較少的; [adv] 較少地", "minum": "[[[43],[45],[38]]]" },
+            { "word": "let", "KK": "[lɛt]", "trans_zh": "[vt] 讓; 允許", "minum": "[[[43],[45],[17]]]" },
+            { "word": "lets", "KK": "[lɛts]", "trans_zh": "[v] let的第三人稱單數現在時", "minum": "[[[43],[45],[17],[38]]]" },
+            { "word": "men", "KK": "[mɛn]", "trans_zh": "[nc] 男人(複數)", "minum": "[[[11],[45],[14]]]" },
+            { "word": "met", "KK": "[mɛt]", "trans_zh": "[v] meet的過去式和過去分詞", "minum": "[[[11],[45],[17]]]" },
+            { "word": "neck", "KK": "[nɛk]", "trans_zh": "[nc] 脖子; 衣領", "minum": "[[[14],[45],[26]]]" },
+            { "word": "nest", "KK": "[nɛst]", "trans_zh": "[nc] 鳥巢; 窩", "minum": "[[[14],[45],[38],[17]]]" },
+            { "word": "net", "KK": "[nɛt]", "trans_zh": "[nc] 網; 淨利", "minum": "[[[14],[45],[17]]]" },
+            { "word": "next", "KK": "[nɛkst]", "trans_zh": "[adj] 下一個的; [adv] 隨後", "minum": "[[[14],[45],[26],[38],[17]]]" },
+            { "word": "pen", "KK": "[pɛn]", "trans_zh": "[nc] 鋼筆; 圍欄", "minum": "[[[16],[45],[14]]]" },
+            { "word": "pencil", "KK": "[ˈpɛnsl]", "trans_zh": "[nc] 鉛筆", "minum": "[[[16],[45],[14]]]" },
+            { "word": "press", "KK": "[prɛs]", "trans_zh": "[vt] 按, 壓; [nc] 出版社; 報刊", "minum": "[[[16],[36],[45],[38]]]" },
+            { "word": "red", "KK": "[rɛd]", "trans_zh": "[adj] 紅色的; [nc] 紅色", "minum": "[[[36],[45],[19]]]" },
+            { "word": "rest", "KK": "[rɛst]", "trans_zh": "[nc] 休息; 剩餘部分; [vi] 休息", "minum": "[[[36],[45],[38],[17]]]" },
+            { "word": "said", "KK": "[sɛd]", "trans_zh": "[v] say的過去式和過去分詞", "minum": "[[[38],[45],[19]]]" }
+        ];
+
+        function move(d) { currentStep = Math.min(Math.max(currentStep + d, 1), 7); render(); window.scrollTo(0, 0); }
+
+        function render() {
+            const container = document.getElementById('app-container');
+            const names = ["1.母音定錨", "2.二拼進場", "3.聲音完成", "4.音形連結", "5.音標退場", "6.黑白連結", "7.實戰閱讀"];
+            document.getElementById('step-title').innerText = `階段 ${currentStep}：${names[currentStep - 1]}`;
+            document.getElementById('prevBtn').disabled = currentStep === 1;
+            document.getElementById('nextBtn').disabled = currentStep === 7;
+
+            container.innerHTML = rawData.map(item => {
+                const codes = JSON.parse(item.minum).flat(2);
+                const vIdx = codes.findIndex(id => id >= 44 && id <= 55) !== -1 ? codes.findIndex(id => id >= 44 && id <= 55) : 0;
+                const onC = codes.slice(0, vIdx), vC = codes[vIdx], coC = codes.slice(vIdx + 1);
+                const word = item.word;
+                const onL = word.substring(0, onC.length), vL = word.substring(onC.length, onC.length + 1), coL = word.substring(onC.length + 1);
+
+                let html = `<div class="dictionary-card">
+                <div class="left-info">
+                    <div class="info-word">${word}</div>
+                    <div class="info-kk">${item.KK}</div>
+                    <div class="info-zh">${item.trans_zh}</div>
+                </div>
+                <div class="right-sor">`;
+
+                // 上排字母
+                const showL = currentStep >= 4;
+                html += `<div class="sor-row ${showL ? '' : 'hidden'}">
+                <div style="text-align:right"><span class="letter-text ${currentStep >= 6 ? 'bw-mode' : ''}">${currentStep === 7 ? word : onL}</span></div>
+                <div><span class="letter-text ${currentStep === 7 ? 'hidden' : (currentStep >= 6 ? 'bw-mode' : 'vowel-red')}">${vL}</span></div>
+                <div style="text-align:left"><span class="letter-text ${currentStep >= 7 ? 'hidden' : (currentStep >= 6 ? 'bw-mode' : '')}">${coL}</span></div>
+            </div><div class="divider ${currentStep === 4 ? '' : 'hidden'}"></div>`;
+
+                // 下排音標
+                const showS = currentStep <= 4;
+                html += `<div class="sor-row ${showS ? '' : 'hidden'}">
+                <div style="text-align:right">${onC.map(id => `<img src="./assets/images/${id}.png" class="symbol-img ${currentStep < 2 ? 'hidden' : ''}">`).join('')}</div>
+                <div><img src="./assets/images/${vC}.png" class="symbol-img"></div>
+                <div style="text-align:left">${coC.map(id => `<img src="./assets/images/${id}.png" class="symbol-img ${currentStep < 3 ? 'hidden' : ''}">`).join('')}</div>
+            </div>`;
+
+                return html + `</div></div>`;
+            }).join('');
+        }
+        render();
+    </script>
+</body>
+
+</html>

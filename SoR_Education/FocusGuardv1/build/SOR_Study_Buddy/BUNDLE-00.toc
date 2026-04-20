@@ -1,0 +1,3 @@
+([('SOR_Study_Buddy',
+   '/Users/gray/Documents/python_project/SoR_Education/FocusGuardv1/dist/SOR_Study_Buddy',
+   'EXECUTABLE')],)

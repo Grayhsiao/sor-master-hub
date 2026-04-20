@@ -1,0 +1,39 @@
+# SoR Hub - Final Extreme Filter
+**/ai_engine/
+**/gfpgan/
+**/weights/
+**/.venv/
+**/venv/
+**/__pycache__/
+**/.DS_Store
+
+# 封鎖大型二進位與備份
+**/*.zip
+**/*.mp3
+**/*.mp4
+**/*.sh
+**/*.exe
+**/*.pkg
+**/*.dmg
+**/*.pth
+**/*.bin
+**/*.pt
+**/*.sqlite3
+**/*.csv
+**/*.xlsx
+
+# 封鎖特定大資料夾或檔案
+_archive_phase1/
+Systems_Data/ziwjByje
+SoR_Education/sor_line_db_bot/vector_db/
+SoR_Education/sor_line_db_bot/chroma_db/
+
+# 核心程式碼白名單
+!SoR_Hub.py
+!deploy.sh
+!.env.template
+!.gitignore
+!Project_Registry.md
+!README.md
+!啟動SoR中樞.command
+!啟動所有本地開發伺服器.command

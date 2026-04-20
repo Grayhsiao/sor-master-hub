@@ -1,0 +1,29 @@
+# FocusGuard Windows 打包教學 (Windows Build Guide)
+
+要在 Windows 上打包這個程式，請依照以下步驟操作：
+
+1. **準備環境**
+   確保您的 Windows 電腦已經安裝了 Python。
+   將整個 `FocusGuard` 資料夾複製到 Windows 電腦上。
+   確保資料夾內有 `andy_doll.png` 和 `start_sound.mp3` (如果有的話)。
+
+2. **開啟命令提示字元 (CMD) 或 PowerShell**
+   進入 FocusGuard 資料夾。
+
+3. **安裝必要套件**
+   輸入以下指令並按 Enter：
+   ```bash
+   pip install -r requirements.txt
+   pip install pyinstaller
+   ```
+
+4. **執行打包指令**
+   請直接複製貼上以下這行長指令：
+   ```bash
+   pyinstaller --noconfirm --onedir --windowed --add-data "andy_doll.png;." --add-data "start_sound.mp3;." --name "FocusGuard" --icon "andy_doll.png" main.py
+   ```
+   *注意：Windows 的分隔符號是分號 `;`，與 Mac 的冒號 `:` 不同。*
+
+5. **完成**
+   打包完成後，您會在 `dist/FocusGuard/` 資料夾中找到 `FocusGuard.exe`。
+   點擊它即可執行！

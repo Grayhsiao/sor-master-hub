@@ -1,0 +1,84 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://img.youtube.com/vi/33wIFDPAP4s/maxresdefault.jpg",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "https://youtu.be/33wIFDPAP4s"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "蕭博士 SoR 每日心法",
+        "weight": "bold",
+        "color": "#1DB446",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "03 安心，所以願意按部就班學｜《SoR 拼讀小達人》完全剖析｜PA-Phoni",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md",
+        "wrap": true
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "💡",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "學習就像攀登一座山。想像每一個學習的步驟都是一個穩固的岩石，當你一步一步、穩扎穩打地向上攀登時，你會感到愈來愈有信心，因為你知道下面的每一步都已經被牢牢地踩實。這就好比蕭博士提到的「漸進漸進的進步」，...",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "height": "sm",
+        "color": "#1DB446",
+        "action": {
+          "type": "uri",
+          "label": "📺 立即觀看教學",
+          "uri": "https://youtu.be/33wIFDPAP4s"
+        }
+      }
+    ],
+    "flex": 0
+  }
+}

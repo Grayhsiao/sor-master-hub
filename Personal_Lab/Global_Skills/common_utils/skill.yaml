@@ -1,0 +1,39 @@
+name: common_utils
+description: 跨專案共用的資料庫管理與工具函式
+version: "1.0"
+author: consolidated from all multi_maker*.py scripts
+
+functions:
+  - name: sanitize_filename
+    description: 移除檔名中在 Windows/macOS 均非法的字元
+
+  - name: create_backup
+    description: 備份 database.txt，用時間戳命名
+    params:
+      - db_file: 資料庫路徑（預設 database.txt）
+      - backup_dir: 備份目錄（預設同目錄）
+
+  - name: get_next_index
+    description: 找出指定系列的目前最大觀念序號 + 1
+    params:
+      - series_name: 系列名稱
+      - db_file: 資料庫路徑
+
+  - name: smart_separator
+    description: 若系列切換，自動插入分隔線
+    params:
+      - current_series_name: 即將寫入的系列名
+      - db_file: 資料庫路徑
+
+  - name: append_to_database
+    description: 將內容附加到資料庫檔案
+    params:
+      - content: 文字內容
+      - db_file: 資料庫路徑
+
+  - name: read_or_skip_transcript
+    description: 讀取已存在的同名 .txt 逐字稿，節省 API 費用
+    params:
+      - mp3_path: MP3 路徑
+
+dependencies: []  # 只用 Python 標準庫

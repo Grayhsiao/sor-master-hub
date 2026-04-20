@@ -1,0 +1,17 @@
+name: remote_control
+description: "A generic tool for polling and listening to status, events, and students list from Firebase Realtime Database for a remote control setup."
+inputs:
+  firebase_url:
+    type: string
+    description: "The Firebase Realtime Database URL (can also be set via FIREBASE_URL env var)."
+    required: false
+  classroom_code:
+    type: string
+    description: "The unique identifier code for the classroom/session (can also be set via CLASSROOM_CODE env var)."
+    required: false
+  start_message:
+    type: string
+    description: "Message to print when starting."
+    default: "Remote Control Started"
+outputs:
+  - Callbacks on status updates (status, events, students)

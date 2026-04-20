@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Vocabulary Engine v2.7</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --friends-purple: #6D52A0; 
+            --friends-yellow: #F5C122; 
+            --friends-red: #EB3222;    
+            --friends-blue: #009EED;   
+            --bg-glass: rgba(255, 255, 255, 0.9);
+            --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/static/img/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #2c3e50;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background: rgba(0,0,0,0.4);
+            min-height: 100vh;
+            backdrop-filter: blur(3px);
+            padding-bottom: 100px;
+        }
+
+        .header-section {
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .friends-dots { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+        .dot { width: 14px; height: 14px; border-radius: 50%; animation: pulse 2.5s infinite; }
+        .dot.purple { background: var(--friends-purple); }
+        .dot.red { background: var(--friends-red); animation-delay: 0.2s; }
+        .dot.blue { background: var(--friends-blue); animation-delay: 0.4s; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 800; margin: 0; letter-spacing: -1.5px; }
+        h1 span { color: var(--friends-yellow); }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+
+        .search-area {
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 30px;
+            box-shadow: var(--card-shadow);
+            margin-top: -60px;
+            margin-bottom: 60px;
+            border-top: 8px solid var(--friends-yellow);
+        }
+
+        .search-inputs {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        input, select { padding: 16px 20px; border: 2px solid #e1e4e8; border-radius: 12px; font-size: 1rem; outline: none; transition: 0.3s; }
+        .search-btn { background: var(--friends-purple); color: white; border: none; padding: 0 40px; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+
+        .character-wall { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
+        .char-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; transition: 0.3s; width: 80px; position: relative; }
+
+        .avatar-circle {
+            width: 70px; height: 70px; border-radius: 50%; border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #eee; overflow: hidden; transition: 0.3s;
+        }
+        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+        .char-item span { margin-top: 10px; font-size: 0.85rem; font-weight: 700; color: #555; text-align: center; }
+
+        /* 性格懸浮卡 */
+        .char-tooltip {
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: #1a1a1a;
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            width: 160px;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            z-index: 100;
+            pointer-events: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .char-item:hover .char-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+        .char-item.active .avatar-circle { transform: scale(1.15) translateY(-5px); border-color: var(--friends-purple); }
+
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; }
+        .card { background: rgba(255,255,255,0.95); border-radius: 25px; padding: 30px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; transition: 0.4s; position: relative; border: 1px solid rgba(255,255,255,0.5); }
+        .card:hover { transform: translateY(-10px); }
+
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .mini-avatar { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+        .speaker-info h3 { margin: 0; font-size: 1.3rem; color: #111; }
+        .speaker-info p { margin: 2px 0 0; font-size: 0.75rem; color: #888; }
+        .season-badge { margin-left: auto; font-weight: 700; font-size: 0.8rem; color: var(--friends-blue); text-align: right; }
+        .season-badge a { display: block; text-decoration: none; color: inherit; margin-top: 5px; opacity: 0.6; }
+
+        .line-box { background: #fdfdfd; padding: 20px; border-radius: 18px; border-left: 6px solid var(--friends-purple); margin-bottom: 20px; }
+        .en-line { font-size: 1.15rem; font-weight: 700; color: #222; margin-bottom: 12px; line-height: 1.5; }
+        .cn-line { font-size: 1rem; color: var(--friends-purple); line-height: 1.6; }
+
+        .tag-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tag { font-size: 0.75rem; padding: 6px 12px; border-radius: 10px; font-weight: 700; display: flex; align-items: center; gap: 5px; }
+        .tag-theme { background: #e8eaf6; color: #3f51b5; }
+        .tag-tone { background: #fdf2f2; color: #e53935; }
+
+        .action-chip { font-size: 0.8rem; color: #7c4dff; background: #f3e5f5; padding: 10px; border-radius: 12px; margin-bottom: 20px; font-style: italic; display: flex; align-items: flex-start; gap: 8px; }
+
+        .footer-tools { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
+        .btn { padding: 12px; border: none; border-radius: 12px; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .btn-copy { background: #eee; color: #444; }
+        .btn-context { background: #333; color: #fff; }
+
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 2000; align-items: center; justify-content: center; }
+        .modal-inner { background: #111; color: #ddd; width: 90%; max-width: 800px; padding: 50px; border-radius: 30px; max-height: 85vh; overflow-y: auto; position: relative; font-family: 'Courier New', Courier, monospace; }
+        .highlight { color: var(--friends-yellow); font-weight: bold; border-left: 4px solid var(--friends-yellow); padding-left: 10px; margin: 10px 0; }
+        .context-line { margin: 5px 0; font-size: 1rem; }
+        .translation-line { color: #888; font-size: 0.9rem; padding-left: 25px; margin-bottom: 12px; font-family: 'Outfit', sans-serif; }
+
+    </style>
+</head>
+<body>
+
+<div class="overlay">
+    <header class="header-section">
+        <div class="friends-dots">
+            <div class="dot purple"></div><div class="dot red"></div><div class="dot blue"></div>
+            <div class="dot purple"></div><div class="dot red"></div><div class="dot blue"></div>
+        </div>
+        <h1>FRIENDS <span>Vocabulary</span> Engine</h1>
+        <p>全十季經典對標與生產工具 | v2.7 Interactive Pro</p>
+        <div style="margin-top: 25px;">
+            <a href="/vocabulary" style="display: inline-block; color: white; text-decoration: none; font-weight: 700; background: var(--friends-purple); padding: 12px 25px; border-radius: 12px; font-size: 1.1rem; border: 2px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s; cursor: pointer;">
+                🚪 進入 718 單字大廳
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-area">
+            <div class="search-inputs">
+                <input type="text" id="searchInput" placeholder="搜尋英文單字、情緒或主題 (如: sarcastic, pizza, love)...">
+                <select id="seasonSelect">
+                    <option value="">所有賽季</option>
+                    {% for i in range(1, 11) %}
+                    <option value="{{ i }}">Season {{ i }}</option>
+                    {% endfor %}
+                </select>
+                <input type="number" id="episodeInput" placeholder="集數" style="width: 80px;">
+                <button class="search-btn" onclick="performSearch()">搜尋素材</button>
+            </div>
+
+            <div class="character-wall" id="characterWall">
+                <div class="char-item active" onclick="setSpeaker('')">
+                    <div class="avatar-circle" style="background: url('/static/img/bg.png') center/cover;"></div>
+                    <span>所有人</span>
+                </div>
+                {% for char in characters %}
+                <div class="char-item" onclick="setSpeaker('{{ char.name }}')">
+                    <div class="char-tooltip"><strong>{{ char.name }}</strong><br>{{ char.traits or '經典影集靈魂角色' }}</div>
+                    <div class="avatar-circle">
+                        <img src="{{ char.avatar or '/static/img/default.png' }}" alt="{{ char.name }}">
+                    </div>
+                    <span>{{ char.name }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="results-grid" id="resultsArea"></div>
+    </div>
+</div>
+
+<div class="modal" id="contextModal">
+    <div class="modal-inner">
+        <h2 style="margin-top:0; color:var(--friends-yellow)">SCENE CONTEXT</h2>
+        <div id="modalBody"></div>
+        <button class="btn btn-context" style="margin-top:30px; width:100%" onclick="closeModal()">CLOSE</button>
+    </div>
+</div>
+
+<script>
+    let currentSpeaker = '';
+
+    const toneIcons = {
+        'Sarcastic': '😏', 'Emotional': '🥺', 'Happy': '😊', 'Angry': '😡', 'Funny': '😂',
+        'Quirky': '🎸', 'Serious': '👔', 'Nervous': '😰', 'Excited': '🤩', 'Awkward': '😅',
+        'Depressed': '🍕', 'Obsessed': '🍴', 'Professional': '💼'
+    };
+
+    function setSpeaker(name) {
+        currentSpeaker = name;
+        document.querySelectorAll('.char-item').forEach(item => {
+            item.classList.remove('active');
+            if (item.querySelector('span').innerText === (name || '所有人')) item.classList.add('active');
+        });
+        performSearch();
+    }
+
+    async function performSearch() {
+        const query = document.getElementById('searchInput').value;
+        const season = document.getElementById('seasonSelect').value;
+        const episode = document.getElementById('episodeInput').value;
+        const resultsArea = document.getElementById('resultsArea');
+        
+        resultsArea.innerHTML = '<p style="grid-column:1/-1; text-align:center; color:white;">載入靈魂數據中...</p>';
+
+        const response = await fetch(`/search?q=${encodeURIComponent(query)}&speaker=${encodeURIComponent(currentSpeaker)}&season=${encodeURIComponent(season)}&episode=${encodeURIComponent(episode)}`);
+        const data = await response.json();
+
+        if (data.length === 0) {
+            resultsArea.innerHTML = '<p style="grid-column:1/-1; text-align:center; color:white;">沒找到素材，換個單字或情緒試試！</p>';
+            return;
+        }
+
+        resultsArea.innerHTML = data.map((item, index) => {
+            const sStr = String(item.season).padStart(2, '0');
+            const eStr = String(item.episode).padStart(2, '0');
+            const sourceUrl = `https://fangj.github.io/friends/season/${sStr}${eStr}.html`;
+            const toneIcon = toneIcons[item.tone] || '💬';
+
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <img src="${item.avatar}" class="mini-avatar">
+                        <div class="speaker-info">
+                            <h3>${item.speaker}</h3>
+                            <p>${item.char_desc}</p>
+                        </div>
+                        <div class="season-badge">
+                            S${sStr} E${eStr}
+                            <a href="${sourceUrl}" target="_blank">🔗 劇本核對</a>
+                        </div>
+                    </div>
+                    
+                    <div class="line-box">
+                        <div class="en-line">"${item.line}"</div>
+                        <div class="cn-line">${item.chinese_line || '（官方翻譯載入中）'}</div>
+                    </div>
+
+                    ${item.action !== 'No specific action' ? `<div class="action-chip">🎥 分鏡指令: ${item.action}</div>` : ''}
+
+                    <div class="tag-row">
+                        <span class="tag tag-theme">📁 ${item.theme}</span>
+                        <span class="tag tag-tone">${toneIcon} ${item.tone}</span>
+                        <span class="tag" style="background: #e1f5fe; color: #0288d1; font-family: monospace;">⌚️ ${item.start_time}</span>
+                    </div>
+
+                    <div class="footer-tools">
+                        <button class="btn btn-copy" onclick="copySnippet(${JSON.stringify(item).replace(/"/g, '&quot;')})">📋 複製製作腳本</button>
+                        <button class="btn btn-context" onclick="openModal(\`${item.context}\`)">🎭 上下文</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function openModal(context) {
+        const modal = document.getElementById('contextModal');
+        const body = document.getElementById('modalBody');
+        body.innerHTML = context.split('\n').map(l => {
+            const trimmed = l.trim();
+            if (trimmed.startsWith('[')) return `<div class="highlight">${l}</div>`;
+            if (trimmed.startsWith('(')) return `<div class="translation-line">${l}</div>`;
+            return `<div class="context-line">${l}</div>`;
+        }).join('');
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() { document.getElementById('contextModal').style.display = 'none'; }
+
+    function copySnippet(item) {
+        const text = `【Friends 生產腳本】\n台詞: ${item.line}\n主題: ${item.theme}\n情緒: ${item.tone}\n動作說明: ${item.action}\n集數: S${item.season} E${item.episode}\n\n上下文:\n${item.context}`;
+        navigator.clipboard.writeText(text).then(() => alert('製作腳本與動作指令已複製！'));
+    }
+
+    window.onload = performSearch;
+</script>
+
+</body>
+</html>

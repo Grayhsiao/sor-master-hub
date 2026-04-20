@@ -1,0 +1,10 @@
+[theme]
+base="dark"
+primaryColor="#00C37A"
+
+[server]
+runOnSave = true
+
+[ui]
+# Enable top navigation (Streamlit >= 1.31)
+hideSidebarNav = false

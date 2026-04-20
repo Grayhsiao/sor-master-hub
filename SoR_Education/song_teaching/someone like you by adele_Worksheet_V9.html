@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Someone Like You - Interactive Worksheet</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 15mm;
+        }
+
+        body {
+            font-family: 'Menlo', monospace, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 0;
+            color: #7f8c8d;
+        }
+
+        /* Section 0: Behind the Song */
+        .info-box {
+            background-color: #f0f8ff; /* Light background color */
+            border: 1px solid #aed6f1;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .info-box h3 {
+            font-family: 'BiauKai', serif;
+            color: #2980b9;
+            margin-top: 0;
+            text-align: left;
+        }
+
+        .info-box p, .info-box ul {
+            font-family: 'BiauKai', serif;
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .info-box ul li {
+            margin-bottom: 8px;
+        }
+
+        /* Section 1: Full Lyrics */
+        .lyrics-container {
+            width: 80%;
+            margin: 30px auto;
+            text-align: left;
+            font-size: 1.1em;
+            font-family: 'Menlo', monospace;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        .lyrics-container p {
+            margin-bottom: 1em;
+        }
+
+        /* Section 2: Line-by-Line Study */
+        .teaching-box {
+            border: 1px solid #dcdcdc;
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 90%;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            page-break-inside: avoid; /* Crucial for printing */
+        }
+
+        .teaching-box h4 {
+            color: #3498db;
+            margin-top: 0;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+            font-size: 1.2em;
+        }
+
+        .teaching-box p {
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-family: 'Menlo', monospace;
+        }
+
+        table th, table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #ecf0f1;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Underlined spaces for input */
+        .underline {
+            display: inline-block;
+            width: 80%; /* Adjust as needed */
+            border-bottom: 1px solid #333;
+            min-height: 1.2em; /* Ensure enough space for writing */
+            vertical-align: bottom;
+            font-family: 'BiauKai', serif; /* For Chinese translation */
+            color: #555;
+        }
+
+        .substitution-line {
+            display: inline-block;
+            width: 90%;
+            border-bottom: 1px solid #333;
+            min-height: 1.2em;
+            vertical-align: bottom;
+            font-family: 'Menlo', monospace;
+            color: #555;
+        }
+
+        ol {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        ol li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Someone Like You</h1>
+        <h2>by Adele</h2>
+    </header>
+
+    <section class="info-box">
+        <h3>📖 歌曲小故事</h3>
+        <ul>
+            <li><strong>歌手背景：</strong> Adele Laurie Blue Adkins，這位來自英國的超級巨星歌手，以她那強而有力、充滿靈魂的嗓音和真摯的情感表達而聞名。她贏得了無數葛萊美獎，是當代最成功的音樂人之一。她不僅歌聲動人，還喜歡在舞台上和觀眾聊天，非常親切！🎤✨</li>
+            <li><strong>歌曲意義與靈感：</strong> 這首歌是Adele在與前男友分手後寫的。她想像著去拜訪他，發現他已經結婚並過著幸福的生活，而她卻還在心碎中。這首歌表達了她對這段感情的告別，以及對前男友的祝福，同時也透露出她內心的不捨和希望對方能記住她的心情。💔😢</li>
+            <li><strong>有趣小知識：</strong> 《Someone Like You》發行後，在全球引起了巨大轟動。它不僅登上了多國排行榜冠軍，還成為了許多人心碎時的療癒歌曲。Adele在2011年全英音樂獎上的現場演唱更是經典，她僅用鋼琴伴奏，卻感動了無數人，讓這首歌的銷量飆升！這首歌證明了真誠的情感是最能打動人心的。🌟🎶</li>
+        </ul>
+    </section>
+
+    <section class="lyrics-container">
+        <h3>Full Lyrics</h3>
+        <p>I heard that you're settled down<br>
+        That you found a girl and you're married now<br>
+        I heard that your dreams came true<br>
+        Guess she gave you things I didn't give to you</p>
+
+        <p>Old friend, why are you so shy?<br>
+        Ain't like you to hold back or hide from life</p>
+
+        <p>I hate to turn up out of the blue, uninvited<br>
+        But I couldn't stay away, I couldn't fight it<br>
+        I had hoped you'd see my face<br>
+        And that you'd be reminded that for me it isn't over</p>
+
+        <p>Never mind, I'll find someone like you<br>
+        I wish nothing but the best for you too<br>
+        "Don't forget me," I begged<br>
+        I remember you said<br>
+        "Sometimes it lasts in love, but sometimes it hurts instead"</p>
+
+        <p>Sometimes it lasts in love, but sometimes it hurts instead<br>
+        Yeah</p>
+
+        <p>You know how the time flies<br>
+        Only yesterday was the time of our lives<br>
+        We were born and raised in a summer haze<br>
+        Bound by the surprise of our glory days</p>
+
+        <p>I hate to turn up out of the blue, uninvited<br>
+        But I couldn't stay away, I couldn't fight it<br>
+        I had hoped you'd see my face<br>
+        And that you'd be reminded that for me it isn't over</p>
+
+        <p>Never mind, I'll find someone like you<br>
+        I wish nothing but the best for you too<br>
+        "Don't forget me," I begged<br>
+        I remember you said<br>
+        "Sometimes it lasts in love, but sometimes it hurts instead"</p>
+
+        <p>Sometimes it lasts in love, but sometimes it hurts instead<br>
+        Yeah</p>
+
+        <p>Nothing compares, no worries or cares<br>
+        Regrets and mistakes, they're memories made<br>
+        Who would have known how bittersweet this would taste?</p>
+
+        <p>Never mind, I'll find someone like you<br>
+        I wish nothing but the best for you too<br>
+        "Don't forget me," I begged<br>
+        I remember you said<br>
+        "Sometimes it lasts in love, but sometimes it hurts instead"</p>
+
+        <p>Sometimes it lasts in love, but sometimes it hurts instead</p>
+
+        <p>Never mind, I'll find someone like you<br>
+        I wish nothing but the best for you too<br>
+        "Don't forget me," I begged<br>
+        I remember you said<br>
+        "Sometimes it lasts in love, but sometimes it hurts instead"</p>
+
+        <p>Sometimes it lasts in love, but sometimes it hurts instead<br>
+        Yeah</p>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>I</th>
+                <th>heard</th>
+                <th>that</th>
+                <th>you're</th>
+                <th>settled</th>
+                <th>down</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: I heard that you're [verb + -ed] [adverb/preposition]</p>
+        <p>Example: I heard that you're **moved** **away**.</p>
+        <ol>
+            <li>I heard that you're <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I heard that you're <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I heard that you're <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>moved</td><td></td><td>搬走了</td></tr>
+            <tr><td>promoted</td><td></td><td>升職了</td></tr>
+            <tr><td>engaged</td><td></td><td>訂婚了</td></tr>
+            <tr><td>retired</td><td></td><td>退休了</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>That</th>
+                <th>you</th>
+                <th>found</th>
+                <th>a</th>
+                <th>girl</th>
+                <th>and</th>
+                <th>you're</th>
+                <th>married</th>
+                <th>now</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: That you found a [person] and you're [status] now</p>
+        <p>Example: That you found a **job** and you're **busy** now.</p>
+        <ol>
+            <li>That you found a <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>That you found a <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>That you found a <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>house / happy</td><td></td><td>房子 / 開心</td></tr>
+            <tr><td>hobby / excited</td><td></td><td>嗜好 / 興奮</td></tr>
+            <tr><td>partner / settled</td><td></td><td>伴侶 / 安頓下來</td></tr>
+            <tr><td>solution / relieved</td><td></td><td>解決方案 / 鬆了口氣</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>I</th>
+                <th>hate</th>
+                <th>to</th>
+                <th>turn</th>
+                <th>up</th>
+                <th>out</th>
+                <th>of</th>
+                <th>the</th>
+                <th>blue,</th>
+                <th>uninvited</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: I hate to [verb phrase], [adjective]</p>
+        <p>Example: I hate to **arrive late**, **unprepared**.</p>
+        <ol>
+            <li>I hate to <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I hate to <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I hate to <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>interrupt you / rude</td><td></td><td>打斷你 / 粗魯的</td></tr>
+            <tr><td>bother you / sorry</td><td></td><td>打擾你 / 抱歉的</td></tr>
+            <tr><td>leave early / impolite</td><td></td><td>提早離開 / 不禮貌的</td></tr>
+            <tr><td>complain now / ungrateful</td><td></td><td>現在抱怨 / 不知感恩的</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>But</th>
+                <th>I</th>
+                <th>couldn't</th>
+                <th>stay</th>
+                <th>away,</th>
+                <th>I</th>
+                <th>couldn't</th>
+                <th>fight</th>
+                <th>it</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: But I couldn't [verb phrase 1], I couldn't [verb phrase 2]</p>
+        <p>Example: But I couldn't **stop thinking**, I couldn't **forget it**.</p>
+        <ol>
+            <li>But I couldn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>But I couldn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>But I couldn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>resist the urge / control myself</td><td></td><td>抵抗衝動 / 控制自己</td></tr>
+            <tr><td>ignore the feeling / pretend it's fine</td><td></td><td>忽視感覺 / 假裝沒事</td></tr>
+            <tr><td>hold back / keep quiet</td><td></td><td>忍住 / 保持安靜</td></tr>
+            <tr><td>turn around / go home</td><td></td><td>轉身 / 回家</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>I</th>
+                <th>had</th>
+                <th>hoped</th>
+                <th>you'd</th>
+                <th>see</th>
+                <th>my</th>
+                <th>face</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: I had hoped you'd [verb phrase]</p>
+        <p>Example: I had hoped you'd **remember our time**.</p>
+        <ol>
+            <li>I had hoped you'd <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I had hoped you'd <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I had hoped you'd <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>understand my feelings</td><td></td><td>理解我的感受</td></tr>
+            <tr><td>give me a chance</td><td></td><td>給我一個機會</td></tr>
+            <tr><td>know I still care</td><td></td><td>知道我仍然在乎</td></tr>
+            <tr><td>be happy to see me</td><td></td><td>很高興見到我</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>And</th>
+                <th>that</th>
+                <th>you'd</th>
+                <th>be</th>
+                <th>reminded</th>
+                <th>that</th>
+                <th>for</th>
+                <th>me</th>
+                <th>it</th>
+                <th>isn't</th>
+                <th>over</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: And that you'd be reminded that for me it isn't [adjective]</p>
+        <p>Example: And that you'd be reminded that for me it isn't **easy**.</p>
+        <ol>
+            <li>And that you'd be reminded that for me it isn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>And that you'd be reminded that for me it isn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>And that you'd be reminded that for me it isn't <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>forgotten</td><td></td><td>被遺忘的</td></tr>
+            <tr><td>simple</td><td></td><td>簡單的</td></tr>
+            <tr><td>finished</td><td></td><td>結束的</td></tr>
+            <tr><td>the same</td><td></td><td>一樣的</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>Never</th>
+                <th>mind,</th>
+                <th>I'll</th>
+                <th>find</th>
+                <th>someone</th>
+                <th>like</th>
+                <th>you</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: Never mind, I'll find [something/someone] [adjective/phrase]</p>
+        <p>Example: Never mind, I'll find **a better solution**.</p>
+        <ol>
+            <li>Never mind, I'll find <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>Never mind, I'll find <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>Never mind, I'll find <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>a new hobby</td><td></td><td>一個新嗜好</td></tr>
+            <tr><td>another way</td><td></td><td>另一種方法</td></tr>
+            <tr><td>my own happiness</td><td></td><td>我自己的幸福</td></tr>
+            <tr><td>a different path</td><td></td><td>一條不同的路</td></tr>
+        </table>
+    </section>
+
+    <section class="teaching-box">
+        <h4>🎵 LYRIC DECONSTRUCTION</h4>
+        <table>
+            <tr>
+                <th>I</th>
+                <th>wish</th>
+                <th>nothing</th>
+                <th>but</th>
+                <th>the</th>
+                <th>best</th>
+                <th>for</th>
+                <th>you</th>
+                <th>too</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>📝 自己翻 (Translate): <span class="underline">____________________________________________________________________________________________________</span></p>
+        <p>🔄 自己換 (Substitution Practice):</p>
+        <p>Pattern: I wish nothing but the best for [person/group] too</p>
+        <p>Example: I wish nothing but the best for **our team** too.</p>
+        <ol>
+            <li>I wish nothing but the best for <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I wish nothing but the best for <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+            <li>I wish nothing but the best for <span class="substitution-line">____________________________________________________________________________________________________</span></li>
+        </ol>
+        <p>💡 Word Bank (For Substitution):</p>
+        <table>
+            <tr><th>Word</th><th>Phonics</th><th>Chinese</th></tr>
+            <tr><td>your family</td><td></td><td>你的家人</td></tr>
+            <tr><td>your future</td><td></td><td>你的未來</td></tr>
+            <tr><td>all of us</td><td></td><td>我們所有人</td></tr>
+            <tr><td>everyone involved</td><td></td><td>所有相關的人</td></tr>
+        </table>
+    </section>
+
+</body>
+</html>
