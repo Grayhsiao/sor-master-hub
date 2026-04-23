@@ -26,6 +26,7 @@ PHONICS_DIR   = os.path.join(SOR_EDU_DIR, "sor_phonics_app")
 STUDIO_DIR    = os.path.join(SOR_EDU_DIR, "Vocab_700") 
 LINEBOT_DIR   = os.path.join(SOR_EDU_DIR, "sor_line_db_bot")
 FOCUS_DIR     = os.path.join(SOR_EDU_DIR, "FocusGuardv1")
+FOCUS_PRO_DIR = os.path.join(SOR_EDU_DIR, "FocusGuard_Parent_Pro")
 LOGO_PATH     = os.path.join(PHONICS_DIR, "assets", "images", "sor_brain_logo.png")
 
 # ── 3. 動態 URL 對照表 ───────────────────────────────────────────────────────
@@ -38,18 +39,20 @@ if IS_LOCAL:
         "king":      "http://localhost:8503",
         "song":      "http://localhost:5088",
         "focus":     "http://localhost:5099",
+        "focus_pro": "http://localhost:5100",
         "official":  "https://www.milinguall.com",
     }
     MODE_LABEL = "🛠️ LOCAL DEV MODE"
 else:
     SERVER_URLS = {
-        "phonics":   "https://sor14.duckdns.org/phonics",
+        "phonics":   "https://sor14.duckdns.org/phonics/?v=13",
         "studio":    "https://sor14.duckdns.org/studio",
         "youtubedb": "https://sor14.duckdns.org/youtubedb",
         "linebot":   "https://sor14.duckdns.org/linebot",
         "king":      "https://sor14.duckdns.org/king",
         "song":      "https://sor14.duckdns.org/song",
         "focus":     "https://sor14.duckdns.org/focus",
+        "focus_pro": "https://sor14.duckdns.org/focus_pro",
         "official":  "https://www.milinguall.com",
     }
     MODE_LABEL = "🌍 PRODUCTION LIVE"
@@ -190,12 +193,29 @@ with ce:
         <a class="portal-btn" style="background:linear-gradient(135deg,#6c3fc5,#4a2d8a)" href="{SERVER_URLS["linebot"]}">⊙ 查看機器人狀態</a>
     </div>''', unsafe_allow_html=True)
 with cf:
-    st.markdown('''
+    st.markdown(f'''
     <div class="module-card" style="border-top:4px solid #f39c12">
-        <h3>🛡️ Focus Guard</h3>
-        <p>上課時封鎖分心 App、監測專注曲線。<br>本頁面提供完整使用說明、專屬下載連結與老師遠端遙控面板。</p>
-        <div class="tag-row"><span class="tag">Mac App</span><span class="tag">Firebase</span><span class="tag">遠端遙控</span></div>
-        <a class="portal-btn" style="background:linear-gradient(135deg,#f39c12,#d35400)" href="{SERVER_URLS["focus"]}">🛡️ 進入防護系統</a>
+        <h3>🛡️ Focus Guard Pro (家長版)</h3>
+        <p><b>[最新發送]</b> 給所有家長的專業方案。具備 AI 審查、斷電記憶計時與影子守護，支援手機遠端遙控與 PIN 碼修改。</p>
+        <div class="tag-row"><span class="tag">Pro Installer</span><span class="tag">AI Guard</span><span class="tag">遙控碼管理</span></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+            <a class="portal-btn" style="background:linear-gradient(135deg,#f39c12,#d35400)" href="{SERVER_URLS["focus_pro"]}">🛡️ 進入控制台</a>
+            <div style="display:flex; gap:4px;">
+                <a class="portal-btn" style="background:linear-gradient(135deg,#64748b,#475569); box-shadow:none; flex:1; font-size:0.65rem; padding:8px 2px;" href="{SERVER_URLS["focus_pro"]}/FocusGuardPro_Mac.zip">🍎 Mac 版</a>
+                <a class="portal-btn" style="background:linear-gradient(135deg,#34495e,#2c3e50); box-shadow:none; flex:1; font-size:0.65rem; padding:8px 2px;" href="{SERVER_URLS["focus_pro"]}/FocusGuardPro_Win.zip">🪟 Win 版</a>
+            </div>
+        </div>
+    </div>''', unsafe_allow_html=True)
+
+st.markdown('<div class="section-header">🏫 課程專案區 (Online Course Specific)</div>', unsafe_allow_html=True)
+cx, cy = st.columns(2)
+with cx:
+    st.markdown(f'''
+    <div class="module-card" style="border-left:4px solid #95a5a6">
+        <h3>🎓 Focus Guard v1 (課程版)</h3>
+        <p>針對線上課程設計，支援老師一鍵簽到、上課專注監控與基本 App 封鎖。</p>
+        <div class="tag-row"><span class="tag">Legacy</span><span class="tag">學員管理</span></div>
+        <a class="portal-btn" style="background:#7f8c8d" href="{SERVER_URLS["focus"]}">🚀 進入課程版面板</a>
     </div>''', unsafe_allow_html=True)
 
 # ── 10. API Vault (金鑰金庫與系統地圖) ─────────────────────────────────────────

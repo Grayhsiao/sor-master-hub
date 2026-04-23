@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Focus Guard | 家長控制門戶</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4ade80;
+            --primary-hover: #22c55e;
+            --accent: #3b82f6;
+            --danger: #f87171;
+            --bg: #0f172a;
+            --card: rgba(30, 41, 59, 0.7);
+            --text: #f8fafc;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0, transparent 50%),
+                              radial-gradient(at 100% 100%, rgba(74, 222, 128, 0.1) 0, transparent 50%);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            max-width: 440px;
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 2rem;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { margin: 0 0 0.5rem; font-size: 1.5rem; color: var(--primary); }
+        p.subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 2rem; }
+        
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-size: 0.85rem; color: #cbd5e1; }
+        input {
+            width: 100%;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid var(--glass-border);
+            padding: 12px;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+        }
+        input:focus { border-color: var(--primary); }
+
+        .btn-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 2rem;
+        }
+        .btn {
+            border: none;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-primary { background: var(--primary); color: #064e3b; }
+        .btn-accent { background: var(--accent); color: #e0f2fe; }
+        .btn-danger { background: var(--danger); color: #450a0a; }
+        .btn:active { transform: scale(0.98); opacity: 0.9; }
+
+        .status-badge {
+            margin-top: 1.5rem;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            border: 1px dashed var(--glass-border);
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Focus Guard 3.0</h1>
+        <p class="subtitle">家長專屬遠端遙控傳送門</p>
+
+        <div class="form-group">
+            <label>🔑 教室代碼 (連結孩子電腦)</label>
+            <input type="text" id="class-code" placeholder="例如: TEST101" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label>🤖 Gemini API Key (遠端派發)</label>
+            <input type="password" id="api-key" placeholder="貼上您的 AI 金鑰">
+        </div>
+
+        <div class="btn-grid">
+            <button class="btn btn-primary" onclick="sendCommand('UNLOCKED')">
+                ✅ 自由探索模式
+            </button>
+            <button class="btn btn-accent" onclick="sendAIGuard()">
+                👁️ 啟動 AI 學習守衛
+            </button>
+            <button class="btn btn-danger" onclick="sendCommand('HARD_LOCK')">
+                🚫 幽默鎖屏 (Last Resort)
+            </button>
+        </div>
+
+        <div id="status" class="status-badge">等待輸入指令...</div>
+
+        <div class="footer">
+            Powered by SoR Hub AI Engine
+        </div>
+    </div>
+
+    <script>
+        const FIREBASE_BASE = "https://studybuddy-a2dcc-default-rtdb.asia-southeast1.firebasedatabase.app/";
+
+        function setStatus(msg, color = "#94a3b8") {
+            const el = document.getElementById('status');
+            el.innerText = msg;
+            el.style.color = color;
+        }
+
+        async function sendCommand(status) {
+            const code = document.getElementById('class-code').value.trim().toUpperCase();
+            if (!code) { alert("請輸入教室代碼"); return; }
+            
+            setStatus("指令傳送中...");
+            const url = `${FIREBASE_BASE}/classrooms/${code}.json`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        status: status,
+                        last_update: new Date().toISOString(),
+                        client: "ParentPortalV3"
+                    })
+                });
+                if (response.ok) {
+                    setStatus(`✅ 指令已送達: ${status}`, '#4ade80');
+                } else {
+                    setStatus("❌ 傳送失敗，請檢查代碼", "#f87171");
+                }
+            } catch (err) {
+                setStatus("⚠️ 網路連線異常", "orange");
+            }
+        }
+
+        async function sendAIGuard() {
+            const key = document.getElementById('api-key').value.trim();
+            if (!key) {
+                if(!confirm("未提供 API Key，這將導致學生端無法使用 AI 判定 (改用關鍵字)。確定要繼續？")) return;
+            }
+            // 使用 | 分隔指令與參數
+            sendCommand(`AI_GUARD|${key}`);
+        }
+    </script>
+</body>
+</html>

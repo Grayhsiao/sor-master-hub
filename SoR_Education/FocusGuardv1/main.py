@@ -4,6 +4,9 @@ import traceback
 from datetime import datetime
 import uuid
 import requests
+import re
+import json
+import subprocess
 
 # [Diagnostic] 最優先：一啟動就寫入檔案，確認程式碼有被執行
 CRASH_LOG = os.path.join(os.path.expanduser("~"), "focus_guard_crash.log")
@@ -54,20 +57,128 @@ except ImportError:
     HAS_PYGAME = False
     print("警告: 找不到 pygame，將無法播放音效")
     
-# --- 設定 ---
+# --- 核心模式與 AI 設定 ---
+IS_MAC = platform.system() == "Darwin"
+IS_WIN = platform.system() == "Windows"
+
+DEFAULT_CONFIG = {
+    "GEMINI_API_KEY": "",
+    "MODE": "BLACKLIST", # BLACKLIST, WHITELIST, AI_GUARD, LOCKED
+    "WHITELIST": ["microsoft word", "pages", "keynote", "preview", "zoom", "teams", "slack"],
+    "ALLOWED_YOUTUBE_CHANNELS": ["老高", "李永樂", "ted", "台大", "開放式課程", "papaya"],
+    "LAST_REMOTE_CMD": None
+}
+
+# 幽默鎖定語錄 (Andy Meme Quotes)
+MEME_QUOTES = [
+    "檢測到大腦處於『待機模式』，請立刻切換至『學習模式』！",
+    "孩子，放下電腦，立地成佛。功課還在等你。",
+    "老師在看，你在玩。Andy 娃娃正在盯著你看...",
+    "這個視窗太誘人了，為了你的前途，我決定把它變不見。",
+    "偵測到非學習內容，電腦已進入『幽默封鎖狀態』。",
+    "如果你能解開這個鎖，代表你已經學會了破解術（開玩笑的，去讀書吧）。",
+    "休息是為了走更長遠的路，但你已經休息到明年去了。"
+]
+
 PIN_CODE = "1234"
 BLACKLIST = [
-    "minecraft", "roblox", "steam", 
-    # "safari", "chrome", "google chrome", "microsoft edge", "msedge", "firefox", "brave", "opera", # 測試期間暫不阻擋瀏覽器
-    "discord", "spotify",
+    "minecraft", "roblox", "steam", "discord", "spotify",
     "fortnite", "league of legends", "valorant",
-    "atlauncher", "curseforge", "gdlauncher", "multimc", "prismlauncher", "technic", "lunar",
-    "overwolf", "javaw", "java"
+    "atlauncher", "curseforge", "gdlauncher", "multimc", "prismlauncher",
+    "technic", "lunar", "overwolf", "javaw", "java"
 ]
 FIREBASE_URL = "https://studybuddy-a2dcc-default-rtdb.asia-southeast1.firebasedatabase.app/"
 
 # [Fix] 將 Log 檔存放在使用者的家目錄下，避免因為權限不足導致 App 閃退
 LOG_FILE = os.path.join(os.path.expanduser("~"), "focus_activity.log")
+
+# --- 輔助工具函數 ---
+def _run_as(script: str, timeout: float = 1.5) -> str:
+    """ 執行 AppleScript (僅限 Mac) """
+    if not IS_MAC: return ""
+    try:
+        r = subprocess.run(["osascript", "-e", script], capture_output=True, text=True, timeout=timeout)
+        return r.stdout.strip() if r.returncode == 0 else ""
+    except: return ""
+
+def get_browser_tabs() -> list[dict]:
+    """ 取得主流瀏覽器目前的活躍分頁 (Mac 專用) """
+    if not IS_MAC: return []
+    browsers = [
+        ("Google Chrome", 'tell application "Google Chrome" to get title of active tab of front window', 'tell application "Google Chrome" to get URL of active tab of front window'),
+        ("Safari", 'tell application "Safari" to get name of front document', 'tell application "Safari" to get URL of front document'),
+        ("Microsoft Edge", 'tell application "Microsoft Edge" to get title of active tab of front window', 'tell application "Microsoft Edge" to get URL of active tab of front window')
+    ]
+    tabs = []
+    for app, t_script, u_script in browsers:
+        title = _run_as(t_script)
+        url = _run_as(u_script)
+        if title: tabs.append({"title": title, "url": url, "owner": app})
+    return tabs
+
+def _ai_classify(title: str, url: str, api_key: str) -> str:
+    """ 呼叫 Gemini API 進行意圖判斷 """
+    if not api_key: return "unknown"
+    prompt = f'影片/網頁標題："{title}"\n網址：{url}\n判斷是對國中生而言是「學習」還是「娛樂」。規則：教學/科學/歷史/語言/課程 -> learning；遊戲/短影音/搞笑/MV/直播/實況 -> entertainment；首頁/搜尋頁 -> safe。只回傳一個英文單字。'
+    api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    body = {"contents": [{"parts": [{"text": prompt}]}]}
+    try:
+        resp = requests.post(api_url, json=body, timeout=5)
+        if resp.status_code == 200:
+            answer = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip().lower()
+            return answer if answer in ["learning", "entertainment", "safe"] else "safe"
+    except: pass
+    return "unknown"
+
+def classify_tab(title: str, url: str, config: dict) -> str:
+    """ 綜合判定分頁屬性 """
+    text = (title + " " + url).lower()
+    # 優先攔截短影音
+    if any(k in text for k in ["shorts", "reels", "tiktok"]): return "entertainment"
+    # 檢查 YouTube 頻道白名單
+    if any(k.lower() in text for k in config.get("ALLOWED_YOUTUBE_CHANNELS", [])): return "learning"
+    # AI 判定
+    return _ai_classify(title, url, config.get("GEMINI_API_KEY", ""))
+
+# --- 超級鎖定畫面 ---
+class SuperLockScreen(tk.Toplevel):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.attributes("-fullscreen", True)
+        self.attributes("-topmost", True)
+        self.config(bg="black")
+        self.parent = parent
+        
+        # 攔截關閉事件
+        self.protocol("WM_DELETE_WINDOW", lambda: None)
+        
+        # 佈局內容
+        self.canvas = tk.Canvas(self, bg="black", highlightthickness=0)
+        self.canvas.pack(fill="both", expand=True)
+        
+        # 顯示幽默金句
+        import random
+        quote = random.choice(MEME_QUOTES)
+        
+        self.canvas.create_text(
+            self.winfo_screenwidth() / 2, 
+            self.winfo_screenheight() / 2,
+            text=f"🛑 已鎖定 🛑\n\n{quote}",
+            font=("Microsoft JhengHei", 24, "bold"),
+            fill="#4ade80",
+            justify="center",
+            width=800
+        )
+        
+        btn = tk.Button(self, text="🔑 我要輸入 PIN 碼申請解鎖", command=self.ask_unlock,
+                        bg="#1e293b", fg="white", font=("Microsoft JhengHei", 12))
+        self.canvas.create_window(self.winfo_screenwidth() / 2, self.winfo_screenheight() * 0.8, window=btn)
+
+    def ask_unlock(self):
+        pin = simpledialog.askstring("家長解鎖", "請輸入家長 PIN 碼以暫時解除:", show="*", parent=self)
+        if pin == PIN_CODE:
+            self.destroy()
+            self.parent.log_activity("Hard Lock manually unlocked by PIN")
 
 def resource_path(relative_path):
     """ 取得資源的絕對路徑 """
@@ -132,11 +243,39 @@ class FocusGuardApp:
         self.student_id = self.get_or_create_student_id()
         self.student_name = self.get_or_create_student_name()
         self.coins = 0
+        
+        # [3.0] 啟動影子守護者 (Watchdog)
+        self.start_shadow_guard()
+        
+        # [3.0] 初始化動態設定
+        self.config = DEFAULT_CONFIG.copy()
+        self.lock_screen = None # 超級鎖定畫面實體
+        
         self.load_coins_async()
 
         # 載入背景
         self.setup_ui()
         
+    def start_shadow_guard(self):
+        """ 啟動監控影子的影子 (Watchdog 互保機制) """
+        def run():
+            watchdog_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "focus_watchdog.py")
+            while True:
+                is_running = False
+                for proc in psutil.process_iter(['cmdline']):
+                    try:
+                        if proc.info['cmdline'] and any("focus_watchdog.py" in cmd for cmd in proc.info['cmdline']):
+                            is_running = True
+                            break
+                    except: pass
+                
+                if not is_running and os.path.exists(watchdog_script):
+                    self.log_activity("Watchdog 斷線，正在重啟影子守護者...")
+                    subprocess.Popen([sys.executable, watchdog_script])
+                time.sleep(10) # 每 10 秒檢查一次影子
+
+        threading.Thread(target=run, daemon=True).start()
+
     def get_or_create_student_id(self):
         id_file = os.path.join(os.path.expanduser("~"), ".andy_student_id")
         if os.path.exists(id_file):
@@ -642,17 +781,36 @@ class FocusGuardApp:
         self.root.after(0, lambda: self.lbl_leaderboard.config(text=lb_text))
 
     def on_remote_status_change(self, status):
-        """ 當雲端狀態改變時觸發 """
+        """ 當雲端狀態改變時觸發 (由家長/老師控制) """
         self.log_activity(f"Remote Status Change: {status}")
         
-        if status == "LOCKED":
-            if not self.is_running:
-                # 由老師發起的鎖定
-                self.root.after(0, self.start_remote_lock)
+        # 分解指令 (未來可能帶有參數，如 AI_GUARD:KEY_123)
+        parts = status.split("|")
+        cmd = parts[0]
+        
+        if cmd == "HARD_LOCK":
+            # [3.0] 幽默超級鎖定
+            if not self.lock_screen or not self.lock_screen.winfo_exists():
+                self.root.after(0, lambda: setattr(self, 'lock_screen', SuperLockScreen(self.root)))
+        elif cmd == "AI_GUARD":
+            self.config["MODE"] = "AI_GUARD"
+            if len(parts) > 1: self.config["GEMINI_API_KEY"] = parts[1]
+            if not self.is_running: self.root.after(0, self.start_remote_lock)
+        elif cmd == "WHITELIST":
+            self.config["MODE"] = "WHITELIST"
+            if not self.is_running: self.root.after(0, self.start_remote_lock)
+        elif cmd == "LOCKED":
+            # 原有的教室鎖定
+            self.config["MODE"] = "BLACKLIST"
+            if not self.is_running: self.root.after(0, self.start_remote_lock)
         else:
-            if self.is_running:
-                # 由老師發起的解鎖
+            # UNLOCKED 或恢復正常
+            self.config["MODE"] = "BLACKLIST"
+            if cmd == "UNLOCKED" and self.is_running:
                 self.root.after(0, self.stop_remote_lock)
+            # 如果有鎖定畫面則關閉
+            if self.lock_screen and self.lock_screen.winfo_exists():
+                self.root.after(0, self.lock_screen.destroy)
 
     def on_remote_event(self, event_type, payload, target="ALL", target_display="全班"):
         """ 處理老師廣播的事件 """
@@ -698,28 +856,53 @@ class FocusGuardApp:
         self.show_remote_waiting_mode()
 
     def monitor_processes(self):
+        """ 核心監控循環：根據當前模式 (BLACKLIST, WHITELIST, AI_GUARD) 執行動作 """
         while self.is_running:
-            for proc in psutil.process_iter(['pid', 'name']):
+            mode = self.config.get("MODE", "BLACKLIST")
+            
+            # 1. 偵查現有程序
+            all_procs = list(psutil.process_iter(['pid', 'name']))
+            
+            # 2. [模式: 白名單] 除了白名單與系統進程，其餘殺無赦
+            if mode == "WHITELIST":
+                whitelist = self.config.get("WHITELIST", [])
+                for proc in all_procs:
+                    try:
+                        p_name = proc.info['name'].lower()
+                        # 跳過系統關鍵進程標籤 (這裡僅為示範，實戰需更精細)
+                        if any(k in p_name for k in ["finder", "dock", "system", "login", "windowserver", "focus"]):
+                            continue
+                        if not any(k in p_name for k in whitelist):
+                            proc.kill()
+                            self.log_activity(f"Whitelist Mode: Terminated {p_name}")
+                    except: pass
+
+            # 3. [模式: AI 守衛] 監看瀏覽器分頁內容
+            elif mode == "AI_GUARD":
+                if IS_MAC:
+                    tabs = get_browser_tabs()
+                    for tab in tabs:
+                        result = classify_tab(tab["title"], tab["url"], self.config)
+                        if result == "entertainment":
+                            self.log_activity(f"AI Guard: Detected Entertainment [{tab['title']}]")
+                            # 幽默重導向或關閉 (僅限 Mac)
+                            _run_as(f'tell application "{tab["owner"]}" to set URL of active tab of front window to "https://www.google.com"')
+                            # 同時彈出幽默警告
+                            import random
+                            self.root.after(0, lambda t=tab["title"]: messagebox.showwarning("Andy 提醒", f"發現你在看：{t[:20]}...\n這個看起來不太像在做作業喔！幫你切換一下畫面。"))
+
+            # 4. [通用: 黑名單] 基礎防護
+            for proc in all_procs:
                 try:
-                    # 取得小寫的程序名稱 (例如 "chrome.exe")
                     p_name = proc.info['name'].lower()
-                    
-                    # [Fix] 檢查 BLACKLIST 中的關鍵字是否出現在程序名稱中
-                    # 例如: BLACKLIST 有 "chrome"，則 "chrome.exe" 會被匹配到
-                    for blocked_keyword in BLACKLIST:
-                        if blocked_keyword in p_name:
-                             # self.log_activity(f"Blocked Process: {p_name}") 
-                             try:
-                                 proc.kill()
-                             except (psutil.NoSuchProcess, psutil.AccessDenied):
-                                 # 忽略無法存取或已經結束的程序
-                                 pass
-                             break # 只要命中一個關鍵字就阻擋，跳出內層迴圈檢查下一個 process
-                except (psutil.NoSuchProcess, psutil.AccessDenied):
-                    pass
-                except Exception:
-                    pass
-            time.sleep(3)
+                    for blocked in BLACKLIST:
+                        if blocked in p_name:
+                            proc.kill()
+                            self.log_activity(f"Blacklist Mode: Terminated {p_name}")
+                            break
+                except: pass
+                
+            time.sleep(3) # 每 3 秒掃描一次
 
     def toggle_close(self):
         """ 處理開關切換視覺效果並觸發關閉 (物理電燈開關版) """
