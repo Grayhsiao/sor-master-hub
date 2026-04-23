@@ -12,7 +12,8 @@ rsync -avzu --progress \
     --exclude '**/*.pth' \
     --exclude '**/*.bin' \
     --exclude 'Systems_Data/youtubedb/data/downloaded_files/' \
-    --exclude 'SoR_Education/FocusGuard_Parent_Pro/' \
+    --exclude 'SoR_Education/FocusGuard_Parent_Pro*' \
+    --exclude 'SoR_Education/FocusGuard_Parent_Pro拷貝/' \
     ./ root@77.42.94.7:/var/www/sor_hub/
 
 echo "🔄 強制修正路徑並重啟所有服務..."
