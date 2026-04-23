@@ -20,10 +20,10 @@ rsync -avzu --progress \
 
 echo "🔄 強制修正路徑並重啟所有服務..."
 ssh root@77.42.94.7 "pm2 delete all 2>/dev/null || true; \
-    pm2 start /var/www/sor_hub/venv/bin/streamlit --name sor-hub --cwd /var/www/sor_hub -- run SoR_Hub.py --server.port 8503 --server.address 0.0.0.0; \
-    pm2 start /var/www/sor_hub/venv/bin/streamlit --name youtubedb-app --cwd /var/www/sor_hub/Systems_Data/youtubedb -- run Home.py --server.port 8502 --server.baseUrlPath /youtubedb --server.address 0.0.0.0; \
+    pm2 start /var/www/sor_hub/venv/bin/python3 --name sor-hub --cwd /var/www/sor_hub -- -m streamlit run SoR_Hub.py --server.port 8503 --server.address 0.0.0.0; \
+    pm2 start /var/www/sor_hub/venv/bin/python3 --name youtubedb-app --cwd /var/www/sor_hub/Systems_Data/youtubedb -- -m streamlit run Home.py --server.port 8502 --server.baseUrlPath /youtubedb --server.address 0.0.0.0; \
     pm2 start /var/www/sor_hub/venv/bin/python3 --name song-server --cwd /var/www/sor_hub/SoR_Education/song_teaching -- song_server.py; \
-    pm2 start /var/www/sor_hub/venv/bin/streamlit --name studio --cwd /var/www/sor_hub/SoR_Education/700單 -- run sor_studio.py --server.port 8501 --server.baseUrlPath /studio --server.address 0.0.0.0; \
+    pm2 start /var/www/sor_hub/venv/bin/python3 --name studio --cwd /var/www/sor_hub/SoR_Education/700單 -- -m streamlit run sor_studio.py --server.port 8501 --server.baseUrlPath /studio --server.address 0.0.0.0; \
     pm2 save"
 
 echo "✅ 大一統遷移與部署成功！請造訪 https://sor14.duckdns.org"
