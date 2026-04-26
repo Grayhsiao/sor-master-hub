@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("sqlite:quiz.db");
+$db = new PDO("sqlite:" . __DIR__ . "/quiz.db");
 // 批量更新開始時間與挑戰間隔
 if (isset($_POST['batch_update'])) {
     $ids = implode(',', array_map('intval', $_POST['selected_ids']));
@@ -79,6 +79,11 @@ $songs = $db->query("SELECT * FROM entertainment_songs ORDER BY id DESC")->fetch
                 <img src="<?= $s['thumbnail'] ?>" style="width:50px;height:50px;border-radius:8px;">
                 <div style="flex-grow:1;">
                     <b><?= $s['artist'] ?></b> - <?= $s['song_name'] ?>
+                    <?php if ($s['is_buggy']): ?>
+                        <span
+                            style="background:#ff7675;color:white;padding:2px 8px;border-radius:5px;font-size:12px;margin-left:10px;">⚠️
+                            有人回報有誤</span>
+                    <?php endif; ?>
                     <div style="color:#888;font-size:12px;">目前開始：<?= $s['start_sec'] ?>s</div>
                 </div>
             </div>

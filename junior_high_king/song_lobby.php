@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("sqlite:quiz.db");
+$db = new PDO("sqlite:" . __DIR__ . "/quiz.db");
 $artists = $db->query("SELECT artist, COUNT(*) as count FROM entertainment_songs GROUP BY artist")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -18,6 +18,19 @@ $artists = $db->query("SELECT artist, COUNT(*) as count FROM entertainment_songs
             color: white;
             text-align: center;
             padding: 20px;
+        }
+
+        .mode-selector {
+            background: #1e1e1e; padding: 10px; border-radius: 15px;
+            display: inline-flex; gap: 5px; margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .mode-btn {
+            padding: 8px 15px; border-radius: 10px; text-decoration: none;
+            color: #888; font-size: 14px; font-weight: bold;
+        }
+        .mode-btn.active {
+            background: #6c5ce7; color: white;
         }
 
         .grid {
@@ -70,12 +83,20 @@ $artists = $db->query("SELECT artist, COUNT(*) as count FROM entertainment_songs
 
 <body>
     <h1>🎵 猜歌挑戰大廳</h1>
+
+    <?php $curr_mode = $_GET['mode'] ?? 'default'; ?>
+    <div class="mode-selector">
+        <a href="?mode=default" class="mode-btn <?= $curr_mode == 'default' ? 'active' : '' ?>">預設 (副歌)</a>
+        <a href="?mode=intro" class="mode-btn <?= $curr_mode == 'intro' ? 'active' : '' ?>">挑戰 (前奏)</a>
+        <a href="?mode=random" class="mode-btn <?= $curr_mode == 'random' ? 'active' : '' ?>">隨機 (地獄)</a>
+    </div>
+
     <div class="grid">
-        <a href="game_song.php?artist=all" class="btn brawl"><i class="fas fa-fire"></i> 猜歌大亂鬥</a>
+        <a href="game_song.php?artist=all&mode=<?= $curr_mode ?>" class="btn brawl"><i class="fas fa-fire"></i> 猜歌大亂鬥</a>
         <?php foreach ($artists as $a):
             if (!$a['artist'])
                 continue; ?>
-            <a href="game_song.php?artist=<?= urlencode($a['artist']) ?>" class="btn">
+            <a href="game_song.php?artist=<?= urlencode($a['artist']) ?>&mode=<?= $curr_mode ?>" class="btn">
                 <i class="fas fa-microphone-alt" style="color:#6c5ce7;margin-bottom:10px;"></i>
                 <?= $a['artist'] ?><br><span style="font-size:14px;color:#666;"><?= $a['count'] ?> 首歌</span>
             </a>

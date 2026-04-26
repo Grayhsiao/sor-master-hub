@@ -494,7 +494,7 @@
 
         // ── 音標排 ──
         let globalIdx = 0;
-        let symbolsVisible = (step <= 5);
+        let symbolsVisible = (step < 5);
         let symbolsHTML = '';
         
         rawSyllables.forEach((syl, sIdx) => {
@@ -507,10 +507,10 @@
                 let slot;
                 
                 if (isPhrase) {
-                    itemVisible = (step >= 1); // 短語始終顯示所有音標
+                    itemVisible = symbolsVisible && (step >= 1); // 短語始終顯示所有音標
                     slot = 'auto';
                 } else {
-                    itemVisible = (step >= (isV ? 1 : (globalIdx < globalVIdx ? 2 : 3)));
+                    itemVisible = symbolsVisible && (step >= (isV ? 1 : (globalIdx < globalVIdx ? 2 : 3)));
                     slot = isV ? 5 : (globalIdx < globalVIdx ? 5 - (globalVIdx - globalIdx) : 6 + (globalIdx - globalVIdx - 1));
                     if (slot > 9) slot = 9;
                     if (slot < 1) slot = 1;

@@ -98,6 +98,7 @@
         <button class="nav-btn" onclick="switchTab('tab-phonics')">🔤 音典 APP 教學</button>
         <button class="nav-btn" onclick="switchTab('tab-song')">🎵 歌曲教材產出</button>
         <button class="nav-btn" onclick="switchTab('tab-focus')">🛡️ Focus Guard 防護</button>
+        <button class="nav-btn" onclick="switchTab('tab-king')">🏆 國中知識王</button>
     </div>
 
     <div class="content">
@@ -168,6 +169,16 @@
                 <h3>老師端（遠端遙控面板）</h3>
                 <p>老師不用安裝任何東西！進入「老師控制台」輸入教室代碼後，就可以看到有誰在線上。你可以一鍵鎖定全班的程式，或是在學生表現優良時，一鍵發送「安迪幣」獎賞到他們的螢幕上！</p>
                 <button class="tts-btn" onclick="speakText('text-focus-2', this)">🔊 聽語音導覽</button>
+            </div>
+        <!-- 國中知識王 -->
+        <div id="tab-king" class="card">
+            <h1>🏆 國中知識王 (Junior High King)</h1>
+            <p class="subtitle">全方位學科競技平台</p>
+            <div class="step" id="text-king">
+                <h3>語音心算與學科挑戰</h3>
+                <p>這是一個結合 AI 語音辨識的測驗平台。學生可以進入「語音心算」模式，練習心算反應。系統會用國語讀出題目，學生只需對著麥克風說出答案即可答題。</p>
+                <p>此外還有「猜歌模式」與「全科學科挑戰」，所有的成績都會被記錄在榮譽排行榜中。如果你想訓練學生的反應與專注力，這是最佳的工具！</p>
+                <button class="tts-btn" onclick="speakText('text-king', this)">🔊 聽語音導覽</button>
             </div>
         </div>
 

@@ -37,3 +37,12 @@ SoR_Education/sor_line_db_bot/chroma_db/
 !README.md
 !啟動SoR中樞.command
 !啟動所有本地開發伺服器.command
+SoR_Education/History_Rescue/
+dist/
+build/
+dist_pro/
+*.zip
+SoR_Education/History_Rescue/
+dist/
+build/
+*.zip

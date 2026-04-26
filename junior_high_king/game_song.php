@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db = new PDO("sqlite:quiz.db");
+$db = new PDO("sqlite:" . __DIR__ . "/quiz.db");
 $artist = $_GET['artist'] ?? 'all';
 $interval = 5;
 if ($artist === 'all') {
@@ -12,6 +12,16 @@ if ($artist === 'all') {
 }
 if (!$song)
     die("題庫為空");
+
+$mode = $_GET['mode'] ?? 'default';
+$start_sec = (int)($song['start_sec'] ?? 60);
+
+if ($mode === 'intro') {
+    $start_sec = 0;
+} elseif ($mode === 'random') {
+    // 隨機跳轉到 10 到 150 秒之間
+    $start_sec = rand(10, 150);
+}
 
 // 🚩 清洗 ID
 $yt_id = trim($song['yt_id']);
@@ -164,7 +174,23 @@ $allOpts[] = "以上皆非 (修正)";
             background: rgba(0, 0, 0, 0.9);
         }
 
-        /* 🚩 Debug 資訊小字樣式 */
+        /* 🚩 修正彈窗樣式 */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); display: none; z-index: 3000;
+            align-items: center; justify-content: center;
+        }
+        .modal-box {
+            background: #222; padding: 30px; border-radius: 25px; width: 85%; max-width: 400px;
+            border: 2px solid #6c5ce7; text-align: center;
+        }
+        .modal-input {
+            width: 90%; padding: 15px; border-radius: 12px; border: 1px solid #444;
+            background: #111; color: white; font-size: 18px; margin: 20px 0;
+        }
+        .modal-btn {
+            padding: 12px 20px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; margin: 5px;
+        }
         .debug-info {
             color: #888;
             font-size: 11px;
@@ -178,6 +204,20 @@ $allOpts[] = "以上皆非 (修正)";
 
     <div id="fb-overlay"><i id="fb-icon" style="font-size:120px;"></i>
         <div id="fb-text" style="font-size:32px;font-weight:900;margin-top:20px;"></div>
+    </div>
+
+    <!-- 🚩 修正彈窗 -->
+    <div id="fixModal" class="modal-overlay">
+        <div class="modal-box">
+            <h3 style="margin:0;">🔧 修正題目內容</h3>
+            <p style="font-size:12px;color:#aaa;">ID: <?= $song['id'] ?></p>
+            <input type="text" id="fixNameInput" class="modal-input" placeholder="請輸入正確歌名">
+            <div style="display:flex; flex-direction:column; gap:10px;">
+                <button class="modal-btn" style="background:#00b894;color:white;" onclick="submitFix()">確定修正</button>
+                <button class="modal-btn" style="background:#0984e3;color:white;" onclick="aiFindTitle()">🤖 AI 幫我找答案</button>
+                <button class="modal-btn" style="background:#444;color:white;" onclick="closeModal()">取消</button>
+            </div>
+        </div>
     </div>
 
     <div class="img-container">
@@ -212,6 +252,8 @@ $allOpts[] = "以上皆非 (修正)";
                 onclick="playFull()">聽整首</button>
             <button id="yieldBtn" class="opt-btn" style="background:#444;border:none;font-size:16px;"
                 onclick="revealOptions()">看選項</button>
+            <button class="opt-btn" style="background:#e17055;border:none;font-size:16px;width:120px;"
+                onclick="reportBug()"><i class="fas fa-exclamation-triangle"></i> 回報</button>
         </div>
         <div id="realOptions" style="display:none;">
             <?php foreach ($allOpts as $o): ?><button class="opt-btn"
@@ -271,7 +313,7 @@ $allOpts[] = "以上皆非 (修正)";
             document.getElementById('mainLabel').innerText = "播放中...";
 
             if (!isWakedUp) { player.playVideo(); player.setVolume(100); isWakedUp = true; }
-            player.seekTo(<?= (int) $song['start_sec'] ?> + (listenCount * 5), true);
+            player.seekTo(<?= $start_sec ?> + (listenCount * 5), true);
             player.playVideo();
 
             listenCount++;
@@ -302,13 +344,49 @@ $allOpts[] = "以上皆非 (修正)";
 
         function revealOptions() { document.getElementById('realOptions').style.display = 'block'; document.getElementById('yieldBtn').style.display = 'none'; }
 
+        function reportBug() {
+            if (confirm("⚠️ 確定要將這首歌標記為「題目與答案不符」嗎？\n管理員之後會進行檢查。")) {
+                fetch('api_fix_song.php', { method: 'POST', body: new URLSearchParams({ id: '<?= $song['id'] ?>', action: 'mark' }) })
+                    .then(() => { alert('已回報！謝謝你的幫助。'); location.reload(); });
+            }
+        }
+
+        function closeModal() { document.getElementById('fixModal').style.display = 'none'; }
+        
+        function submitFix() {
+            let n = document.getElementById('fixNameInput').value.trim();
+            if (n === "") {
+                reportBug();
+            } else {
+                fetch('api_fix_song.php', { method: 'POST', body: new URLSearchParams({ id: '<?= $song['id'] ?>', name: n, action: 'fix' }) })
+                    .then(() => { alert('已修正為：' + n); location.reload(); });
+            }
+        }
+
+        function aiFindTitle() {
+            const btn = event.target;
+            btn.innerText = "🔍 AI 搜尋中...";
+            btn.disabled = true;
+            
+            fetch('api_ai_song.php?yt_id=<?= $yt_id ?>')
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('fixNameInput').value = data.clean_title;
+                        alert("🤖 AI 找到可能的歌名：\n" + data.title + "\n\n已為您填入清洗後的名稱。");
+                    } else {
+                        alert("❌ AI 找不到這首歌的資訊。");
+                    }
+                })
+                .finally(() => {
+                    btn.innerText = "🤖 AI 幫我找答案";
+                    btn.disabled = false;
+                });
+        }
+
         function check(ans) {
             if (ans.includes("以上皆非")) {
-                let n = prompt("這首歌在資料庫的 ID 是 <?= $song['id'] ?>\n請輸入正確歌名：");
-                if (n) {
-                    fetch('api_fix_song.php', { method: 'POST', body: new URLSearchParams({ id: '<?= $song['id'] ?>', name: n }) })
-                        .then(() => { alert('已修正為：' + n); location.reload(); });
-                }
+                document.getElementById('fixModal').style.display = 'flex';
                 return;
             }
 

@@ -35,13 +35,13 @@ LOCAL_DB = {
     "password": ""
 }
 
-# 雲端正式機 (77.42.94.7)
+# 雲端正式機 (Hetzner) — 用 Unix socket，peer auth 不需密碼
 CLOUD_DB = {
-    "host": "77.42.94.7",
+    "host": "/var/run/postgresql",
     "port": 5433,
     "dbname": "sor_education",
     "user": "postgres",
-    "password": os.environ.get("PG_CLOUD_PASSWORD", "")
+    "password": ""
 }
 
 # 選擇連線目標 (預設本機，設環境變數 USE_CLOUD=1 則連雲端)

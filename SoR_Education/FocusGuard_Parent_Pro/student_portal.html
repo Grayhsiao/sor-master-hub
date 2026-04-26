@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoR AI 學習中心</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+<!-- KaTeX for Math Rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMath()"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter','Noto Sans TC',sans-serif;background:#0f172a;color:#f8fafc;min-height:100vh;padding:16px;}
+.container{max-width:600px;margin:0 auto;}
+/* Header */
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:10px 0;}
+.token-badge{background:rgba(251,191,36,.15);border:1px solid #fbbf24;color:#fbbf24;padding:6px 14px;border-radius:20px;font-weight:800;font-size:1.1rem;}
+.progress-bar{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin:10px 0 20px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#818cf8,#34d399);width:0%;transition:width .5s;}
+/* Question Card */
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px;margin-bottom:16px;position:relative;}
+.q-meta{display:flex;gap:8px;margin-bottom:12px;}
+.badge{padding:4px 10px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;}
+.badge-blue{background:rgba(59,130,246,.2);color:#60a5fa;}
+.q-text{font-size:1.3rem;font-weight:700;line-height:1.5;margin-bottom:24px;}
+/* Actions */
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;}
+.btn-tab{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#94a3b8;padding:12px;border-radius:12px;font-weight:700;cursor:pointer;transition:.2s;}
+.btn-tab.active{background:rgba(99,102,241,.2);border-color:#818cf8;color:#818cf8;}
+/* Input Area */
+textarea{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:16px;color:#fff;font-size:1.1rem;resize:none;min-height:120px;margin-bottom:16px;outline:none;}
+textarea:focus{border-color:#818cf8;}
+.upload-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;height:120px;border:2px dashed rgba(255,255,255,.2);border-radius:12px;cursor:pointer;margin-bottom:16px;transition:.2s;}
+.upload-btn:hover{background:rgba(255,255,255,.05);border-color:#818cf8;}
+#submit-btn{width:100%;padding:16px;border-radius:14px;border:none;background:linear-gradient(135deg,#6366f1,#4f46e5);color:#fff;font-size:1.1rem;font-weight:800;cursor:pointer;box-shadow:0 10px 20px rgba(79,70,229,.3);}
+#submit-btn:disabled{opacity:.5;cursor:not-allowed;}
+/* Feedback */
+.feedback{display:none;margin-top:20px;border-radius:16px;padding:20px;animation:slideUp .3s ease-out;}
+@keyframes slideUp{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+.feedback.wrong{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);}
+.feedback.correct{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);}
+.hint-title{font-weight:800;display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:1.1rem;}
+.hint-text{font-size:.95rem;line-height:1.6;color:#cbd5e1;}
+.explanation-box{display:none;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);}
+.explanation-btn{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:#a78bfa;padding:8px 16px;border-radius:8px;font-size:.85rem;font-weight:700;cursor:pointer;margin-top:14px;}
+/* Next Question Overlay */
+.next-btn{display:none;margin-top:20px;width:100%;padding:14px;background:#34d399;color:#064e3b;border-radius:12px;border:none;font-weight:800;font-size:1.1rem;cursor:pointer;}
+/* Loading */
+.loading-dots:after{content:' .';animation:dots 1s steps(5,end) infinite;}
+@keyframes dots{0%,20%{content:''}40%{content:'.'}60%{content:'..'}80%{content:'...'}100%{content:''}}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div id="q-index" style="font-weight:600;color:#94a3b8;">載入中...</div>
+    <div class="token-badge">🪙 <span id="token-count">0</span></div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div id="main-card" class="card">
+    <div class="q-meta">
+      <span class="badge badge-blue" id="q-topic">單元</span>
+    </div>
+    <div class="q-text" id="q-text">準備出題中...</div>
+
+    <div class="actions">
+      <button class="btn-tab active" id="tab-text" onclick="setMode('text')">✍️ 輸入答案</button>
+      <button class="btn-tab" id="tab-photo" onclick="setMode('photo')">📸 拍照上傳</button>
+    </div>
+
+    <div id="input-area">
+      <textarea id="text-ans" placeholder="在此輸入你的答案或計算過程..."></textarea>
+    </div>
+    
+    <div id="photo-area" style="display:none;">
+      <input type="file" id="photo-input" accept="image/*" capture="environment" style="display:none;" onchange="handlePhoto(this)">
+      <div class="upload-btn" onclick="document.getElementById('photo-input').click()">
+        <div style="font-size:2rem;margin-bottom:8px;">📷</div>
+        <div id="photo-status">點擊拍攝作業照片</div>
+      </div>
+    </div>
+
+    <button id="submit-btn" onclick="submitAnswer()">送出答案 🚀</button>
+
+    <!-- 反饋區 -->
+    <div id="feedback" class="feedback">
+      <div class="hint-title" id="fb-title"></div>
+      <div class="hint-text" id="fb-text"></div>
+      <button class="explanation-btn" id="exp-btn" style="display:none;" onclick="showExplanation()">📖 查看完整詳解</button>
+      <div id="explanation-content" class="explanation-box">
+        <div style="font-weight:800;color:#a78bfa;margin-bottom:8px;">完整解題過程</div>
+        <div id="exp-body" style="font-size:.9rem;line-height:1.7;color:#e2e8f0;white-space:pre-wrap;"></div>
+      </div>
+    </div>
+
+    <button class="next-btn" id="next-btn" onclick="nextQuestion()">下一題 ➔</button>
+  </div>
+</div>
+
+<script>
+let questions=[], currentIndex=0, currentMode='text', photoBase64='', attempts=0;
+
+function renderMath() {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+}
+
+async function loadTasks() {
+  try {
+    const r = await fetch('/api/get_tasks');
+    const d = await r.json();
+    if (d.tasks && d.tasks.length) {
+      questions = d.tasks;
+      showQuestion(0);
+    } else {
+      document.getElementById('q-text').textContent = '請家長在控制台先點擊「AI 出題」喔！';
+    }
+  } catch(e) {}
+  updateTokens();
+}
+
+function showQuestion(idx) {
+  currentIndex = idx;
+  const q = questions[idx];
+  attempts = 0;
+  document.getElementById('q-index').textContent = `第 ${idx+1} 題 / 共 ${questions.length} 題`;
+  document.getElementById('q-topic').textContent = q.topic || '一般練習';
+  document.getElementById('q-text').textContent = q.question;
+  document.getElementById('progress-fill').style.width = `${((idx)/questions.length)*100}%`;
+  
+  // 重設 UI
+  document.getElementById('feedback').style.display = 'none';
+  document.getElementById('next-btn').style.display = 'none';
+  document.getElementById('submit-btn').style.display = 'block';
+  document.getElementById('text-ans').value = '';
+  document.getElementById('photo-status').textContent = '點擊拍攝作業照片';
+  photoBase64 = '';
+  
+  setTimeout(renderMath, 100);
+}
+
+function setMode(m) {
+  currentMode = m;
+  document.getElementById('tab-text').className = 'btn-tab' + (m==='text'?' active':'');
+  document.getElementById('tab-photo').className = 'btn-tab' + (m==='photo'?' active':'');
+  document.getElementById('input-area').style.display = m==='text'?'block':'none';
+  document.getElementById('photo-area').style.display = m==='photo'?'block':'none';
+}
+
+function handlePhoto(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    photoBase64 = e.target.result.split(',')[1];
+    document.getElementById('photo-status').textContent = '✅ 照片已就緒';
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+async function submitAnswer() {
+  const btn = document.getElementById('submit-btn');
+  const fb = document.getElementById('feedback');
+  btn.disabled = true; btn.textContent = '批改中... 🤖';
+  attempts++;
+
+  try {
+    const q = questions[currentIndex];
+    const payload = {
+      question_id: q.id,
+      question: q.question,
+      correct_answer: q.answer,
+      key_steps: q.key_steps,
+      attempt_count: attempts,
+      mode: currentMode
+    };
+    if (currentMode === 'text') payload.student_answer = document.getElementById('text-ans').value;
+    else payload.image_base64 = photoBase64;
+
+    const r = await fetch(currentMode === 'text' ? '/api/grade_text' : '/api/grade_photo', {
+      method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+    });
+    const d = await r.json();
+
+    fb.style.display = 'block';
+    fb.className = 'feedback ' + (d.is_correct ? 'correct' : 'wrong');
+    document.getElementById('fb-title').textContent = d.is_correct ? '✨ 答對了！' : '❌ 再想想看';
+    document.getElementById('fb-text').textContent = d.hint || d.encouragement;
+    
+    if (d.is_correct) {
+      btn.style.display = 'none';
+      document.getElementById('next-btn').style.display = 'block';
+      document.getElementById('progress-fill').style.width = `${((currentIndex+1)/questions.length)*100}%`;
+      updateTokens();
+    } else if (attempts >= 3) {
+      document.getElementById('exp-btn').style.display = 'block';
+    }
+  } catch(e) { alert('連線失敗'); }
+  btn.disabled = false; btn.textContent = '送出答案 🚀';
+  setTimeout(renderMath, 100);
+}
+
+async function showExplanation() {
+  const btn = document.getElementById('exp-btn');
+  const box = document.getElementById('explanation-content');
+  const body = document.getElementById('exp-body');
+  btn.disabled = true; btn.textContent = '詳解載入中...';
+  
+  try {
+    const q = questions[currentIndex];
+    const r = await fetch('/api/get_explanation', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ question: q.question, correct_answer: q.answer, key_steps: q.key_steps })
+    });
+    const d = await r.json();
+    body.textContent = d.full_explanation;
+    box.style.display = 'block';
+    btn.style.display = 'none';
+    document.getElementById('next-btn').style.display = 'block'; // 即使錯三次看完詳解也可下一題
+  } catch(e) {
+    btn.textContent = '詳解載入失敗，再試一次';
+    btn.disabled = false;
+  }
+  setTimeout(renderMath, 100);
+}
+
+function nextQuestion() {
+  if (currentIndex + 1 < questions.length) showQuestion(currentIndex + 1);
+  else alert('🎉 恭喜完成所有練習！');
+}
+
+async function updateTokens() {
+  try {
+    const r = await fetch('/api/tokens');
+    const d = await r.json();
+    document.getElementById('token-count').textContent = d.tokens;
+  } catch(e) {}
+}
+
+loadTasks();
+setInterval(updateTokens, 10000);
+</script>
+</body>
+</html>

@@ -353,28 +353,43 @@ if IS_LOCAL:
         commit_msg = st.text_input("本次更新備註 (Git Commit Message)：", value=default_msg)
         
         if st.button("🔥 確認執行上傳", use_container_width=True):
-            with st.spinner("正在打包與上傳中，這可能需要幾十秒，請稍候..."):
+            with st.spinner("正在進行 Git 打包與伺服器同步，請稍候..."):
                 try:
                     logs = []
                     # 1. Git Add
                     subprocess.run(["git", "add", "."], cwd=BASE_DIR, check=True)
                     logs.append("✔ Git 檔案加入完成 (git add .)")
                     
-                    # 2. Git Commit (允許沒東西 commit 的情況)
-                    subprocess.run(["git", "commit", "-m", commit_msg], cwd=BASE_DIR)
-                    logs.append(f'✔ Git 建立版本 ({commit_msg})')
+                    # 2. Git Commit (檢查是否有變更)
+                    status_check = subprocess.run(["git", "status", "--porcelain"], cwd=BASE_DIR, capture_output=True, text=True)
+                    if status_check.stdout.strip():
+                        subprocess.run(["git", "commit", "-m", commit_msg], cwd=BASE_DIR, check=True)
+                        logs.append(f'✔ Git 建立版本 ({commit_msg})')
+                    else:
+                        logs.append("ℹ 無檔案變更，跳過 Git Commit")
                     
                     # 3. Git Push
                     push_res = subprocess.run(["git", "push"], cwd=BASE_DIR, capture_output=True, text=True)
+                    if push_res.returncode != 0:
+                        st.error(f"❌ Git Push 失敗，請檢查網路或衝突：\n{push_res.stderr}")
+                        st.stop()
                     logs.append("✔ Git 推送雲端完成 (git push)")
                     
                     # 4. 執行 deploy.sh (Rsync)
                     deploy_sh_path = os.path.join(BASE_DIR, "deploy.sh")
                     deploy_res = subprocess.run(["bash", deploy_sh_path], cwd=BASE_DIR, capture_output=True, text=True)
-                    logs.append("✔ 伺服器 Rsync 同步完成 (deploy.sh)")
+                    if deploy_res.returncode != 0:
+                        st.error(f"❌ 伺服器同步 (Deploy) 失敗：\n{deploy_res.stderr}")
+                        st.stop()
+                    logs.append("✔ 伺服器同步與服務重啟完成 (deploy.sh)")
                     
                     st.success("🎉 大一統發布成功！所有修改皆已送達正式伺服器。")
-                    with st.expander("查看詳細執行日誌"):
-                        st.code("\n".join(logs) + "\n\n[Git Push Log]\n" + push_res.stdout + push_res.stderr + "\n\n[Deploy Log]\n" + deploy_res.stdout)
+                    with st.expander("查看執行詳情與日誌"):
+                        st.markdown("### 執行進度")
+                        st.code("\n".join(logs))
+                        st.markdown("### Git Push 詳細日誌")
+                        st.code(push_res.stdout + push_res.stderr)
+                        st.markdown("### Deploy 詳細日誌")
+                        st.code(deploy_res.stdout)
                 except Exception as e:
-                    st.error(f"❌ 初始化或傳輸過程中發生錯誤：\n{str(e)}")
+                    st.error(f"❌ 部署過程中發生非預期錯誤：\n{str(e)}")

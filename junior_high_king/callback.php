@@ -2,10 +2,16 @@
 // callback.php
 session_start();
 
-// 🚩 ID 必須跟 login.php 完全一樣
+$is_local = (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false || strpos($_SERVER['HTTP_HOST'], '.dev') !== false);
+
 $client_id     = '2009384989'; 
 $client_secret = '4cc167f9d4f40daae0f9abf88c9a5168';
-$redirect_uri  = 'https://phrasally-abolitionary-modesta.ngrok-free.dev/callback.php';
+
+if ($is_local) {
+    $redirect_uri = 'https://phrasally-abolitionary-modesta.ngrok-free.dev/callback.php';
+} else {
+    $redirect_uri = 'https://sor14.duckdns.org/king/callback.php';
+}
 
 $code = $_GET['code'] ?? '';
 $state = $_GET['state'] ?? '';
@@ -39,6 +45,16 @@ if (isset($response['access_token'])) {
     $_SESSION['user_id']   = $profile['userId'];
     $_SESSION['user_name'] = $profile['displayName'];
     $_SESSION['user_pic']  = $profile['pictureUrl'];
+
+    // 🚩 3. 同步到資料庫
+    try {
+        $db = new PDO('sqlite:education.db');
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $db->prepare("INSERT OR REPLACE INTO users (user_id, name, pic, login_type) VALUES (?, ?, ?, 'line')");
+        $stmt->execute([$profile['userId'], $profile['displayName'], $profile['pictureUrl']]);
+    } catch (Exception $e) {
+        // 忽略資料庫錯誤
+    }
 
     header("Location: index.php");
     exit;

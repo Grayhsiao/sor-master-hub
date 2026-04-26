@@ -1,0 +1,19 @@
+# 🛡️ SoR 專案：緊急救援懶人包 (存入 Keep)
+
+【專案最後狀態摘要】
+1. Focus Guard Pro: 已進入 VENV 萬用編譯階段。
+   路徑: /SoR_Education/FocusGuard_Parent_Pro/
+2. 700單 Studio: 已完成 V6.1 佈局引擎。
+   路徑: /SoR_Education/700單/
+3. Phonics App: 字典介面排版已鎖定。
+4. Line Bot: 增強記憶功能已上線。
+
+【數據總庫路徑】
+/Users/gray/Documents/python project/SoR_Backups/SoR_Project_14Days_Technical_Master_Archive.md
+(這份檔案含有所有技術細節)
+
+【對話恢復咒語】
+「請讀取 /SoR_Backups/SoR_Project_14Days_Technical_Master_Archive.md。我是 Gray，我需要恢復 SoR 專案的開發背景，並接著處理 [填入目前目標]。」
+
+【最後更新日期】
+2026-04-22 (Antigravity ID: 3d3436fa)

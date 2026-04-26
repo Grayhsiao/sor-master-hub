@@ -89,6 +89,10 @@ if (strpos($ua, 'Line') !== false) {
             <p style="margin:5px 0 0; color:#888; font-size:14px;">不論對錯必出解析</p>
         </div>
     </a>
+
+    <div style="margin-top:40px; padding-bottom:40px;">
+        <a href="math_admin.php" style="color:#b2bec3; text-decoration:none; font-size:14px;"><i class="fas fa-cog"></i> 命題後台設定</a>
+    </div>
 </body>
 
 </html>

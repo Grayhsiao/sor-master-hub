@@ -1,5 +1,5 @@
 <?php session_start();
-$db = new PDO('sqlite:quiz.db');
+$db = new PDO('sqlite:' . __DIR__ . '/quiz.db');
 $subjects = $db->query("SELECT subject, COUNT(*) as total FROM questions GROUP BY subject")->fetchAll(PDO::FETCH_ASSOC); ?>
 <!DOCTYPE html>
 <html>

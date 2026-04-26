@@ -1,0 +1,20 @@
+127.0.0.1 - - [21/Apr/2026 22:38:35] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 22:53:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 22:53:35] code 404, message File not found
+127.0.0.1 - - [21/Apr/2026 22:53:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [21/Apr/2026 22:57:28] "GET /FocusGuardPro_Mac.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 22:57:36] "GET /FocusGuardPro_Mac.zip HTTP/1.1" 304 -
+127.0.0.1 - - [21/Apr/2026 23:12:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:16:15] code 404, message File not found
+127.0.0.1 - - [21/Apr/2026 23:16:15] "GET /FocusGuardPro_Win.zip HTTP/1.1" 404 -
+127.0.0.1 - - [21/Apr/2026 23:20:11] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:28:24] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:39:53] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:43:06] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:48:27] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [21/Apr/2026 23:52:54] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [22/Apr/2026 00:01:27] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [22/Apr/2026 00:17:10] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [22/Apr/2026 00:26:29] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
+127.0.0.1 - - [22/Apr/2026 00:26:35] "GET /FocusGuardPro_Win.zip HTTP/1.1" 304 -
+127.0.0.1 - - [22/Apr/2026 00:38:01] "GET /FocusGuardPro_Win.zip HTTP/1.1" 200 -
