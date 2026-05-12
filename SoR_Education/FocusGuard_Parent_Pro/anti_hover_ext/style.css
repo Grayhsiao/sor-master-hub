@@ -1,0 +1,24 @@
+/* Focus Guard Anti-Hover Extension - Fixed CSS Selectors */
+
+/* ytd-video-preview 是標籤名 */
+ytd-video-preview {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+/* ytd-video-preview-loader 是標籤名 */
+ytd-video-preview-loader {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+/* #inline-preview-player 是 ID（加 # 前綴才有效！） */
+#inline-preview-player {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+ytd-thumbnail-overlay-video-preview-renderer {
+    display: none !important;
+    pointer-events: none !important;
+}

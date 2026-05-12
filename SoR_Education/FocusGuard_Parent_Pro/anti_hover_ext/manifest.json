@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Focus Guard Anti-Hover",
+  "version": "1.0",
+  "description": "Silently blocks YouTube hover previews to maintain focus.",
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "css": ["style.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

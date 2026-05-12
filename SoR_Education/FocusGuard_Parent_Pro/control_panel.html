@@ -3,278 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SoR AI 守護系統 - 家長控制台</title>
+<title>Focus Guard Pro - 簡易控制台</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter','Noto Sans TC',sans-serif;background:linear-gradient(135deg,#0f172a,#1e1b4b);min-height:100vh;color:#e2e8f0;padding:20px;}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:900px;margin:0 auto;}
-@media(max-width:640px){.grid{grid-template-columns:1fr;}}
-.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:22px;backdrop-filter:blur(10px);}
-.card h2{font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;}
-.page-title{grid-column:1/-1;text-align:center;padding:10px 0 6px;}
-.page-title h1{font-size:1.5rem;font-weight:800;color:#818cf8;}
-.page-title p{font-size:.85rem;color:#64748b;margin-top:4px;}
-.student-link{display:inline-block;margin-top:10px;background:rgba(99,102,241,.2);border:1px solid rgba(99,102,241,.4);color:#818cf8;padding:8px 20px;border-radius:10px;text-decoration:none;font-weight:700;font-size:.85rem;transition:.2s;}
-.student-link:hover{background:rgba(99,102,241,.35);}
-/* Status */
-.status-row{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.2);border-radius:12px;padding:12px 16px;margin-bottom:14px;}
-.dot{width:12px;height:12px;border-radius:50%;background:#4b5563;flex-shrink:0;transition:.4s;}
-.dot.active{background:#34d399;box-shadow:0 0 8px #34d399;animation:pulse 1.5s infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-/* Token Display */
-.token-big{font-size:2.5rem;font-weight:900;color:#fbbf24;line-height:1;}
-.token-sub{font-size:.8rem;color:#78716c;margin-top:4px;}
-/* Buttons */
-.btn{width:100%;padding:12px;border-radius:10px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:.2s;margin-bottom:8px;font-family:inherit;}
-.btn:hover{filter:brightness(1.1);transform:translateY(-1px);}
-.btn:active{transform:translateY(0);}
-.btn:last-child{margin-bottom:0;}
-.btn-green{background:#34d399;color:#064e3b;}
-.btn-red{background:#f87171;color:#450a0a;}
-.btn-blue{background:#60a5fa;color:#172554;}
-.btn-purple{background:#a78bfa;color:#1e1b4b;}
-.btn-gray{background:rgba(255,255,255,.1);color:#94a3b8;}
-/* Form */
-select,input[type=number],input[type=text],input[type=password]{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:10px 12px;color:#e2e8f0;font-size:.9rem;outline:none;margin-bottom:8px;font-family:inherit;}
-select:focus,input:focus{border-color:#818cf8;}
-label{display:block;font-size:.75rem;color:#94a3b8;margin-bottom:4px;font-weight:600;}
-/* Log */
-.log{background:rgba(0,0,0,.35);border-radius:10px;padding:12px;height:180px;overflow-y:auto;font-family:'SF Mono',monospace;font-size:.7rem;color:#86efac;line-height:1.7;}
-.log::-webkit-scrollbar{width:3px;}
-.log::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px;}
-/* Weak Points */
-.weak-item{background:rgba(248,81,73,.08);border:1px solid rgba(248,81,73,.2);border-radius:8px;padding:8px 12px;font-size:.8rem;margin-bottom:6px;color:#fca5a5;}
-.weak-item:last-child{margin-bottom:0;}
-.empty-msg{color:#4b5563;font-size:.85rem;text-align:center;padding:20px 0;}
-/* PIN overlay */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);align-items:center;justify-content:center;z-index:999;}
-.overlay.show{display:flex;}
-.pin-box{background:#1e293b;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:28px;width:280px;text-align:center;}
-.pin-box h3{margin-bottom:16px;font-size:1rem;}
-.pin-box input{width:100%;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:12px;color:white;font-size:1.2rem;text-align:center;letter-spacing:6px;margin-bottom:12px;font-family:inherit;}
-.pin-row{display:flex;gap:8px;}
-.pin-row button{flex:1;padding:10px;border-radius:8px;border:none;font-weight:700;cursor:pointer;font-family:inherit;}
-.pin-cancel{background:rgba(255,255,255,.1);color:white;}
-.pin-ok{background:#34d399;color:#064e3b;}
-.span2{grid-column:1/-1;}
+    :root {
+        --bg: #0f172a;
+        --card: rgba(255, 255, 255, 0.05);
+        --primary: #818cf8;
+        --success: #34d399;
+        --danger: #f87171;
+        --text: #f8fafc;
+        --subtext: #94a3b8;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+        font-family:'Inter','Noto Sans TC',sans-serif;
+        background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+        min-height:100vh;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    .container {
+        width: 100%;
+        max-width: 420px;
+        background: var(--card);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 24px;
+        padding: 32px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+    .header h1 {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: -0.5px;
+    }
+    .header p {
+        font-size: 0.85rem;
+        color: var(--subtext);
+        margin-top: 4px;
+    }
+    .id-badge {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 6px 16px;
+        background: rgba(129, 140, 248, 0.1);
+        border: 1px solid rgba(129, 140, 248, 0.2);
+        border-radius: 100px;
+        font-size: 0.8rem;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .status-card {
+        background: rgba(0,0,0,0.2);
+        border-radius: 20px;
+        padding: 24px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    .status-icon {
+        width: 64px;
+        height: 64px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+        font-size: 24px;
+        transition: 0.3s;
+    }
+    .status-icon.active {
+        background: rgba(52, 211, 153, 0.1);
+        color: var(--success);
+        box-shadow: 0 0 20px rgba(52, 211, 153, 0.2);
+    }
+    .status-label {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+    .status-desc {
+        font-size: 0.8rem;
+        color: var(--subtext);
+    }
+    .control-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .btn {
+        width: 100%;
+        padding: 16px;
+        border-radius: 16px;
+        border: none;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+    }
+    .btn:active { transform: translateY(0); }
+    
+    .btn-primary { background: var(--primary); color: #1e1b4b; }
+    .btn-success { background: var(--success); color: #064e3b; }
+    .btn-danger { background: var(--danger); color: #450a0a; }
+    .btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.1); color: var(--text); }
+    .btn-outline:hover { background: rgba(255,255,255,0.05); }
+
+    /* PIN Overlay */
+    .overlay {
+        display: none; position: fixed; inset: 0; 
+        background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(8px);
+        align-items: center; justify-content: center; z-index: 1000;
+    }
+    .overlay.show { display: flex; }
+    .pin-box {
+        background: #1e293b; border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 24px; padding: 32px; width: 320px; text-align: center;
+    }
+    .pin-box h3 { margin-bottom: 20px; font-size: 1.1rem; }
+    .pin-box input {
+        width: 100%; background: #0f172a; border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px; padding: 16px; color: white; font-size: 1.5rem;
+        text-align: center; letter-spacing: 8px; margin-bottom: 16px; outline: none;
+    }
+    .pin-box input:focus { border-color: var(--primary); }
+    .pin-row { display: flex; gap: 12px; }
+    .pin-row button { flex: 1; }
+
+    .toast {
+        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+        background: #1e293b; padding: 12px 24px; border-radius: 100px;
+        font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.1);
+        opacity: 0; transition: 0.3s; pointer-events: none;
+    }
+    .toast.show { opacity: 1; bottom: 40px; }
 </style>
 </head>
 <body>
-<div class="grid">
-  <div class="page-title">
-    <h1>🛡️ SoR AI 學伴守護系統</h1>
-    <p>家長控制台 — 設定作業、管理代幣、查看學習報告</p>
-    <a class="student-link" href="/student" target="_blank">🎯 開啟孩子學習台 →</a>
-  </div>
 
-  <!-- 守護狀態 -->
-  <div class="card">
-    <h2>守護狀態</h2>
-    <div class="status-row">
-      <div class="dot" id="dot"></div>
-      <div id="statusText" style="font-size:.9rem;">尚未啟動</div>
+<div class="container">
+    <div class="header">
+        <h1>🛡️ Focus Guard Pro</h1>
+        <p>家長遠端簡易控制</p>
+        <div class="id-badge" onclick="editID()">🆔 <span id="id-text">載入中...</span></div>
     </div>
-    <button class="btn btn-green" onclick="handleStart()">🚀 啟動監控</button>
-    <button class="btn btn-red" onclick="showPin('stop')">🛑 停止監控（需 PIN）</button>
-  </div>
 
-  <!-- 代幣管理 -->
-  <div class="card">
-    <h2>🪙 代幣狀態</h2>
-    <div class="token-big" id="token-display">--</div>
-    <div class="token-sub" id="token-sub">載入中...</div>
-    <div style="margin-top:14px;">
-      <button class="btn btn-purple" onclick="showPin('add_token')">🎁 家長手動給代幣</button>
+    <div class="status-card">
+        <div class="status-icon" id="status-icon">🛡️</div>
+        <div class="status-label" id="status-label">連線中...</div>
+        <div class="status-desc" id="status-desc">正在同步雲端狀態</div>
     </div>
-  </div>
 
-  <!-- AI 出題 -->
-  <div class="card">
-    <h2>📚 今日 AI 作業設定</h2>
-    <label>科目</label>
-    <select id="subject-select">
-      <option value="math_7">七年級數學</option>
-      <option value="math_8">八年級數學</option>
-      <option value="math_9">九年級數學</option>
-      <option value="science_7">七年級自然</option>
-      <option value="physics_8">八年級物理</option>
-      <option value="chemistry_8">八年級化學</option>
-    </select>
-    <label>難度</label>
-    <select id="difficulty-select">
-      <option value="1">1 — 基礎</option>
-      <option value="2">2 — 進階</option>
-      <option value="3">3 — 挑戰</option>
-    </select>
-    <label>題數</label>
-    <select id="count-select">
-      <option value="3">3 題</option>
-      <option value="5" selected>5 題</option>
-      <option value="8">8 題</option>
-      <option value="10">10 題</option>
-    </select>
-    <label>指定單元（選填）</label>
-    <input type="text" id="topic-input" placeholder="例如：一元一次方程式">
-    <button class="btn btn-blue" id="gen-btn" onclick="generateQuestions()">🤖 AI 出題</button>
-    <div id="gen-result" style="font-size:.8rem;margin-top:6px;color:#94a3b8;"></div>
-  </div>
-
-  <!-- 即時日誌 -->
-  <div class="card">
-    <h2>即時日誌</h2>
-    <div class="log" id="logArea">💡 系統就緒，等待啟動...<br></div>
-  </div>
-
-  <!-- 錯題本 -->
-  <div class="card span2">
-    <h2>📖 孩子錯題本</h2>
-    <div id="weak-points-area"><div class="empty-msg">載入中...</div></div>
-    <button class="btn btn-gray" style="margin-top:10px;width:auto;padding:8px 16px;" onclick="loadWeakPoints()">🔄 刷新</button>
-  </div>
+    <div class="control-btns">
+        <!-- 核心切換功能 -->
+        <button id="main-btn" class="btn btn-primary" onclick="handleToggle()">
+            載入中...
+        </button>
+        
+        <!-- 獎勵按鈕 -->
+        <button id="reward-btn" class="btn btn-outline" onclick="handleReward()">
+            🎁 獎勵 30 分鐘 YouTube
+        </button>
+        
+        <button class="btn btn-outline" style="margin-top:12px; font-size:0.8rem; color:var(--subtext);" onclick="location.href='/control_panel_full.html'">
+            ⚙️ 進階功能 (AI 出題/日誌)
+        </button>
+    </div>
 </div>
 
-<!-- PIN 對話框 -->
+<!-- PIN Overlay -->
 <div class="overlay" id="pinOverlay">
-  <div class="pin-box">
-    <h3>🔐 家長 PIN 碼驗證</h3>
-    <input type="password" id="pinInput" maxlength="10" placeholder="• • • •" onkeydown="if(event.key==='Enter')submitPin()">
-    <div id="pin-err" style="color:#f87171;font-size:.8rem;min-height:18px;margin-bottom:8px;"></div>
-    <div class="pin-row">
-      <button class="pin-cancel" onclick="closePin()">取消</button>
-      <button class="pin-ok" onclick="submitPin()">確定</button>
+    <div class="pin-box">
+        <h3 id="pin-title">🔐 請輸入家長 PIN 碼</h3>
+        <input type="password" id="pinInput" maxlength="6" placeholder="••••" onkeydown="if(event.key==='Enter')submitPin()">
+        <div id="pin-err" style="color:var(--danger); font-size:0.8rem; margin-bottom:12px; height:1rem;"></div>
+        <div class="pin-row">
+            <button class="btn btn-outline" onclick="closePin()">取消</button>
+            <button class="btn btn-success" onclick="submitPin()">確認</button>
+        </div>
     </div>
-  </div>
 </div>
+
+<div class="toast" id="toast"></div>
 
 <script>
-let active=false, pollTimer=null, pinAction='';
+    let active = false;
+    let cloudStatus = "LOCKED";
+    let pinAction = "";
 
-function addLog(msg){
-  const el=document.getElementById('logArea');
-  const t=new Date().toLocaleTimeString('zh-TW');
-  el.innerHTML+=`[${t}] ${msg}<br>`;
-  el.scrollTop=el.scrollHeight;
-}
-
-function setStatus(on){
-  active=on;
-  document.getElementById('dot').className='dot'+(on?' active':'');
-  document.getElementById('statusText').textContent=on?'🛡️ 監控中':'尚未啟動';
-}
-
-function handleStart(){
-  fetch('/api/start',{method:'POST'}).then(r=>r.json())
-    .then(()=>{setStatus(true);addLog('✅ 監控已啟動');startPolling();})
-    .catch(()=>addLog('⚠️ 無法連線後端'));
-}
-
-// PIN 流程
-function showPin(action){
-  pinAction=action;
-  document.getElementById('pinInput').value='';
-  document.getElementById('pin-err').textContent='';
-  document.getElementById('pinOverlay').classList.add('show');
-  setTimeout(()=>document.getElementById('pinInput').focus(),100);
-}
-function closePin(){document.getElementById('pinOverlay').classList.remove('show');}
-
-function submitPin(){
-  const pin=document.getElementById('pinInput').value;
-  if(pinAction==='stop'){
-    fetch('/api/stop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pin})})
-      .then(r=>r.json()).then(d=>{
-        if(d.ok){closePin();setStatus(false);stopPolling();addLog('🛑 監控已停止');}
-        else document.getElementById('pin-err').textContent='PIN 碼錯誤';
-      });
-  } else if(pinAction==='add_token'){
-    fetch('/api/add_token',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pin,count:1,reason:'家長手動獎勵'})})
-      .then(r=>r.json()).then(d=>{
-        if(d.ok){closePin();addLog('👨‍👩‍👧 已給予 1 枚代幣');refreshTokens();}
-        else document.getElementById('pin-err').textContent='PIN 碼錯誤';
-      });
-  }
-}
-
-// 輪詢日誌
-function startPolling(){
-  if(pollTimer)return;
-  pollTimer=setInterval(()=>{
-    fetch('/api/log').then(r=>r.json()).then(d=>{
-      if(d.messages&&d.messages.length)d.messages.forEach(m=>addLog(m));
-      if(!d.active){setStatus(false);stopPolling();}
-    }).catch(()=>{});
-  },2000);
-}
-function stopPolling(){if(pollTimer){clearInterval(pollTimer);pollTimer=null;}}
-
-// 代幣
-async function refreshTokens(){
-  try{
-    const r=await fetch('/api/tokens');
-    const d=await r.json();
-    document.getElementById('token-display').textContent=d.tokens;
-    if(d.is_unlocked){
-      document.getElementById('token-sub').textContent=`🔓 自由模式中，剩 ${d.minutes_remaining} 分鐘`;
-      document.getElementById('token-sub').style.color='#34d399';
-    } else {
-      document.getElementById('token-sub').textContent=`1 枚代幣 = 30 分鐘自由時間`;
-      document.getElementById('token-sub').style.color='#78716c';
+    function showToast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
     }
-  }catch(e){}
-}
 
-// AI 出題
-async function generateQuestions(){
-  const btn=document.getElementById('gen-btn');
-  const res=document.getElementById('gen-result');
-  btn.disabled=true; btn.textContent='出題中... 🤖';
-  res.textContent='';
-  try{
-    const body={
-      subject_key:document.getElementById('subject-select').value,
-      difficulty:parseInt(document.getElementById('difficulty-select').value),
-      count:parseInt(document.getElementById('count-select').value),
-      custom_topic:document.getElementById('topic-input').value.trim()
-    };
-    const r=await fetch('/api/generate_questions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
-    const d=await r.json();
-    if(d.ok){
-      const qs=d.data.questions;
-      res.style.color='#34d399';
-      res.textContent=`✅ 成功出了 ${qs.length} 道題！孩子可以開始作答了。`;
-      addLog(`📝 已出 ${qs.length} 道${d.data.subject}練習題`);
-    } else {
-      res.style.color='#f87171';
-      res.textContent='❌ 出題失敗：'+(d.msg||'未知錯誤');
+    async function refresh() {
+        try {
+            const r = await fetch('/api/status');
+            const d = await r.json();
+            
+            active = d.active;
+            cloudStatus = d.cloud_status || "LOCKED";
+            document.getElementById('id-text').textContent = d.student_id || '---';
+
+            const icon = document.getElementById('status-icon');
+            const label = document.getElementById('status-label');
+            const desc = document.getElementById('status-desc');
+            const mainBtn = document.getElementById('main-btn');
+
+            if (!active) {
+                icon.innerHTML = "💤";
+                icon.className = "status-icon";
+                label.textContent = "系統未啟動";
+                label.style.color = "var(--subtext)";
+                desc.textContent = "孩子可以自由使用電腦";
+                mainBtn.textContent = "🚀 啟動守護模式";
+                mainBtn.className = "btn btn-success";
+            } else {
+                icon.className = "status-icon active";
+                if (cloudStatus === "UNLOCKED") {
+                    icon.innerHTML = "🔓";
+                    label.textContent = "獎勵解鎖中";
+                    label.style.color = "var(--success)";
+                    desc.textContent = "孩子目前可以使用 YouTube";
+                    mainBtn.textContent = "🔒 恢復攔截";
+                    mainBtn.className = "btn btn-primary";
+                } else {
+                    icon.innerHTML = "🛡️";
+                    label.textContent = "守護攔截中";
+                    label.style.color = "var(--primary)";
+                    desc.textContent = "所有娛樂內容將被攔截";
+                    mainBtn.textContent = "🛑 停止守護";
+                    mainBtn.className = "btn btn-danger";
+                }
+            }
+        } catch(e) {}
     }
-  }catch(e){res.style.color='#f87171';res.textContent='連線失敗';}
-  btn.disabled=false; btn.textContent='🤖 AI 出題';
-}
 
-// 錯題本
-async function loadWeakPoints(){
-  const area=document.getElementById('weak-points-area');
-  try{
-    const r=await fetch('/api/weak_points');
-    const d=await r.json();
-    const topics=Object.entries(d.topics||{}).sort((a,b)=>b[1].count-a[1].count);
-    if(!topics.length){area.innerHTML='<div class="empty-msg">目前沒有錯題記錄 👏</div>';return;}
-    area.innerHTML=topics.slice(0,8).map(([t,info])=>`
-      <div class="weak-item">
-        <strong>${t}</strong>（錯誤 ${info.count} 次）
-        ${info.errors?.length?`<br><span style="opacity:.7">最近：${info.errors.at(-1).error}</span>`:''}
-      </div>`).join('');
-  }catch(e){area.innerHTML='<div class="empty-msg">無法載入錯題本</div>';}
-}
+    function handleToggle() {
+        if (!active) {
+            // 啟動不需要 PIN
+            fetch('/api/start', {method:'POST'}).then(r=>r.json()).then(d=>{
+                if(d.ok) { showToast('✅ 守護模式已啟動'); refresh(); }
+            });
+        } else {
+            // 停止需要 PIN
+            showPin('toggle');
+        }
+    }
 
-// 初始化
-fetch('/api/status').then(r=>r.json()).then(d=>{
-  if(d.active){setStatus(true);startPolling();}
-}).catch(()=>{});
-refreshTokens();
-loadWeakPoints();
-setInterval(refreshTokens,10000);
+    function handleReward() {
+        showPin('reward');
+    }
+
+    function showPin(action) {
+        pinAction = action;
+        document.getElementById('pinInput').value = '';
+        document.getElementById('pin-err').textContent = '';
+        document.getElementById('pin-title').textContent = action === 'reward' ? '🔐 獎勵解鎖驗證' : '🔐 停止守護驗證';
+        document.getElementById('pinOverlay').classList.add('show');
+        setTimeout(() => document.getElementById('pinInput').focus(), 100);
+    }
+
+    function closePin() { document.getElementById('pinOverlay').classList.remove('show'); }
+
+    function submitPin() {
+        const pin = document.getElementById('pinInput').value;
+        const url = pinAction === 'reward' ? '/api/add_token' : '/api/stop';
+        const body = pinAction === 'reward' ? {pin, count:1, reason:'獎勵解鎖'} : {pin};
+
+        fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(body)
+        }).then(r=>r.json()).then(d => {
+            if (d.ok) {
+                closePin();
+                showToast(pinAction === 'reward' ? '🎁 已發放獎勵' : '🛑 已停止守護');
+                refresh();
+            } else {
+                document.getElementById('pin-err').textContent = 'PIN 碼錯誤';
+            }
+        });
+    }
+
+    function editID() {
+        const oldID = document.getElementById('id-text').textContent;
+        const newID = prompt('請輸入電腦代號:', oldID);
+        if (newID && newID !== oldID) {
+            fetch('/api/update_id', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ student_id: newID.trim() })
+            }).then(r => r.json()).then(d => {
+                if (d.ok) {
+                    document.getElementById('id-text').textContent = d.student_id;
+                    showToast('✅ 代號已更新');
+                }
+            });
+        }
+    }
+
+    refresh();
+    setInterval(refresh, 5000);
 </script>
+
 </body>
 </html>

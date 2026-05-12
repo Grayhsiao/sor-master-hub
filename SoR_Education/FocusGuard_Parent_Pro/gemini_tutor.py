@@ -12,11 +12,17 @@ import re
 import google.generativeai as genai
 from PIL import Image
 import io
+import sqlite3
+import random
 from dotenv import load_dotenv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# 修正 .env 路徑：確保能從專案根目錄讀取
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 load_dotenv(os.path.join(BASE_DIR, "../../.env"))
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
+
+QUIZ_DB_PATH = "/Users/gray/Documents/python_project/junior_high_king/quiz.db"
 
 # 初始化 Gemini SDK
 if GOOGLE_API_KEY:
@@ -92,6 +98,88 @@ def _extract_json(text: str) -> dict | list | None:
     return None
 
 
+def get_questions_from_db(subject_name: str, grade: str, count: int = 5) -> list:
+    """從國中智慧王題庫讀取題目。"""
+    if not os.path.exists(QUIZ_DB_PATH):
+        print(f"⚠️ 找不到題庫：{QUIZ_DB_PATH}")
+        return []
+    
+    try:
+        conn = sqlite3.connect(QUIZ_DB_PATH)
+        cursor = conn.cursor()
+        
+        # 映射科目名稱 (題庫中存的是 '數學', '理化', '生物')
+        db_subject = "數學"
+        if "自然" in subject_name or "理化" in subject_name or "物理" in subject_name or "化學" in subject_name:
+            if "理化" in subject_name or "化學" in subject_name or "物理" in subject_name:
+                db_subject = "理化"
+            else:
+                db_subject = "生物"
+        
+        # 映射年級 (題庫中存的是 '七年級', '八年級', '九年級')
+        db_grade = grade.replace("7", "七").replace("8", "八").replace("9", "九")
+        if "年級" not in db_grade: db_grade += "年級"
+        if "七年級" in db_grade: db_grade = "七年級"
+        elif "八年級" in db_grade: db_grade = "八年級"
+        elif "九年級" in db_grade: db_grade = "九年級"
+
+        query = "SELECT question, explanation, option_a, option_b, option_c, option_d, answer FROM questions WHERE subject = ? AND grade = ? ORDER BY RANDOM() LIMIT ?"
+        cursor.execute(query, (db_subject, db_grade, count))
+        rows = cursor.fetchall()
+        conn.close()
+
+        questions = []
+        for row in rows:
+            q_text, expl, opt_a, opt_b, opt_c, opt_d, ans_letter = row
+            # 取得正確答案的文字
+            ans_map = {"A": opt_a, "B": opt_b, "C": opt_c, "D": opt_d}
+            correct_text = ans_map.get(ans_letter, opt_a)
+            
+            questions.append({
+                "question": q_text,
+                "answer": correct_text,
+                "key_steps": [expl] if expl else ["請參考標準解法"],
+                "topic": db_subject,
+                "original_options": [opt_a, opt_b, opt_c, opt_d]
+            })
+        return questions
+    except Exception as e:
+        print(f"❌ 讀取題庫失敗: {e}")
+        return []
+
+
+def refine_questions_with_ai(questions: list) -> dict:
+    """使用 AI 將題庫題目轉化為適合 Tutor 的開放式問題（移除選項，強化引導）。"""
+    if not model_flash or not questions:
+        return {"questions": questions}
+
+    prompt = f"""以下是從題庫提取的題目。請幫我將它們轉化為「開放式問答題」。
+要求：
+1. 移除 A, B, C, D 選項。
+2. 確保題目敘述完整，不需要看選項也能回答。
+3. 如果是數學題，保留數字與條件。
+4. 嚴格以 JSON 格式回傳，格式需與輸入相同。
+
+題目資料：
+{json.dumps(questions, ensure_ascii=False)}
+
+請回傳：
+{{
+  "questions": [
+    {{ "id": 1, "question": "...", "answer": "...", "key_steps": ["步驟一", "步驟二"], "topic": "..." }}
+  ]
+}}
+"""
+    try:
+        response = model_flash.generate_content(prompt)
+        result = _extract_json(response.text)
+        if result and "questions" in result:
+            return result
+    except:
+        pass
+    return {"questions": questions}
+
+
 # ── 主要功能 ───────────────────────────────────────────────────────────────────
 
 def generate_questions(
@@ -101,11 +189,25 @@ def generate_questions(
     weak_points: list[str] | None = None,
     custom_topic: str = ""
 ) -> dict:
-    """出題函數。"""
-    if not model_flash:
-        return {"error": "API Key 未設定"}
-
+    """出題函數（優先使用國中智慧王題庫）。"""
     config = SUBJECT_CONFIG.get(subject_key, SUBJECT_CONFIG["math_7"])
+    
+    # 1. 嘗試從國中智慧王資料庫讀取
+    db_questions = get_questions_from_db(config["name"], config["name"], count)
+    if db_questions:
+        print(f"✅ 從題庫成功讀取 {len(db_questions)} 題")
+        # 使用 AI 優化題目（移除選項，轉化為問答）
+        refined = refine_questions_with_ai(db_questions)
+        if refined.get("questions"):
+            for i, q in enumerate(refined["questions"]):
+                q["id"] = i + 1
+            return {"subject": config["name"], "questions": refined["questions"]}
+
+    # 2. 如果題庫讀取失敗或沒題，則使用 AI 生成
+    if not model_flash:
+        return {"error": "API Key 未設定且題庫不可用"}
+
+    print("🤖 題庫不可用，切換為 AI 生成模式...")
     difficulty_map = {1: "基礎", 2: "進階", 3: "挑戰"}
     diff_desc = difficulty_map.get(difficulty, "基礎")
     

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Guard Pro - 快速授權指引</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f7; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; color: #1d1d1f; }
+        .card { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); max-width: 500px; width: 90%; text-align: center; }
+        h1 { font-size: 24px; margin-bottom: 20px; font-weight: 700; color: #007aff; }
+        .step-box { text-align: left; background: #fff; border: 1px solid #d2d2d7; border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+        .step-num { background: #007aff; color: white; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 14px; margin-right: 10px; }
+        .instruction { font-size: 16px; font-weight: 600; vertical-align: middle; }
+        .img-placeholder { background: #f5f5f7; border-radius: 12px; padding: 15px; margin-top: 15px; text-align: center; font-size: 13px; color: #86868b; border: 1px dashed #c1c1c6; }
+        .btn-blue { background: #007aff; color: white; border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 10px; }
+        .footer { font-size: 12px; color: #86868b; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🛡️ 快速授權指引</h1>
+    <p style="color:#86868b; margin-bottom: 30px;">請依照以下簡單步驟，只需 30 秒即可開始守護：</p>
+    
+    <div class="step-box">
+        <span class="step-num">1</span> <span class="instruction">點兩下主程式，然後按「取消」</span>
+        <div class="img-placeholder">
+            看到「無法驗證開發者」警告時<br>請先點擊 <strong>[取消]</strong>
+        </div>
+    </div>
+    
+    <div class="step-box">
+        <span class="step-num">2</span> <span class="instruction">進入「系統設定」</span>
+        <div class="img-placeholder">
+            點擊左上角 🍎 標誌 -> <strong>[系統設定]</strong><br>再點選左邊的 <strong>[隱私權與安全性]</strong>
+        </div>
+    </div>
+    
+    <div class="step-box">
+        <span class="step-num">3</span> <span class="instruction">點擊「仍要開啟」</span>
+        <div class="img-placeholder" style="border: 2px solid #007aff; color: #1d1d1f; background: #fff;">
+            滑到最下面，您會看到 FocusGuardPro<br>點擊右邊的 <strong>[仍要開啟]</strong> 按鈕
+        </div>
+    </div>
+
+    <div style="border-top: 1px solid #d2d2d7; padding-top: 20px; margin-top: 20px;">
+        <p style="font-size: 13px; color: #1d1d1f; font-weight: 600;">備用方案：一鍵修復指令</p>
+        <button class="btn-blue" onclick="copyMagic()">📋 複製智慧修復指令</button>
+        <p style="font-size: 11px; color: #86868b;">* 如果上方方法無效，複製此指令貼到 Terminal 即可自動修復。</p>
+    </div>
+
+    <div class="footer">感謝您對孩子教育的重視！</div>
+</div>
+
+<textarea id="magicCode" style="position:absolute; left:-9999px;">find ~ -maxdepth 4 -name "FocusGuardPro.app" -exec xattr -cr {} + 2>/dev/null && echo "✅ 授權已自動完成，請直接開啟程式！"</textarea>
+
+<script>
+    function copyMagic() {
+        const copyText = document.getElementById("magicCode");
+        copyText.select();
+        document.execCommand("copy");
+        alert("指令已複製！請開啟 Terminal 貼上即可，它會自動在您的電腦中尋找並修復程式。");
+    }
+</script>
+
+</body>
+</html>

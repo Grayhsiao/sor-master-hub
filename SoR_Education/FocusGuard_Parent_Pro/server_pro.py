@@ -93,6 +93,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     print(f"🚀 Focus Pro 雲端通訊中心已啟動: http://0.0.0.0:{PORT}")
+    socketserver.TCPServer.allow_reuse_address = True
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         try:
             httpd.serve_forever()

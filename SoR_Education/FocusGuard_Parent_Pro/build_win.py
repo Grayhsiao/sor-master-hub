@@ -48,8 +48,10 @@ def main():
     if os.path.exists("requirements.txt"):
         run_cmd([venv_python, "-m", "pip", "install", "--upgrade", "pip"])
         run_cmd([pip_exe, "install", "-r", "requirements.txt"])
+        # 強制補裝打包工具
+        run_cmd([pip_exe, "install", "pyinstaller"])
     else:
-        run_cmd([pip_exe, "install", "pyinstaller", "psutil", "Pillow", "requests"])
+        run_cmd([pip_exe, "install", "pyinstaller", "psutil", "Pillow", "requests", "python-dotenv"])
 
     # 3. 確保圖示存在 (使用虛擬環境的 Python 運行圖示處理)
     if not os.path.exists("icon.ico") and os.path.exists("andy_doll.png"):
@@ -57,22 +59,25 @@ def main():
         icon_logic = "from PIL import Image; img = Image.open('andy_doll.png'); img.save('icon.ico', format='ICO', sizes=[(256, 256)])"
         run_cmd([venv_python, "-c", f'"{icon_logic}"'])
 
-    # 4. 執行封裝 (使用虛擬環境內的 PyInstaller)
-    pyi_exe = get_venv_bin("pyinstaller")
+    # 4. 執行封裝 (使用虛擬環境內的 python -m PyInstaller)
+    pyi_module = [venv_python, "-m", "PyInstaller"]
     
     print(f"🚀 正在封裝主程式 {APP_NAME}...")
-    main_cmd = [
-        pyi_exe, "--noconsole", "--onefile",
+    main_cmd = pyi_module + [
+        "--console", "--onefile",
         "--name", APP_NAME,
         "--icon", "icon.ico" if os.path.exists("icon.ico") else "NONE",
         "--add-data", "andy_doll.png;.",
+        "--hidden-import", "requests",
+        "--hidden-import", "psutil",
+        "--hidden-import", "dotenv",
         "app.py"
     ]
     run_cmd(main_cmd)
 
     print(f"🚀 正在封裝守護者 {GUARD_NAME}...")
-    guard_cmd = [
-        pyi_exe, "--noconsole", "--onefile",
+    guard_cmd = pyi_module + [
+        "--noconsole", "--onefile",
         "--name", GUARD_NAME,
         "--icon", "icon.ico" if os.path.exists("icon.ico") else "NONE",
         "watchdog_pro.py"

@@ -17,7 +17,7 @@ import threading
 from datetime import datetime, date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.expanduser("~/sor_tutor_data")
+DATA_DIR = os.path.join(BASE_DIR, "sor_tutor_data")
 os.makedirs(DATA_DIR, exist_ok=True)
 
 TASKS_FILE       = os.path.join(DATA_DIR, "daily_tasks.json")
